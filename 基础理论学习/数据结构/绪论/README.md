@@ -1,5 +1,6 @@
 ### 数据结构定义
-![alt text](../数据结构定义类图.drawio.png)
+
+![alt text](../资源/数据结构定义类图.drawio.png)
 
 #### 形式定义
 **Data_Structure = `(D,S)`**

@@ -13,3 +13,4 @@
 ##### 逻辑结构
 ![alt text](../资源/逻辑结构的定义类图.drawio.png)
 ##### 存储结构
+![alt text](../资源/存储结构.drawio.png)

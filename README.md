@@ -4,12 +4,6 @@
 
 
 
-## 算法可视化
-
-> [点击查看算法可视化](https://www.cs.usfca.edu/~galles/visualization/Algorithms.html)
-
----
-
 ## 平台模块
 
 > ### [基础理论学习](基础理论学习/README.md)
@@ -24,6 +18,10 @@
 >
 > 这个模块专注于刷题，解决实际的编程问题，帮助你通过算法与数据结构的练习提升技能。
 
+
+> ### [算法可视化](https://www.cs.usfca.edu/~galles/visualization/Algorithms.html)
+>
+> 该模块为你提供了算法可视化工具，帮助你更直观地理解算法的工作原理。
 ---
 
 ## 刷题训练数据

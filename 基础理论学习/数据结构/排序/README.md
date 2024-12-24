@@ -34,10 +34,8 @@
 >![alt text](../资源/选择排序.drawio.png)
 
 > - 希尔排序
->
-
 > 无最优的间隔,一般选择: `h = n / 2, n / 4, ..., 1`
->
+>![alt text](../资源/希尔排序.drawio.png)
 
 > - 归并排序
 > ![alt text](../资源/归并排序.drawio.png)
@@ -46,7 +44,10 @@
 > ![alt text](../资源/快速排序.drawio.png)
 
 > - 堆排序
+>![alt text](../资源/堆排序.drawio.png)
+
 > - 计数排序
+> ![alt text](../资源/计数排序.drawio.png)
 
 > - 桶排序
 > ![alt text](../资源/桶排序.drawio.png)

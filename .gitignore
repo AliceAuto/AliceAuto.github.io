@@ -3,7 +3,7 @@
 [Tt]humbs.db
 *.suo
 *.VC.db
-*.json
+*currentUser.json
 *.user
 *.sln.docstates
 *.vspscc

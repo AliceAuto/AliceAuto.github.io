@@ -150,7 +150,7 @@ def execute_file_creation(config, tags, difficulty, oj, default_folder, question
     folder_path = os.path.join(root_dir, default_folder)
 
     # 构造文件名，问题名称放在文件名中
-    file_name = f"div{difficulty}_{{{';'.join(tags)}}}_{oj}_{question_name}.md"
+    file_name = f"{difficulty}_{{{';'.join(tags)}}}_{oj}_{question_name}.md"
 
     # 创建文件，传递用户名
     create_file_in_directory(root_dir, default_folder, file_name, username)  # 只传递需要的 4 个参数

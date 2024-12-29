@@ -264,7 +264,7 @@ open_classification_window_button.pack(pady=20)
 # 设置快捷键监听
 def listen_for_shortcut():
     # 监听 Ctrl+N 快捷键，触发创建新文件按钮的点击事件
-    keyboard.add_hotkey('ctrl+n', lambda: open_classification_window_button.invoke())
+    keyboard.add_hotkey('ctrl+shift+c', lambda: open_classification_window_button.invoke())
 
 # 使用线程异步运行快捷键监听，避免阻塞主线程
 shortcut_thread = threading.Thread(target=listen_for_shortcut, daemon=True)

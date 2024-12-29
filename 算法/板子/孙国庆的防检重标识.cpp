@@ -1,6 +1,6 @@
 /*
     Coded by: <SunGq>
-    团队Github: https://github.com/Departag1an/-
+    团队Github: https://github.com/AliceAuto/AcEasy
     Welcoming to join our team!
 */
 /*

@@ -37,4 +37,4 @@
     "default_folder": "D:/AcEasy/刷题模块/蓝桥杯"   //你每次创建新文件时的默认文件夹目录
 }
 ```
-### 创建用`ctrl+shift+c`唤起文件创建助手窗口![alt text](image-3.png)
+### 创建用`ctrl + d`唤起文件创建助手窗口![alt text](image-3.png)

@@ -1,4 +1,4 @@
 {
-    "root_directory": "..\\",
-    "png_save_directory": "..\\img"
+    "root_directory": "..",
+    "png_save_directory": "数据收集脚本\\img"
 }

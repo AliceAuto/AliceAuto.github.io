@@ -1,4 +1,4 @@
-[JNMC孙国庆]
+[JNMC孙国庆;JNMC张富涵]
 # [转到题目](https://ac.nowcoder.com/acm/contest/99458/E)
 
 ### 思路引导:

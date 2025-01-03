@@ -27,15 +27,15 @@
 ## 刷题训练数据
 
 > **题目分布图**  
-> ![题目分布图](刷题模块/数据收集脚本/img/div_distribution.png)  
+> ![题目分布图](刷题模块/脚本集/img/div_distribution.png)  
 > 此图展示了不同难度题目的分布情况。
 
 > **题型分布图**  
-> ![题型分布图](刷题模块/数据收集脚本/img/type_distribution.png)  
+> ![题型分布图](刷题模块/脚本集/img/type_distribution.png)  
 > 此图展示了题型的比例分布。
 
 > **作者排名图**  
-> ![作者排名图](刷题模块/数据收集脚本/img/author_ranking.png)  
+> ![作者排名图](刷题模块/脚本集/img/author_ranking.png)  
 > 此图展示了各个作者的排名情况。
 
 ---

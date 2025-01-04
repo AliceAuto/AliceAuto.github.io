@@ -1,4 +1,5 @@
 {
-    "root_directory": ".",             
-    "png_save_directory": "脚本集\\img"
+    "root_directory": ".\\OJ",             
+    "png_save_directory": "脚本集\\img",
+    "catalog_md_path":"OJ\\README.md"
 }

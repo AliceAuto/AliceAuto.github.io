@@ -39,7 +39,47 @@ def load_config():
         config = json.load(f)
 
     return config
+import os
+import re
 
+import os
+import re
+
+def generate_catalog_md(root_directory, catalog_md_path):
+    """生成带有题目 div 的目录 md 文件"""
+    catalog_md = []
+    
+    # 添加目录的标题
+    catalog_md.append("# 题目目录\n")
+    catalog_md.append("以下是所有题目的目录，点击链接可跳转到对应题目。\n\n")
+
+    # 定义文件名匹配的正则模式
+    pattern = r"^(?P<difficulty>.*?)_(?P<types>\{.*?\})_(?P<title>.*?)\.md$"  # 文件名的匹配模式
+    
+    # 遍历文件目录
+    for root, dirs, files in os.walk(root_directory):
+        for file in files:
+            if file.endswith(".md"):
+                # 解析文件名，获取题目标题
+                match = re.match(pattern, file)
+                if match:
+                    title = match.group("title")
+                    difficulty = match.group("difficulty")
+                    types = match.group("types")
+                    
+                    # 生成相对路径链接
+                    relative_path = os.path.relpath(os.path.join(root, file), root_directory)
+                    
+                    # 构建目录项，并用 div 标签包裹
+                    catalog_md.append(f"<div class=\"problem-item\">\n")
+                    catalog_md.append(f"  - ### [{title}]({relative_path.replace(os.sep, '/')}) **`{difficulty}`**\n")
+                    catalog_md.append(f"</div>\n")
+                    
+    # 将目录内容写入 md 文件
+    with open(catalog_md_path, "w", encoding="utf-8") as f:
+        f.write("\n".join(catalog_md))
+
+    print(f"目录文件已生成: {catalog_md_path}")
 
 # ------------------------------ 中文字体设置 ------------------------------
 def set_chinese_font(config=None):
@@ -321,6 +361,8 @@ class DirectoryHandler(FileSystemEventHandler):
         print("开始更新统计...")
         file_info = scan_directory(self.directory, self.mode)
         print_statistics(file_info, self.save_directory)
+        generate_catalog_md(self.directory, "OJ/README.md")
+
 
 
 def start_watching(directory, save_directory, interval, mode):
@@ -367,6 +409,8 @@ if __name__ == "__main__":
         print("手动扫描模式")
         file_info = scan_directory(root_directory, args.mode)
         print_statistics(file_info, save_directory)
+        generate_catalog_md(".", "OJ/README.md")
+
     else:
         print("实时监听模式")
         start_watching(root_directory, save_directory, args.interval, args.mode)

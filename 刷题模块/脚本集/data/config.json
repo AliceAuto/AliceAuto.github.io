@@ -1,4 +1,4 @@
 {
-    "root_directory": "..",
-    "png_save_directory": "脚本集\\img"
+    "root_directory": "刷题模块\\",
+    "png_save_directory": "刷题模块\\脚本集\\img"
 }

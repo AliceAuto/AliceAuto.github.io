@@ -35,6 +35,12 @@
 
 <div class="problem-item">
 
+  - ### [洛谷_数位计数](洛谷/div3_{计数;思维题;数位}_洛谷_数位计数.md) **`div3`**
+
+</div>
+
+<div class="problem-item">
+
   - ### [D](牛客/周赛60/div4_{思维题}_D.md) **`div4`**
 
 </div>

@@ -344,6 +344,9 @@ class DirectoryHandler(FileSystemEventHandler):
         if event.src_path.endswith(".png"):
             print(f"忽略变化文件: {event.src_path} (PNG 文件)")
             return
+        if event.src_path.endswith("README.md"):
+            print(f"忽略变化文件: {event.src_path} (README 文件)")
+            return
 
         # 如果已有定时任务正在等待，先取消它
         if self.timer is not None:

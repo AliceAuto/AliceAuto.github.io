@@ -1,4 +1,4 @@
-# AcEasy 算法训练平台
+# ![alt text](/资源依赖/icon.png) 算法训练平台
 
 ---
 

@@ -42,7 +42,7 @@ h1 {
     border-radius: 5px; /* 圆角 */
     transition: background-color 0.3s; /* 动效 */
     margin: 10px 0; /* 上下间距 */
-    text-align: center; /* 中心对齐 */
+
 }
 .image-container img {
     width: 100%;

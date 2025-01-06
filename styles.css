@@ -1,0 +1,63 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background: #35424a;
+    color: #ffffff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+h1 {
+    margin: 0;
+}
+
+.module, .training-data {
+    background: #ffffff;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 800px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.button {
+    display: inline-block;
+    background-color: #007BFF; /* 按钮背景色 */
+    color: white; /* 按钮文字颜色 */
+    padding: 10px 15px; /* 内边距 */
+    text-decoration: none; /* 去掉下划线 */
+    border-radius: 5px; /* 圆角 */
+    transition: background-color 0.3s; /* 动效 */
+    margin: 10px 0; /* 上下间距 */
+    text-align: center; /* 中心对齐 */
+}
+
+.button:hover {
+    background-color: #0056b3; /* 悬停时背景色 */
+}
+
+.image-container {
+    margin: 20px 0;
+    text-align: center;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #35424a;
+    color: #ffffff;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}

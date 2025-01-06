@@ -60,6 +60,12 @@ h1 {
     .image-container img {
         max-width: 100%;
     }
+    .module, .training-data {
+        max-width: 100%;
+    }
+    .header {
+        max-width: 100%;
+    }
 }
 
 footer {

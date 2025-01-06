@@ -59,6 +59,7 @@ h1 {
     text-align: center;
 }
 @media (max-width: 600px) {
+    
     .image-container img {
         max-width: 100%;
     }
@@ -67,6 +68,10 @@ h1 {
     }
     .header {
         max-width: 100%;
+    }
+    #drop-area {
+        width: 100%; /* 对于小屏幕设备，宽度100% */
+        margin-left: 0; /* 防止左边距引起的布局问题 */
     }
 }
 

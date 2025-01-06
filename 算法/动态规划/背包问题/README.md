@@ -9,7 +9,7 @@
 >#### 推导思路:
 >![alt text](../../Resource/01背包优化思路推导.drawio.png)
 >
->#### 优化思路:
+>#### 优化思路(空间优化):
 >![alt text](../../Resource/01背包优化思路.drawio.png)
 ---
 # 完全背包

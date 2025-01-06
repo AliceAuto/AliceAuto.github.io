@@ -1,4 +1,4 @@
-# [退回](../README.md)
+# [退回](https://aliceauto.github.io/)
 # 周赛
 > #### [如何提交?](帮助/README.md)
 > #### [补题模块](OJ/README.md)

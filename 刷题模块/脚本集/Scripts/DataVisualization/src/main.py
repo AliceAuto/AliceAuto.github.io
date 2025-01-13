@@ -86,6 +86,10 @@ import os
 import matplotlib.pyplot as plt
 from matplotlib import font_manager
 
+import os
+import matplotlib.pyplot as plt
+from matplotlib import font_manager
+
 def set_chinese_font(config=None):
     """ 设置中文字体 """
     font_found = False
@@ -94,45 +98,46 @@ def set_chinese_font(config=None):
     if config is None:
         config = {}
 
-    # 检查并打印配置中指定的字体路径
-    if not font_found:
-        print("正在查找系统中的中文字体...")
-        font_paths = font_manager.findSystemFonts(fontpaths=None, fontext='ttf')  # 查找 ttf 格式字体
-        for font_path in font_paths:
+    # 首先查找系统中的中文字体
+    print("正在查找系统中的中文字体...")
+    font_paths = font_manager.findSystemFonts(fontpaths=None, fontext='ttf')  # 查找 ttf 格式字体
+    for font_path in font_paths:
+        try:
+            font_prop = font_manager.FontProperties(fname=font_path)
+            font_name = font_prop.get_name()
+            # 判断是否是文泉驿正黑字体
+            if 'WenQuanYi Zen Hei' in font_name:
+                plt.rcParams['font.family'] = font_name
+                plt.rcParams['axes.unicode_minus'] = False
+                font_found = True
+                print(f"已找到并加载字体：{font_name}")
+                break  # 找到第一个合适的字体后即停止
+        except Exception as e:
+            print(f"加载字体 {font_path} 时出错: {e}")
+
+    # 如果系统中没有找到指定字体，则查找配置文件中的字体路径
+    if not font_found and "font_path" in config:
+        font_path = config["font_path"]
+        print(f"配置文件指定的字体路径：{font_path}")
+        if os.path.exists(font_path):
             try:
                 font_prop = font_manager.FontProperties(fname=font_path)
-                font_name = font_prop.get_name()
-                # 判断是否是文泉驿正黑字体
-                if 'WenQuanYi Zen Hei' in font_name:
-                    plt.rcParams['font.family'] = font_name
-                    plt.rcParams['axes.unicode_minus'] = False
-                    font_found = True
-                    print(f"已找到并加载字体：{font_name}")
-                    break  # 找到第一个合适的字体后即停止
+                plt.rcParams['font.family'] = font_prop.get_name()
+                plt.rcParams['axes.unicode_minus'] = False
+                font_found = True
+                print(f"已加载字体文件：{font_path}")
             except Exception as e:
-                print(f"加载字体 {font_path} 时出错: {e}")
-    # 如果没有找到配置文件中的字体，则查找系统中的字体
-    if not font_found:
-        if "font_path" in config:
-            font_path = config["font_path"]
-            print(f"配置文件指定的字体路径：{font_path}")
-            if os.path.exists(font_path):
-                try:
-                    font_prop = font_manager.FontProperties(fname=font_path)
-                    plt.rcParams['font.family'] = font_prop.get_name()
-                    plt.rcParams['axes.unicode_minus'] = False
-                    font_found = True
-                    print(f"已加载字体文件：{font_path}")
-                except Exception as e:
-                    print(f"加载字体文件 {font_path} 时出错: {e}")
-            else:
-                print(f"未找到指定字体文件：{font_path}，继续搜索系统字体")
-
+                print(f"加载字体文件 {font_path} 时出错: {e}")
+        else:
+            print(f"未找到指定字体文件：{font_path}，继续使用默认字体")
 
     # 如果依然没有找到中文字体，则使用默认字体
     if not font_found:
         print("未能加载中文字体，使用默认字体 Arial")
         plt.rcParams['font.family'] = 'Arial'
+
+# 调用函数设置中文字体
+set_chinese_font()
 
 
 

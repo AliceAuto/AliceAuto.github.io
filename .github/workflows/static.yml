@@ -42,7 +42,7 @@ jobs:
         run: |
           cd ./刷题模块/
           python 脚本集/Scripts/DataVisualization/src/main.py
-          python 脚本集/Scripts/Fi.eCreater/src/main.py
+        
       - name: Build project (if needed)
         run: |
           npm install

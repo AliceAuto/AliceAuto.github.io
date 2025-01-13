@@ -230,6 +230,7 @@ def plot_author_ranking(author_counts, save_path):
    
 def scan_directory(directory, mode):
     """ 扫描目录及子目录中的所有文件并提取信息 """
+    print(f"扫描的根目录的绝对路径：{os.path.abspath(directory)}")  # 打印根目录的绝对路径
     file_info = []
     for root, dirs, files in os.walk(directory):
         for filename in files:
@@ -239,7 +240,6 @@ def scan_directory(directory, mode):
                     file_info.append((div_match, types, author))
                 print(f"扫描文件: {filename}")
     return file_info
-
 
 # ------------------------------ 绘图和输出 ------------------------------
 # ------------------------------ 绘图和输出 ------------------------------
@@ -415,6 +415,10 @@ def start_watching(directory, save_directory, interval, mode):
 
 
 # ------------------------------ 主程序入口 ------------------------------
+import os
+
+import os
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="文件夹统计工具")
     parser.add_argument(
@@ -431,9 +435,13 @@ if __name__ == "__main__":
     config = load_config()
     root_directory = config.get("root_directory", "")
     save_directory = config.get("png_save_directory", "")
-
+    
     if not root_directory:
-        root_directory = os.path.dirname(os.path.abspath(__file__))  # 如果为空，使用当前脚本目录作为根目录
+        # 如果为空，使用当前脚本目录作为根目录
+        root_directory = os.path.dirname(os.path.abspath(__file__))
+
+    # 拼接根目录路径，将配置中的相对路径与脚本目录拼接
+    root_directory = os.path.join( os.getcwd(), root_directory)
 
     set_chinese_font(config)  # 设置中文字体
 
@@ -441,6 +449,8 @@ if __name__ == "__main__":
         print("手动扫描模式")
         file_info = scan_directory(root_directory, args.mode)
         print_statistics(file_info, save_directory)
+
+       
         generate_catalog_md(".", "OJ/README.md")
 
     else:

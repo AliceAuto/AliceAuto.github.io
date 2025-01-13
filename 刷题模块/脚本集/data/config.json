@@ -1,5 +1,5 @@
 {
-    "root_directory": "/OJ",             
+    "root_directory": "OJ",             
     "png_save_directory": "脚本集/img",
     "catalog_md_path":"OJ/README.md",
     "font_path":"脚本集/data/fonts/msyh.ttf"

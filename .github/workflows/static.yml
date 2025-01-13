@@ -35,6 +35,7 @@ jobs:
           sudo apt update
           sudo apt install ttf-mscorefonts-installer
 
+
           fc-cache -fv
           fc-list :lang=zh
 

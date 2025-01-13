@@ -24,6 +24,7 @@ concurrency:
 jobs:
   # Pre-deploy job to ensure dependencies and fonts are ready
   pre:
+    
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -41,7 +42,7 @@ jobs:
 
 
 
-          
+
 
       - name: Update font cache
         run: |

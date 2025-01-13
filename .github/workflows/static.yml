@@ -30,11 +30,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: load
+      - name: update
         run:
           sudo apt update
+      - name: load
+        run:
+         
           sudo apt install ttf-mscorefonts-installer
-
+      - name: check
+        run:
 
           fc-cache -fv
           fc-list :lang=zh

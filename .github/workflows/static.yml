@@ -41,7 +41,9 @@ jobs:
           sudo apt install -y ttf-wqy-zenhei  # 安装中文字体包
           fc-list :lang=zh
 
+ 
 
+          
 
 
 

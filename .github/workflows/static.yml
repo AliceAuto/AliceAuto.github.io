@@ -25,7 +25,7 @@ concurrency:
 
 
 
-  
+
 
 
 
@@ -44,10 +44,10 @@ jobs:
 
       - name: Update package list and install dependencies
         run: |
-          sudo apt update
-          sudo apt install -y ttf-mscorefonts-installer cabextract xfonts-encodings xfonts-utils
-          sudo apt install -y ttf-wqy-zenhei  # 安装中文字体包
-          fc-list :lang=zh
+          sudo mkdir /usr/share/fonts/truetype/chinese
+          sudo cp /home/runner/work/AliceAuto.github.io/AliceAuto.github.io/刷题模块/脚本集/data/fonts/mysh.ttf /usr/share/fonts/truetype/chinese
+          sudo fc-cache -fv
+
 
  
 

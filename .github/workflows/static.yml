@@ -57,6 +57,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r ./刷题模块/脚本集/requirements.txt  # 如果有依赖文件
           sudo apt-get install ttf-mscorefonts-installer
+          fc-cache -fv
 
 
       # 执行自定义 Python 脚本

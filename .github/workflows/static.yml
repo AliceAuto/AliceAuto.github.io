@@ -45,7 +45,7 @@ jobs:
       - name: Update package list and install dependencies
         run: |
           sudo mkdir /usr/share/fonts/truetype/chinese
-          sudo cp /home/runner/work/AliceAuto.github.io/AliceAuto.github.io/刷题模块/脚本集/data/fonts/mysh.ttf /usr/share/fonts/truetype/chinese
+          sudo cp /home/runner/work/AliceAuto.github.io/AliceAuto.github.io/刷题模块/脚本集/data/fonts/msyh.ttf /usr/share/fonts/truetype/chinese
           sudo fc-cache -fv
 
 

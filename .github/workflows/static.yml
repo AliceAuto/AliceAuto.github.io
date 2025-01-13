@@ -39,6 +39,8 @@ jobs:
       # 执行自定义 Python 脚本
       - name: Run Python script
         run: |
+          sudo apt-get install ttf-wqy-microhei
+
           python ./刷题模块/脚本集/Scripts/DataVisualization/src/main.py
           python ./刷题模块/脚本集/Scripts/Fi.eCreater/src/main.py
       - name: Build project (if needed)

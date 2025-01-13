@@ -45,7 +45,11 @@ jobs:
       - name: Update package list and install dependencies
         run: |
           sudo mkdir /usr/share/fonts/truetype/chinese
+      - name: step1
+        run:
           sudo cp /home/runner/work/AliceAuto.github.io/AliceAuto.github.io/刷题模块/脚本集/data/fonts/msyh.ttf /usr/share/fonts/truetype/chinese
+      - name: step2
+        run:
           sudo fc-cache -fv
 
 
@@ -61,7 +65,7 @@ jobs:
 
 
 
-          
+
   # Deployment job to push content to GitHub Pages
   deploy:
     needs: pre

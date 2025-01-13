@@ -119,6 +119,9 @@ def set_chinese_font(config=None):
                 # 打印出找到的字体文件路径，方便调试
                 print(f"找到字体文件路径：{os.path.abspath(font_path)}")
                 
+
+
+                
                 font_prop = font_manager.FontProperties(fname=font_path)
                 font_name = font_prop.get_name()
                 # 判断是否包含常见中文字体

@@ -120,7 +120,7 @@ def set_chinese_font(config=None):
                 font_prop = font_manager.FontProperties(fname=font_path)
                 font_name = font_prop.get_name()
                 # 判断是否包含常见中文字体
-                if any(font in font_name for font in ['SimHei', 'Microsoft YaHei', 'WenQuanYi', 'Noto Sans CJK']):
+                if any(font in font_name for font in ['Microsoft YaHei']):
                     plt.rcParams['font.family'] = font_name
                     plt.rcParams['axes.unicode_minus'] = False
                     font_found = True
@@ -140,7 +140,7 @@ def set_chinese_font(config=None):
                     font_prop = font_manager.FontProperties(fname=font_path)
                     font_name = font_prop.get_name()
                     # 判断是否是中文字体
-                    if any(font in font_name for font in ['SimHei', 'Microsoft YaHei', 'WenQuanYi', 'Noto Sans CJK']):
+                    if any(font in font_name for font in ['Microsoft YaHei']):
                         plt.rcParams['font.sans-serif'] =font_name
                         plt.rcParams['font.family'] = font_name
                         plt.rcParams['axes.unicode_minus'] = False

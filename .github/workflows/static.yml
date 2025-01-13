@@ -61,6 +61,8 @@ jobs:
           export FONTCONFIG_PATH=/dev/null
           fc-cache -fv
 
+
+          
       - name: Setup Python
         uses: actions/setup-python@v4
         with:
@@ -80,7 +82,7 @@ jobs:
 
 
 
-          
+
       # Run custom Python script
       - name: Run Python script
         run: |

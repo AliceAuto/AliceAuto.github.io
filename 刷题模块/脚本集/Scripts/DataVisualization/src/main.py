@@ -123,7 +123,9 @@ def set_chinese_font(config=None):
 
 
 
-                
+
+
+
                 font_prop = font_manager.FontProperties(fname=font_path)
                 font_name = font_prop.get_name()
                 # 判断是否包含常见中文字体

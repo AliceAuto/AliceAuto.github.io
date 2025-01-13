@@ -82,6 +82,10 @@ def generate_catalog_md(root_directory, catalog_md_path):
     print(f"目录文件已生成: {catalog_md_path}")
 
 # ------------------------------ 中文字体设置 ------------------------------
+import os
+import matplotlib.pyplot as plt
+from matplotlib import font_manager
+
 def set_chinese_font(config=None):
     """ 设置中文字体 """
     font_found = False
@@ -92,6 +96,13 @@ def set_chinese_font(config=None):
 
     # 检查并打印配置中指定的字体路径
     if "font_path" in config:
+        font_path = config["font_path"]
+        print(f"配置文件指定的字体路径：{font_path}")
+    else:
+        font_path = ""
+
+    # 如果没有找到字体文件，则查找系统中的字体
+    if not font_found:
         print("正在查找系统中的中文字体...")
         font_paths = font_manager.findSystemFonts(fontpaths=None, fontext='ttf')  # 仅查找 ttf 格式的字体
         for font_path in font_paths:
@@ -102,7 +113,7 @@ def set_chinese_font(config=None):
                 font_prop = font_manager.FontProperties(fname=font_path)
                 font_name = font_prop.get_name()
                 # 判断是否包含常见中文字体
-                if 'SimHei' in font_name or 'Microsoft YaHei' in font_name:
+                if any(font in font_name for font in ['SimHei', 'Microsoft YaHei', 'WenQuanYi', 'Noto Sans CJK']):
                     plt.rcParams['font.family'] = font_name
                     plt.rcParams['axes.unicode_minus'] = False
                     font_found = True
@@ -110,15 +121,10 @@ def set_chinese_font(config=None):
                     break  # 找到第一个合适的字体后即停止
             except Exception as e:
                 print(f"加载字体 {font_path} 时出错: {e}")
-            font_path = config.get("font_path", "")
-    # 如果没有找到字体文件，则查找系统中的字体
-    if not font_found:
-        
-        print(f"配置文件指定的字体路径：{font_path}")
-        
-        # 打印字体路径的绝对路径，以便调试
-        print(f"字体路径的绝对路径：{os.path.abspath(font_path)}")
-
+    
+    # 如果配置文件指定了字体路径，尝试加载它
+    if font_path and not font_found:
+        print(f"尝试加载指定的字体文件：{os.path.abspath(font_path)}")
         if os.path.exists(font_path):
             try:
                 font_prop = font_manager.FontProperties(fname=font_path)

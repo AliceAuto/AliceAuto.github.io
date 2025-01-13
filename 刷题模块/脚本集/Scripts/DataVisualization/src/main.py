@@ -258,7 +258,9 @@ def plot_div_distribution(div_counts, save_path):
     div_order = ['div1', 'div2', 'div3', 'div4', 'div5']
     # 按照指定顺序绘制 div 的条形图
     ordered_div_counts = {div: div_counts[div] for div in div_order if div in div_counts}
-    
+    if(len(ordered_div_counts)==0):
+        print("数据异常")
+        return
     # 绘制 div1-div5 分布的条形图
     plt.bar(ordered_div_counts.keys(), ordered_div_counts.values(), color='lightblue')
     plt.title("div1到div5分布", fontsize=font_size)
@@ -279,7 +281,9 @@ def plot_div_distribution(div_counts, save_path):
 
 def plot_type_distribution(type_counts, save_path):
     """ 可视化类型分布，并保存为 PNG 图片 """
-    
+    if(len(type_counts)==0):
+        print("数据异常")
+        return
     # 创建图像并设置大小和分辨率
     fig_width = 10
     fig_height = 6

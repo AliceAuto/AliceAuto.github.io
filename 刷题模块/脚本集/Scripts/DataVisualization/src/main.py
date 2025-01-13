@@ -120,7 +120,7 @@ def set_chinese_font(config=None):
                         plt.rcParams['font.family'] = font_name
                         plt.rcParams['axes.unicode_minus'] = False
                         font_found = True
-                        print(f"已找到并加载字体：{font_name}")
+                        print(f"{font_path}:已找到并加载字体：{font_name}")
                         break  # 找到第一个合适的字体后即停止
                 except Exception as e:
                     print(f"加载字体 {font_path} 时出错: {e}")

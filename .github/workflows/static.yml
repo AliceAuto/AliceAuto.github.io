@@ -22,27 +22,28 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  # Single deploy job since we're just deploying
+  # Pre-deploy job to ensure dependencies and fonts are ready
   pre:
     environment:
-       name: github-pages
-       url: ${{ steps.deployment.outputs.page_url }}
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
 
     steps:
-      - name: update
-        run:
-          sudo apt update
-      - name: load
-        run:
-         
-          sudo apt install ttf-mscorefonts-installer
-      - name: check
-        run:
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
+      - name: Update package list and install dependencies
+        run: |
+          sudo apt update
+          sudo apt install -y ttf-mscorefonts-installer cabextract xfonts-encodings xfonts-utils
+
+      - name: Update font cache
+        run: |
           fc-cache -fv
           fc-list :lang=zh
 
+  # Deployment job to push content to GitHub Pages
   deploy:
     needs: pre
     environment:
@@ -51,62 +52,30 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v4
-
-
-
-
-
-
-
-
 
       - name: Disable font cache
         run: |
           export FONTCONFIG_PATH=/dev/null
           fc-cache -fv
 
-
-
-
-
       - name: Setup Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.9'  # 选择你需要的 Python 版本
+          python-version: '3.9'  # Choose the Python version you need
 
-
-
-
-          
-      # 安装依赖（如果有的话）
+      # Install dependencies for Python scripts
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r ./刷题模块/脚本集/requirements.txt  # 如果有依赖文件
-          sudo apt update
-          sudo apt install ttf-mscorefonts-installer
+          pip install -r ./刷题模块/脚本集/requirements.txt  # If you have a requirements.txt
 
-          fc-cache -fv
-          fc-list :lang=zh
-
-
-
-
-
-      # 执行自定义 Python 脚本
+      # Run custom Python script
       - name: Run Python script
         run: |
           cd ./刷题模块/
           python 脚本集/Scripts/DataVisualization/src/main.py
-        
-
-
-
-
-
-
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
@@ -114,8 +83,8 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Upload entire repository
-          path: '.'
+          path: '.'  # Upload the entire repository
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4

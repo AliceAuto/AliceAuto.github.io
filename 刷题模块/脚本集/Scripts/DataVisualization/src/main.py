@@ -103,6 +103,9 @@ def set_chinese_font(config=None):
     if font_dir:
         print(f"配置文件指定的字体目录：{font_dir}")
     else:
+
+
+
         
         print("未指定字体目录，将尝试从系统中查找字体...")
 

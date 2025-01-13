@@ -60,6 +60,7 @@ jobs:
           sudo apt install ttf-mscorefonts-installer
 
           fc-cache -fv
+          fc-match -v "Microsoft YaHei"
 
 
 

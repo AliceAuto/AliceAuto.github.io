@@ -8,15 +8,11 @@
 1. 打开系统中的![img_1.png](img_1.png)
 2. 创建基本任务
     几个关键设置
-    #### 名称:刷题模块数据收集脚本
-    - 触发器:计算机启动时
-    - 操作:启动程序:python
-      - 参数: `"数据收集脚本\Scripts\DataVisualization\src\main.py --mode 0 --interval 5"`
-      - 起始于: <`刷题模块目录的绝对路径`>
+
     #### 名称:文件创建助手
     - 触发器:计算机启动时
     - 操作:启动程序:python
-      - 参数: `"数据收集脚本\Scripts\FileCreateer\src\main.py"`
+      - 参数: `"脚本集\Scripts\FileCreateer\src\main.py"`
       - 起始于: <`刷题模块目录的绝对路径`>
 
 **例:** 

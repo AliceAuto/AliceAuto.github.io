@@ -37,6 +37,7 @@ jobs:
         run: |
           sudo apt update
           sudo apt install -y ttf-mscorefonts-installer cabextract xfonts-encodings xfonts-utils
+          sudo apt install -y ttf-wqy-zenhei  # 安装中文字体包
 
       - name: Update font cache
         run: |

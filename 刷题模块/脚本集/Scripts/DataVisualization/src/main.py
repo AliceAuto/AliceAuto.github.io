@@ -29,7 +29,7 @@ def resource_path(relative_path):
 
 def load_config():
     """ 读取 JSON 配置文件 """
-    json_path = resource_path("..\..\..\data\config.json")
+    json_path = resource_path("../../../data/config.json")
 
     if not os.path.exists(json_path):
         print(f"错误: 找不到配置文件 {json_path}")

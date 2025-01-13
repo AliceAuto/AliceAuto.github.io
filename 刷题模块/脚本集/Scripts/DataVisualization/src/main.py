@@ -98,33 +98,6 @@ def set_chinese_font(config=None):
     if "font_path" in config:
         font_path = config["font_path"]
         print(f"配置文件指定的字体路径：{font_path}")
-    else:
-        font_path = ""
-
-    # 如果没有找到字体文件，则查找系统中的字体
-    if not font_found:
-        print("正在查找系统中的中文字体...")
-        font_paths = font_manager.findSystemFonts(fontpaths=None, fontext='ttf')  # 仅查找 ttf 格式的字体
-        for font_path in font_paths:
-            try:
-                # 打印出找到的字体文件路径，方便调试
-                print(f"找到字体文件路径：{os.path.abspath(font_path)}")
-                
-                font_prop = font_manager.FontProperties(fname=font_path)
-                font_name = font_prop.get_name()
-                # 判断是否包含常见中文字体
-                if any(font in font_name for font in ['SimHei', 'Microsoft YaHei', 'WenQuanYi', 'Noto Sans CJK']):
-                    plt.rcParams['font.family'] = font_name
-                    plt.rcParams['axes.unicode_minus'] = False
-                    font_found = True
-                    print(f"已找到并加载字体：{font_name}")
-                    break  # 找到第一个合适的字体后即停止
-            except Exception as e:
-                print(f"加载字体 {font_path} 时出错: {e}")
-    
-    # 如果配置文件指定了字体路径，尝试加载它
-    if font_path and not font_found:
-        print(f"尝试加载指定的字体文件：{os.path.abspath(font_path)}")
         if os.path.exists(font_path):
             try:
                 font_prop = font_manager.FontProperties(fname=font_path)
@@ -136,6 +109,24 @@ def set_chinese_font(config=None):
                 print(f"加载字体文件 {font_path} 时出错: {e}")
         else:
             print(f"未找到指定字体文件：{font_path}，继续搜索系统字体")
+
+    # 如果没有找到配置文件中的字体，则查找系统中的字体
+    if not font_found:
+        print("正在查找系统中的中文字体...")
+        font_paths = font_manager.findSystemFonts(fontpaths=None, fontext='ttf')  # 查找 ttf 格式字体
+        for font_path in font_paths:
+            try:
+                font_prop = font_manager.FontProperties(fname=font_path)
+                font_name = font_prop.get_name()
+                # 判断是否是文泉驿正黑字体
+                if 'WenQuanYi Zen Hei' in font_name:
+                    plt.rcParams['font.family'] = font_name
+                    plt.rcParams['axes.unicode_minus'] = False
+                    font_found = True
+                    print(f"已找到并加载字体：{font_name}")
+                    break  # 找到第一个合适的字体后即停止
+            except Exception as e:
+                print(f"加载字体 {font_path} 时出错: {e}")
 
     # 如果依然没有找到中文字体，则使用默认字体
     if not font_found:

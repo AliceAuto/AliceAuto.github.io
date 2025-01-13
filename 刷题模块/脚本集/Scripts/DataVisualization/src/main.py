@@ -139,6 +139,7 @@ def set_chinese_font(config=None):
                     font_name = font_prop.get_name()
                     # 判断是否是中文字体
                     if any(font in font_name for font in ['SimHei', 'Microsoft YaHei', 'WenQuanYi', 'Noto Sans CJK']):
+                        plt.rcParams['font.sans-serif'] =font_name
                         plt.rcParams['font.family'] = font_name
                         plt.rcParams['axes.unicode_minus'] = False
                         font_found = True
@@ -151,7 +152,7 @@ def set_chinese_font(config=None):
     # 如果依然没有找到中文字体，则使用默认字体
     if not font_found:
         print("未能加载中文字体，使用默认字体 Arial")
-        plt.rcParams['font.family'] = 'Arial'
+        plt.rcParams['font.sans-serif'] =plt.rcParams['font.family'] = 'Arial'
 
 
 

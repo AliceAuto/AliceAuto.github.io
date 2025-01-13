@@ -15,8 +15,7 @@ from matplotlib import font_manager
 from threading import Timer  # 导入定时器
 
 
-rcParams['font.sans-serif'] = ['Microsoft YaHei', 'SimHei', 'DejaVu Sans']
-rcParams['axes.unicode_minus'] = False  # 解决负号显示问题
+
 
 # ------------------------------ 配置文件处理 ------------------------------
 def resource_path(relative_path):
@@ -93,26 +92,6 @@ def set_chinese_font(config=None):
 
     # 检查并打印配置中指定的字体路径
     if "font_path" in config:
-        font_path = config.get("font_path", "")
-        print(f"配置文件指定的字体路径：{font_path}")
-        
-        # 打印字体路径的绝对路径，以便调试
-        print(f"字体路径的绝对路径：{os.path.abspath(font_path)}")
-
-        if os.path.exists(font_path):
-            try:
-                font_prop = font_manager.FontProperties(fname=font_path)
-                plt.rcParams['font.family'] = font_prop.get_name()
-                plt.rcParams['axes.unicode_minus'] = False
-                font_found = True
-                print(f"已加载字体文件：{font_path}")
-            except Exception as e:
-                print(f"加载字体文件 {font_path} 时出错: {e}")
-        else:
-            print(f"未找到指定字体文件：{font_path}，继续搜索系统字体")
-
-    # 如果没有找到字体文件，则查找系统中的字体
-    if not font_found:
         print("正在查找系统中的中文字体...")
         font_paths = font_manager.findSystemFonts(fontpaths=None, fontext='ttf')  # 仅查找 ttf 格式的字体
         for font_path in font_paths:
@@ -131,6 +110,26 @@ def set_chinese_font(config=None):
                     break  # 找到第一个合适的字体后即停止
             except Exception as e:
                 print(f"加载字体 {font_path} 时出错: {e}")
+            font_path = config.get("font_path", "")
+    # 如果没有找到字体文件，则查找系统中的字体
+    if not font_found:
+        
+        print(f"配置文件指定的字体路径：{font_path}")
+        
+        # 打印字体路径的绝对路径，以便调试
+        print(f"字体路径的绝对路径：{os.path.abspath(font_path)}")
+
+        if os.path.exists(font_path):
+            try:
+                font_prop = font_manager.FontProperties(fname=font_path)
+                plt.rcParams['font.family'] = font_prop.get_name()
+                plt.rcParams['axes.unicode_minus'] = False
+                font_found = True
+                print(f"已加载字体文件：{font_path}")
+            except Exception as e:
+                print(f"加载字体文件 {font_path} 时出错: {e}")
+        else:
+            print(f"未找到指定字体文件：{font_path}，继续搜索系统字体")
 
     # 如果依然没有找到中文字体，则使用默认字体
     if not font_found:

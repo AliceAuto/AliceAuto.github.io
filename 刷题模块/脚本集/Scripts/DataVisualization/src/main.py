@@ -82,7 +82,6 @@ def generate_catalog_md(root_directory, catalog_md_path):
     print(f"目录文件已生成: {catalog_md_path}")
 
 # ------------------------------ 中文字体设置 ------------------------------
-
 def set_chinese_font(config=None):
     """ 设置中文字体 """
     font_found = False
@@ -91,30 +90,30 @@ def set_chinese_font(config=None):
     if config is None:
         config = {}
 
-    # 获取配置中的字体路径
-    font_path = config.get("font_path", "")
-
-    # 检查系统中的字体路径
-    font_paths = font_manager.findSystemFonts(fontpaths=None, fontext='ttf')  # 仅查找 ttf 格式的字体
-    for font_path in font_paths:
-        try:
-            # 打印出找到的字体文件路径，方便调试
-            print(f"找到字体文件路径：{os.path.abspath(font_path)}")
-            
-            font_prop = font_manager.FontProperties(fname=font_path)
-            font_name = font_prop.get_name()
-            # 判断是否包含常见中文字体
-            if 'SimHei' in font_name or 'Microsoft YaHei' in font_name:
-                plt.rcParams['font.family'] = font_name
-                plt.rcParams['axes.unicode_minus'] = False
-                font_found = True
-                print(f"已找到并加载字体：{font_name}")
-                break  # 找到第一个合适的字体后即停止
-        except Exception as e:
-            print(f"加载字体 {font_path} 时出错: {e}")
-    
-    # 如果没有找到字体文件，则查找配置文件中的字体路径
-    if not font_found and font_path:
+    # 检查并打印配置中指定的字体路径
+    if "font_path" in config:
+        print("正在查找系统中的中文字体...")
+        font_paths = font_manager.findSystemFonts(fontpaths=None, fontext='ttf')  # 仅查找 ttf 格式的字体
+        for font_path in font_paths:
+            try:
+                # 打印出找到的字体文件路径，方便调试
+                print(f"找到字体文件路径：{os.path.abspath(font_path)}")
+                
+                font_prop = font_manager.FontProperties(fname=font_path)
+                font_name = font_prop.get_name()
+                # 判断是否包含常见中文字体
+                if 'SimHei' in font_name or 'Microsoft YaHei' in font_name:
+                    plt.rcParams['font.family'] = font_name
+                    plt.rcParams['axes.unicode_minus'] = False
+                    font_found = True
+                    print(f"已找到并加载字体：{font_name}")
+                    break  # 找到第一个合适的字体后即停止
+            except Exception as e:
+                print(f"加载字体 {font_path} 时出错: {e}")
+            font_path = config.get("font_path", "")
+    # 如果没有找到字体文件，则查找系统中的字体
+    if not font_found:
+        
         print(f"配置文件指定的字体路径：{font_path}")
         
         # 打印字体路径的绝对路径，以便调试
@@ -136,6 +135,7 @@ def set_chinese_font(config=None):
     if not font_found:
         print("未能加载中文字体，使用默认字体 Arial")
         plt.rcParams['font.family'] = 'Arial'
+
 
 
 

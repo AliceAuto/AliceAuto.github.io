@@ -24,7 +24,7 @@ concurrency:
 jobs:
   # Pre-deploy job to ensure dependencies and fonts are ready
   pre:
-    
+
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -39,6 +39,7 @@ jobs:
           sudo apt update
           sudo apt install -y ttf-mscorefonts-installer cabextract xfonts-encodings xfonts-utils
           sudo apt install -y ttf-wqy-zenhei  # 安装中文字体包
+          fc-list :lang=zh
 
 
 

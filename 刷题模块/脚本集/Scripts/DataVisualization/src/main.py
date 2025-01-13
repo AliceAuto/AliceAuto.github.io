@@ -110,7 +110,7 @@ def set_chinese_font(config=None):
         print(f"正在查找目录 {font_dir} 中的字体文件...")
         if os.path.isdir(font_dir):
             # 查找该目录下的所有 ttf 文件
-            font_paths = [os.path.join(font_dir, f) for f in os.listdir(font_dir) if f.endswith('.ttf')]
+            font_paths = [os.path.join(font_dir, f) for f in os.listdir(font_dir) if f.endswith('.ttc')]
             for font_path in font_paths:
                 try:
                     font_prop = font_manager.FontProperties(fname=font_path)

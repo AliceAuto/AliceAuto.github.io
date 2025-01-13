@@ -15,7 +15,8 @@ from matplotlib import font_manager
 from threading import Timer  # 导入定时器
 
 
-
+rcParams['font.sans-serif'] = ['Microsoft YaHei', 'SimHei', 'DejaVu Sans']
+rcParams['axes.unicode_minus'] = False  # 解决负号显示问题
 
 # ------------------------------ 配置文件处理 ------------------------------
 def resource_path(relative_path):

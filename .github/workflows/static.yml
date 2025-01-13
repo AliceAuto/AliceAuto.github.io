@@ -52,7 +52,7 @@ jobs:
       # 执行自定义 Python 脚本
       - name: Run Python script
         run: |
-          cd ./刷题模块
+          cd ./刷题模块/
           python 脚本集/Scripts/DataVisualization/src/main.py
         
       - name: Build project (if needed)
@@ -67,11 +67,6 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: './build'  # 假设构建输出目录为 'build'
-
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
-
 
 
 

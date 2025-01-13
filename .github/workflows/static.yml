@@ -49,16 +49,12 @@ jobs:
           sudo fc-cache -fv
 
 
- 
-
-
-
-
-
       - name: Update font cache
         run: |
           fc-cache -fv
           fc-list :lang=zh
+
+
 
 
 

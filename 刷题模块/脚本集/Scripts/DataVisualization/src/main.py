@@ -86,32 +86,57 @@ def set_chinese_font(config=None):
     """ 设置中文字体 """
     font_found = False
 
-    if config and "font_path" in config:
+    # 如果 config 为 None，则设置为空字典
+    if config is None:
+        config = {}
+
+    # 检查并打印配置中指定的字体路径
+    if "font_path" in config:
         font_path = config.get("font_path", "")
+        print(f"配置文件指定的字体路径：{font_path}")
+        
+        # 打印字体路径的绝对路径，以便调试
+        print(f"字体路径的绝对路径：{os.path.abspath(font_path)}")
+
         if os.path.exists(font_path):
-            plt.rcParams['font.family'] = font_manager.FontProperties(fname=font_path).get_name()
-            plt.rcParams['axes.unicode_minus'] = False
-            font_found = True
-            print(f"已加载字体文件：{font_path}")
+            try:
+                font_prop = font_manager.FontProperties(fname=font_path)
+                plt.rcParams['font.family'] = font_prop.get_name()
+                plt.rcParams['axes.unicode_minus'] = False
+                font_found = True
+                print(f"已加载字体文件：{font_path}")
+            except Exception as e:
+                print(f"加载字体文件 {font_path} 时出错: {e}")
         else:
             print(f"未找到指定字体文件：{font_path}，继续搜索系统字体")
 
+    # 如果没有找到字体文件，则查找系统中的字体
     if not font_found:
         print("正在查找系统中的中文字体...")
-        font_paths = font_manager.findSystemFonts(fontpaths=None, fontext='ttf')
+        font_paths = font_manager.findSystemFonts(fontpaths=None, fontext='ttf')  # 仅查找 ttf 格式的字体
         for font_path in font_paths:
-            font_prop = font_manager.FontProperties(fname=font_path)
-            font_name = font_prop.get_name()
-            if 'SimHei' in font_name or 'Microsoft YaHei' in font_name:
-                plt.rcParams['font.family'] = font_name
-                plt.rcParams['axes.unicode_minus'] = False
-                font_found = True
-                print(f"已找到并加载字体：{font_name}")
-                break
+            try:
+                # 打印出找到的字体文件路径，方便调试
+                print(f"找到字体文件路径：{os.path.abspath(font_path)}")
+                
+                font_prop = font_manager.FontProperties(fname=font_path)
+                font_name = font_prop.get_name()
+                # 判断是否包含常见中文字体
+                if 'SimHei' in font_name or 'Microsoft YaHei' in font_name:
+                    plt.rcParams['font.family'] = font_name
+                    plt.rcParams['axes.unicode_minus'] = False
+                    font_found = True
+                    print(f"已找到并加载字体：{font_name}")
+                    break  # 找到第一个合适的字体后即停止
+            except Exception as e:
+                print(f"加载字体 {font_path} 时出错: {e}")
 
+    # 如果依然没有找到中文字体，则使用默认字体
     if not font_found:
-        print("未能加载中文字体，使用默认字体")
+        print("未能加载中文字体，使用默认字体 Arial")
         plt.rcParams['font.family'] = 'Arial'
+
+
 
 
 # ------------------------------ 文件分析 ------------------------------

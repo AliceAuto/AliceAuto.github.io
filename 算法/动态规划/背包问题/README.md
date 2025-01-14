@@ -27,10 +27,11 @@
 
 ># 多重背包
 >## 思维模型:
-
+>![alt text](../../Resource/多重背包.drawio.png)
 ---
 ># 分组背包
 >## 思维模型:
+>![alt text](../../Resource/分组背包.drawio.png)
 >---
 
     

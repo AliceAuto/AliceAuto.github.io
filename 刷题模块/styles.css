@@ -1,60 +1,64 @@
 /* 通用样式 */
 body {
-    font-family: 'Arial', sans-serif;
-    line-height: 1.6;
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f9f9f9;
+    background-color: #f4f4f4;
 }
 
-.container {
-    max-width: 800px;
-    margin: 50px auto;
-    background: #ffffff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+header {
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
 }
 
 h1 {
-    text-align: center;
-    color: #333;
-    margin-bottom: 20px;
+    margin: 0;
 }
 
-p {
-    text-align: center;
-    color: #666;
-    margin-bottom: 30px;
-}
-
-/* 题目项 */
-.problem-item {
-    margin: 15px 0;
-    padding: 10px;
-    background: #f4f4f4;
-    border-radius: 5px;
-    transition: all 0.3s ease;
-}
-
-.problem-item:hover {
-    background: #eaeaea;
-    transform: translateY(-2px);
-}
-
-.problem-item a {
+a {
+    color: white;
     text-decoration: none;
-    font-size: 18px;
-    color: #007bff;
-    font-weight: bold;
 }
 
-.problem-item a:hover {
-    text-decoration: underline;
+/* 返回按钮样式 */
+.back-button {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #444;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
 }
 
-.problem-meta {
-    font-size: 14px;
-    color: #999;
-    margin-top: 5px;
+.back-button:hover {
+    background-color: #555;
+}
+
+/* 主体内容 */
+main {
+    padding: 20px;
+}
+
+/* 按钮样式 */
+button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+button:hover {
+    transform: scale(1.1);
+    background-color: #218838;
+}
+
+button:active {
+    transform: scale(1);
+    background-color: #1e7e34;
 }

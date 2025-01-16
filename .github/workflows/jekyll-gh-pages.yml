@@ -1,44 +1,85 @@
-# Sample workflow for building and deploying a Jekyll site to GitHub Pages
-name: Deploy Jekyll with GitHub Pages dependencies preinstalled
+name: 部署静态内容和 Jekyll 到 GitHub Pages
 
 on:
-  # Runs on pushes targeting the default branch
   push:
     branches: ["main"]
-
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
 concurrency:
   group: "pages"
   cancel-in-progress: false
 
 jobs:
-  # Build job
+  # 预部署任务，确保依赖和字体准备就绪
+  work:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 检出仓库
+        uses: actions/checkout@v4
+
+      - name: 更新软件包列表并安装依赖
+        run: |
+          sudo mkdir /usr/share/fonts/truetype/chinese
+
+      - name: 复制字体到系统
+        run: |
+          sudo cp /home/runner/work/AliceAuto.github.io/AliceAuto.github.io/刷题模块/脚本集/data/fonts/msyh.ttf /usr/share/fonts/truetype/chinese
+
+      - name: 更新字体缓存
+        run: |
+          sudo fc-cache -fv
+          fc-list :lang=zh
+
+      - name: 禁用字体缓存
+        run: |
+          export FONTCONFIG_PATH=/dev/null
+          fc-cache -fv
+
+      - name: 设置 Python 环境
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: 安装 Python 依赖
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r ./刷题模块/脚本集/requirements.txt
+
+      - name: 运行自定义 Python 脚本
+        run: |
+          cd ./刷题模块/
+          python 脚本集/Scripts/DataVisualization/src/main.py
+
+  # Jekyll 网站构建任务
   build:
     runs-on: ubuntu-latest
+    needs: work
     steps:
-      - name: Checkout
+      - name: 检出仓库
         uses: actions/checkout@v4
-      - name: Setup Pages
+
+      - name: 设置 Pages
         uses: actions/configure-pages@v5
-      - name: Build with Jekyll
+
+      - name: 使用 Jekyll 构建网站
         uses: actions/jekyll-build-pages@v1
         with:
           source: ./
           destination: ./_site
-      - name: Upload artifact
+
+      - name: 上传构建产物
         uses: actions/upload-pages-artifact@v3
 
-  # Deployment job
+  # 部署任务到 GitHub Pages
   deploy:
     environment:
       name: github-pages
@@ -46,6 +87,6 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     steps:
-      - name: Deploy to GitHub Pages
+      - name: 部署到 GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4

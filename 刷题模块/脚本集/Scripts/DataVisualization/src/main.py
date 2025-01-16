@@ -416,7 +416,7 @@ class DirectoryHandler(FileSystemEventHandler):
         print("开始更新统计...")
         file_info = scan_directory(self.directory, self.mode)
         print_statistics(file_info, self.save_directory)
-        generate_catalog_md(self.directory, "OJ/README.md")
+        generate_catalog_md(self.directory, "README.md")
 
 
 

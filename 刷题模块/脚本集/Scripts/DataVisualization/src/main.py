@@ -45,6 +45,12 @@ import re
 import os
 import re
 
+import os
+import re
+
+import os
+import re
+
 def generate_catalog_md(root_directory, catalog_md_path):
     """生成带有题目 div 的目录 md 文件"""
     catalog_md = []
@@ -56,8 +62,9 @@ def generate_catalog_md(root_directory, catalog_md_path):
     # 定义文件名匹配的正则模式
     pattern = r"^(?P<difficulty>.*?)_(?P<types>\{.*?\})_(?P<title>.*?)\.md$"  # 文件名的匹配模式
     
-    # 遍历文件目录
-    for root, dirs, files in os.walk(root_directory):
+    # 遍历文件目录，从 OJ 子文件夹开始
+    oj_directory = os.path.join(root_directory, 'OJ')
+    for root, dirs, files in os.walk(oj_directory):
         for file in files:
             if file.endswith(".md"):
                 # 解析文件名，获取题目标题
@@ -67,8 +74,8 @@ def generate_catalog_md(root_directory, catalog_md_path):
                     difficulty = match.group("difficulty")
                     types = match.group("types")
                     
-                    # 生成相对路径链接
-                    relative_path = os.path.relpath(os.path.join(root, file), root_directory)
+                    # 生成相对路径链接，并移除 `OJ` 前缀
+                    relative_path = os.path.relpath(os.path.join(root, file), oj_directory)
                     
                     # 构建目录项，并用 div 标签包裹
                     catalog_md.append(f"<div class=\"problem-item\">\n")
@@ -80,6 +87,12 @@ def generate_catalog_md(root_directory, catalog_md_path):
         f.write("\n".join(catalog_md))
 
     print(f"目录文件已生成: {catalog_md_path}")
+
+# 示例调用
+# root_directory = "/path/to/root"
+# catalog_md_path = "/path/to/output/catalog.md"
+# generate_catalog_md(root_directory, catalog_md_path)
+
 
 # ------------------------------ 中文字体设置 ------------------------------
 import os
@@ -416,7 +429,7 @@ class DirectoryHandler(FileSystemEventHandler):
         print("开始更新统计...")
         file_info = scan_directory(self.directory, self.mode)
         print_statistics(file_info, self.save_directory)
-        generate_catalog_md(self.directory, "README.md")
+        generate_catalog_md(self.directory, "OJ/README.md")
 
 
 

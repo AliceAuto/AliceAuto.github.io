@@ -60,6 +60,9 @@ import re
 import os
 import re
 
+import os
+import re
+
 def generate_catalog_html(root_directory, catalog_html_path):
     """生成带有题目 div 的目录 HTML 文件"""
     catalog_html = []
@@ -109,12 +112,15 @@ def generate_catalog_html(root_directory, catalog_html_path):
                     # 生成相对路径链接，并移除 `OJ` 前缀
                     relative_path = os.path.relpath(os.path.join(root, file), oj_directory)
                     
+                    # 构建带有前缀的目录项链接
+                    full_url = f"https://aliceauto.github.io/刷题模块/OJ/{relative_path.replace(os.sep, '/')}"
+                    
                     # 构建目录项
                     catalog_html.append("<div class=\"problem-item\">")
-                    catalog_html.append(f"  <a href=\"{relative_path.replace(os.sep, '/')}\">{title}</a>")
+                    catalog_html.append(f"  <a href=\"{full_url}\">{title}</a>")
                     catalog_html.append(f"  <div class=\"problem-meta\">难度: {difficulty} | 类型: {types}</div>")
                     catalog_html.append("</div>")
-    
+
     # 添加 HTML 尾部
     catalog_html.append("</div>")
     catalog_html.append("</body>")

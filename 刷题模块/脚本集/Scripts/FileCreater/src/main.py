@@ -170,7 +170,7 @@ def create_file_in_directory(root_dir, subfolder, file_name, username):
             file.write(f"date: {current_date}\n")  # 使用实时日期
             file.write(f"author: \"{username}\"\n")
             file.write(f"---\n\n")
-            file.write("# 文章内容\n")  # 可以根据需要填充更多内容
+
 
         messagebox.showinfo("成功", f"文件已创建：{file_path}")
         # 关闭文件创建窗口

@@ -51,13 +51,39 @@ import re
 import os
 import re
 
-def generate_catalog_md(root_directory, catalog_md_path):
-    """生成带有题目 div 的目录 md 文件"""
-    catalog_md = []
+import os
+import re
+
+import os
+import re
+
+def generate_catalog_html(root_directory, catalog_html_path):
+    """生成带有题目 div 的目录 HTML 文件"""
+    catalog_html = []
     
-    # 添加目录的标题
-    catalog_md.append("# 题目目录\n")
-    catalog_md.append("以下是所有题目的目录，点击链接可跳转到对应题目。\n\n")
+    # 添加 HTML 标题和头部
+    catalog_html.append("<!DOCTYPE html>")
+    catalog_html.append("<html lang=\"en\">")
+    catalog_html.append("<head>")
+    catalog_html.append("    <meta charset=\"UTF-8\">")
+    catalog_html.append("    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">")
+    catalog_html.append("    <title>题目目录</title>")
+    catalog_html.append("    <style>")
+    catalog_html.append("        body { font-family: 'Arial', sans-serif; line-height: 1.6; margin: 0; padding: 0; background-color: #f9f9f9; }")
+    catalog_html.append("        .container { max-width: 800px; margin: 50px auto; background: #ffffff; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); }")
+    catalog_html.append("        h1 { text-align: center; color: #333; margin-bottom: 20px; }")
+    catalog_html.append("        p { text-align: center; color: #666; margin-bottom: 30px; }")
+    catalog_html.append("        .problem-item { margin: 15px 0; padding: 10px; background: #f4f4f4; border-radius: 5px; transition: all 0.3s ease; }")
+    catalog_html.append("        .problem-item:hover { background: #eaeaea; transform: translateY(-2px); }")
+    catalog_html.append("        .problem-item a { text-decoration: none; font-size: 18px; color: #007bff; font-weight: bold; }")
+    catalog_html.append("        .problem-item a:hover { text-decoration: underline; }")
+    catalog_html.append("        .problem-meta { font-size: 14px; color: #999; margin-top: 5px; }")
+    catalog_html.append("    </style>")
+    catalog_html.append("</head>")
+    catalog_html.append("<body>")
+    catalog_html.append("<div class=\"container\">")
+    catalog_html.append("<h1>题目目录</h1>")
+    catalog_html.append("<p>以下是所有题目的目录，点击链接可跳转到对应题目。</p>")
 
     # 定义文件名匹配的正则模式
     pattern = r"^(?P<difficulty>.*?)_(?P<types>\{.*?\})_(?P<title>.*?)\.md$"  # 文件名的匹配模式
@@ -77,21 +103,28 @@ def generate_catalog_md(root_directory, catalog_md_path):
                     # 生成相对路径链接，并移除 `OJ` 前缀
                     relative_path = os.path.relpath(os.path.join(root, file), oj_directory)
                     
-                    # 构建目录项，并用 div 标签包裹
-                    catalog_md.append(f"<div class=\"problem-item\">\n")
-                    catalog_md.append(f"  - ### [{title}]({relative_path.replace(os.sep, '/')}) **`{difficulty}`**\n")
-                    catalog_md.append(f"</div>\n")
-                    
-    # 将目录内容写入 md 文件
-    with open(catalog_md_path, "w", encoding="utf-8") as f:
-        f.write("\n".join(catalog_md))
+                    # 构建目录项
+                    catalog_html.append("<div class=\"problem-item\">")
+                    catalog_html.append(f"  <a href=\"{relative_path.replace(os.sep, '/')}\">{title}</a>")
+                    catalog_html.append(f"  <div class=\"problem-meta\">难度: {difficulty} | 类型: {types}</div>")
+                    catalog_html.append("</div>")
+    
+    # 添加 HTML 尾部
+    catalog_html.append("</div>")
+    catalog_html.append("</body>")
+    catalog_html.append("</html>")
 
-    print(f"目录文件已生成: {catalog_md_path}")
+    # 将目录内容写入 HTML 文件
+    with open(catalog_html_path, "w", encoding="utf-8") as f:
+        f.write("\n".join(catalog_html))
+
+    print(f"目录 HTML 文件已生成: {catalog_html_path}")
 
 # 示例调用
 # root_directory = "/path/to/root"
-# catalog_md_path = "/path/to/output/catalog.md"
-# generate_catalog_md(root_directory, catalog_md_path)
+# catalog_html_path = "/path/to/output/catalog.html"
+# generate_catalog_html(root_directory, catalog_html_path)
+
 
 
 # ------------------------------ 中文字体设置 ------------------------------
@@ -412,6 +445,9 @@ class DirectoryHandler(FileSystemEventHandler):
         if event.src_path.endswith("README.md"):
             print(f"忽略变化文件: {event.src_path} (README 文件)")
             return
+        if event.src_path.endswith("index.html"):
+            print(f"忽略变化文件: {event.src_path} (README 文件)")
+            return
 
         # 如果已有定时任务正在等待，先取消它
         if self.timer is not None:
@@ -429,7 +465,7 @@ class DirectoryHandler(FileSystemEventHandler):
         print("开始更新统计...")
         file_info = scan_directory(self.directory, self.mode)
         print_statistics(file_info, self.save_directory)
-        generate_catalog_md(self.directory, "OJ/README.md")
+        generate_catalog_html(self.directory, "OJ/index.html")
 
 
 
@@ -487,7 +523,7 @@ if __name__ == "__main__":
         print_statistics(file_info, save_directory)
 
        
-        generate_catalog_md(".", "OJ/README.md")
+        generate_catalog_html(".", "OJ/index.html")
 
     else:
         print("实时监听模式")

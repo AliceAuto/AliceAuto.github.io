@@ -1,0 +1,60 @@
+/* 通用样式 */
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+p {
+    text-align: center;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+/* 题目项 */
+.problem-item {
+    margin: 15px 0;
+    padding: 10px;
+    background: #f4f4f4;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.problem-item:hover {
+    background: #eaeaea;
+    transform: translateY(-2px);
+}
+
+.problem-item a {
+    text-decoration: none;
+    font-size: 18px;
+    color: #007bff;
+    font-weight: bold;
+}
+
+.problem-item a:hover {
+    text-decoration: underline;
+}
+
+.problem-meta {
+    font-size: 14px;
+    color: #999;
+    margin-top: 5px;
+}

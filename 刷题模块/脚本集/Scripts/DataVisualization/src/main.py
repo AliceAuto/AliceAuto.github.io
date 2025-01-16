@@ -57,13 +57,16 @@ import re
 import os
 import re
 
+import os
+import re
+
 def generate_catalog_html(root_directory, catalog_html_path):
     """生成带有题目 div 的目录 HTML 文件"""
     catalog_html = []
     
     # 添加 HTML 标题和头部
     catalog_html.append("<!DOCTYPE html>")
-    catalog_html.append("<html lang=\"en\">")
+    catalog_html.append("<html lang=\"zh\">")
     catalog_html.append("<head>")
     catalog_html.append("    <meta charset=\"UTF-8\">")
     catalog_html.append("    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">")
@@ -78,9 +81,12 @@ def generate_catalog_html(root_directory, catalog_html_path):
     catalog_html.append("        .problem-item a { text-decoration: none; font-size: 18px; color: #007bff; font-weight: bold; }")
     catalog_html.append("        .problem-item a:hover { text-decoration: underline; }")
     catalog_html.append("        .problem-meta { font-size: 14px; color: #999; margin-top: 5px; }")
+    catalog_html.append("        .back-button { position: fixed; top: 20px; left: 20px; padding: 10px 20px; background-color: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; }")
+    catalog_html.append("        .back-button:hover { background-color: #0056b3; }")
     catalog_html.append("    </style>")
     catalog_html.append("</head>")
     catalog_html.append("<body>")
+    catalog_html.append("<button class=\"back-button\" onclick=\"window.location.href='https://aliceauto.github.io/刷题模块/'\">返回</button>")
     catalog_html.append("<div class=\"container\">")
     catalog_html.append("<h1>题目目录</h1>")
     catalog_html.append("<p>以下是所有题目的目录，点击链接可跳转到对应题目。</p>")

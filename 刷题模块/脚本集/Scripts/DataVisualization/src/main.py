@@ -255,23 +255,36 @@ author_pattern = r"\[(.*?)\]"  # 用于匹配 [作者1;作者2...作者n] 格式
 import re
 import os
 
-def analyze_filename(filename, directory):
+import os
+import re
+
+def analyze_filename(filename, directory, max_lines=20):
     """解析文件名并返回 div 和类型信息，同时读取文件的 Front Matter 获取作者信息"""
+    pattern = r"your-regex-pattern-here"  # 替换为您实际的正则表达式
     match = re.match(pattern, filename)
+    
     if match:
         types = match.group("types")[1:-1].split(";")  # 去除花括号并分割类型
         div_match = re.findall(r'div[1-5]', filename)
         authors = None
+        
         try:
             with open(os.path.join(directory, filename), 'r', encoding='utf-8') as file:
                 # 读取前几行以获取 Front Matter 信息
                 front_matter = ''
-                while True:
+                line_count = 0
+                
+                while line_count < max_lines:
                     line = file.readline().strip()
+                    print("line..")
+                    if not line:  # 如果是空行则跳过
+                        continue
+                    
                     if line == '---':
-                        if front_matter:
+                        if front_matter:  # 如果已经开始了 Front Matter 的读取，则跳出
                             break
                     front_matter += line + '\n'
+                    line_count += 1
 
                 # 从 Front Matter 中提取 author 信息
                 author_match = re.search(r'author:\s*"([^"]+)"', front_matter)
@@ -282,9 +295,10 @@ def analyze_filename(filename, directory):
 
         except Exception as e:
             print(f"读取文件 {filename} 出错: {e}")
+        
         return div_match, types, authors
+    
     return None, None, None
-
 
 '''
 (['div1'], ['type1', 'type2'], ['小明'])

@@ -159,7 +159,7 @@ def create_file_in_directory(root_dir, subfolder, file_name, username):
         # 从文件名中提取题目名称作为 title
         # 倒数第一个"_"后的部分到".md"之前的部分
         base_name = file_name.replace('.md', '')  # 去掉文件扩展名
-        title = base_name.rsplit('_', 1)[-1]  # 提取倒数第一个"_"后的部分作为标题
+        title = base_name.rsplit('}_', 1)[-1]  # 提取倒数第一个"_"后的部分作为标题
 
         with open(file_path, 'w', encoding="utf-8") as file:
             # 写入 Front Matter 信息，包括作者字段、实时日期和动态链接

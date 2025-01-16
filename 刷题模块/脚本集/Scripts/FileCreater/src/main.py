@@ -111,6 +111,30 @@ def update_default_folder(new_folder_path):
 
 
 # 创建文件的函数，只写用户名
+import os
+from tkinter import messagebox
+from datetime import datetime
+
+import os
+from tkinter import messagebox
+from datetime import datetime
+
+import os
+from datetime import datetime
+from tkinter import messagebox
+
+import os
+from datetime import datetime
+from tkinter import messagebox
+
+import os
+from datetime import datetime
+from tkinter import messagebox
+
+import os
+from datetime import datetime
+from tkinter import messagebox
+
 def create_file_in_directory(root_dir, subfolder, file_name, username):
     try:
         # 如果选择了子文件夹，构造完整路径
@@ -124,9 +148,29 @@ def create_file_in_directory(root_dir, subfolder, file_name, username):
             messagebox.showerror("错误", f"文件已存在：{file_path}")
             return
 
+        # 获取当前日期并格式化为 YYYY-MM-DD
+        current_date = datetime.now().strftime("%Y-%m-%d")
+
+        # 使用文件名或当前日期来动态生成 permalink
+        # 构造相对路径，相对于刷题模块根目录
+        relative_path = os.path.relpath(file_path, root_dir)  # 计算相对路径
+        permalink = f"/{relative_path.replace(os.sep, '/')}/"  # 替换路径分隔符为 "/"
+
+        # 从文件名中提取题目名称作为 title
+        # 倒数第一个"_"后的部分到".md"之前的部分
+        base_name = file_name.replace('.md', '')  # 去掉文件扩展名
+        title = base_name.rsplit('_', 1)[-1]  # 提取倒数第一个"_"后的部分作为标题
+
         with open(file_path, 'w', encoding="utf-8") as file:
-            # 只写用户名到文件，格式为 "用户名"
-            file.write(f"[{username}]\n")
+            # 写入 Front Matter 信息，包括作者字段、实时日期和动态链接
+            file.write(f"---\n")
+            file.write(f"layout: post\n")
+            file.write(f"title: \"{title}\"\n")  # 使用提取的标题
+            file.write(f"permalink: {permalink[3::]}\n")  # 使用动态生成的相对 permalink
+            file.write(f"date: {current_date}\n")  # 使用实时日期
+            file.write(f"author: \"{username}\"\n")
+            file.write(f"---\n\n")
+            file.write("# 文章内容\n")  # 可以根据需要填充更多内容
 
         messagebox.showinfo("成功", f"文件已创建：{file_path}")
         # 关闭文件创建窗口

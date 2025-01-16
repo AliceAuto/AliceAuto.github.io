@@ -252,8 +252,11 @@ from collections import defaultdict
 pattern = r"^(?P<difficulty>.*?)_(?P<types>\{.*?\})_(?P<title>.*?)\.md$"
 author_pattern = r"\[(.*?)\]"  # 用于匹配 [作者1;作者2...作者n] 格式
 
+import re
+import os
+
 def analyze_filename(filename, directory):
-    """解析文件名并返回 div 和类型信息，同时读取文件第一行以确定作者"""
+    """解析文件名并返回 div 和类型信息，同时读取文件的 Front Matter 获取作者信息"""
     match = re.match(pattern, filename)
     if match:
         types = match.group("types")[1:-1].split(";")  # 去除花括号并分割类型
@@ -261,25 +264,32 @@ def analyze_filename(filename, directory):
         authors = None
         try:
             with open(os.path.join(directory, filename), 'r', encoding='utf-8') as file:
-                first_line = file.readline().strip()  # 读取第一行并去除前后空白字符
-                if first_line:
-                    # 尝试匹配 [作者1;作者2...作者n] 格式
-                    author_match = re.match(author_pattern, first_line)
-                    if author_match:
-                        authors = author_match.group(1).split(';')  # 分割作者
-                        authors = [a.strip() for a in authors if a.strip()]  # 去除空白字符和空字符串
-                    else:
-                        # 如果不符合 [作者1;作者2...作者n] 格式，尝试其他格式
-                        author_match = re.match(r'\s*作者?\s*:\s*(.*)', first_line)
-                        if author_match:
-                            authors = [author_match.group(1).strip()]  # 提取作者名并去除空白字符
-                        else:
-                            authors = [first_line]  # 如果不符合格式，直接使用第一行内容作为作者名
+                # 读取前几行以获取 Front Matter 信息
+                front_matter = ''
+                while True:
+                    line = file.readline().strip()
+                    if line == '---':
+                        if front_matter:
+                            break
+                    front_matter += line + '\n'
+
+                # 从 Front Matter 中提取 author 信息
+                author_match = re.search(r'author:\s*"([^"]+)"', front_matter)
+                if author_match:
+                    authors = [author_match.group(1).strip()]  # 提取作者并去除空白字符
+                else:
+                    authors = ['Unknown']  # 如果没有找到作者信息，设置为 'Unknown'
+
         except Exception as e:
             print(f"读取文件 {filename} 出错: {e}")
         return div_match, types, authors
     return None, None, None
 
+
+'''
+(['div1'], ['type1', 'type2'], ['小明'])
+
+'''
 def count_author_contributions(file_info):
     """统计每个作者的创作量"""
     author_counts = defaultdict(int)

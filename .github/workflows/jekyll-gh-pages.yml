@@ -28,7 +28,7 @@ jobs:
 
       - name: 更新软件包列表并安装依赖
         run: |
-          sudo mkdir /usr/share/fonts/truetype/chinese
+          sudo mkdir -p /usr/share/fonts/truetype/chinese
 
       - name: 复制字体到系统
         run: |
@@ -73,11 +73,13 @@ jobs:
       - name: 使用 Jekyll 构建网站
         uses: actions/jekyll-build-pages@v1
         with:
-          source: ./
-          destination: ./_site
+          source: ./  # Jekyll 项目根目录
+          destination: ./_site  # 输出到 _site 文件夹
 
       - name: 上传构建产物
         uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./_site  # 上传 _site 文件夹
 
   # 部署任务到 GitHub Pages
   deploy:
@@ -90,3 +92,6 @@ jobs:
       - name: 部署到 GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+        with:
+          branch: main  # 确保将网站部署到 gh-pages 分支
+          folder: 刷题模块  # 部署 _site 文件夹内容

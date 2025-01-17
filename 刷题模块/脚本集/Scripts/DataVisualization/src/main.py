@@ -63,6 +63,9 @@ import re
 import os
 import re
 
+import os
+import re
+
 def generate_catalog_html(root_directory, catalog_html_path):
     """生成带有题目 div 的目录 HTML 文件"""
     catalog_html = []
@@ -95,7 +98,7 @@ def generate_catalog_html(root_directory, catalog_html_path):
     catalog_html.append("<p>以下是所有题目的目录，点击链接可跳转到对应题目。</p>")
 
     # 定义文件名匹配的正则模式
-    pattern = r"^(?P<difficulty>.*?)_(?P<types>\{.*?\})_(?P<title>.*?)\.md$"  # 文件名的匹配模式
+    pattern = r"^(?P<difficulty>div[1-5])_(?P<types>\{[^\}]*\})_(?P<oj>[^_]+)_(?P<title>[^.]+)\.md$"  # 更新后的匹配模式
     
     # 遍历文件目录，从 OJ 子文件夹开始
     oj_directory = os.path.join(root_directory, 'OJ')
@@ -106,8 +109,7 @@ def generate_catalog_html(root_directory, catalog_html_path):
                 match = re.match(pattern, file)
                 if match:
                     title = match.group("title")
-                    oj = title.rsplit("_",1)[0]
-                    title = title.rsplit('_', 1)[-1]  # 提取倒数第一个"_"后的部分作为标题
+                    oj = match.group("oj")
                     difficulty = match.group("difficulty")
                     types = match.group("types")
                     
@@ -116,7 +118,7 @@ def generate_catalog_html(root_directory, catalog_html_path):
                     
                     # 构建带有前缀的目录项链接
                     full_url = f"https://aliceauto.github.io/刷题模块/OJ/{relative_path.replace(os.sep, '/')}"
-                    
+
                     # 构建目录项
                     catalog_html.append("<div class=\"problem-item\">")
                     catalog_html.append(f"  <a href=\"{full_url}\">{title}</a>")
@@ -138,7 +140,6 @@ def generate_catalog_html(root_directory, catalog_html_path):
 # root_directory = "/path/to/root"
 # catalog_html_path = "/path/to/output/catalog.html"
 # generate_catalog_html(root_directory, catalog_html_path)
-
 
 
 # ------------------------------ 中文字体设置 ------------------------------
@@ -224,35 +225,13 @@ def set_chinese_font(config=None):
 
 # ------------------------------ 文件分析 ------------------------------
 # 用于解析文件名的正则表达式
-pattern = r"^(?P<difficulty>.*?)_(?P<types>\{.*?\})_(?P<title>.*?)\.md$"
 
 
 import re
+import os
 
-# 用于解析文件名的正则表达式
-pattern = r"^(?P<difficulty>.*?)_(?P<types>\{.*?\})_(?P<title>.*?)\.md$"
-author_pattern = r"\[(.*?)\]"  # 用于匹配 [作者1;作者2] 格式
-
+import os
 import re
-from collections import defaultdict
-
-# 用于解析文件名的正则表达式
-pattern = r"^(?P<difficulty>.*?)_(?P<types>\{.*?\})_(?P<title>.*?)\.md$"
-author_pattern = r"\[(.*?)\]"  # 用于匹配 [作者1;作者2...作者n] 格式
-
-import re
-from collections import defaultdict
-
-# 用于解析文件名的正则表达式
-pattern = r"^(?P<difficulty>.*?)_(?P<types>\{.*?\})_(?P<title>.*?)\.md$"
-author_pattern = r"\[(.*?)\]"  # 用于匹配 [作者1;作者2...作者n] 格式
-
-import re
-from collections import defaultdict
-
-# 用于解析文件名的正则表达式
-pattern = r"^(?P<difficulty>.*?)_(?P<types>\{.*?\})_(?P<title>.*?)\.md$"
-author_pattern = r"\[(.*?)\]"  # 用于匹配 [作者1;作者2...作者n] 格式
 
 import re
 import os
@@ -261,46 +240,63 @@ import os
 import re
 
 def analyze_filename(filename, directory, max_lines=20):
-    """解析文件名并返回 div 和类型信息，同时读取文件的 Front Matter 获取作者信息"""
-    pattern = r"your-regex-pattern-here"  # 替换为您实际的正则表达式
-    match = re.match(pattern, filename)
-    
-    if match:
-        types = match.group("types")[1:-1].split(";")  # 去除花括号并分割类型
-        div_match = re.findall(r'div[1-5]', filename)
-        authors = None
-        
+    """解析文件名并返回 div、类型、OJ 和作者信息，同时读取文件的 Front Matter 获取作者信息"""
+    # 文件名格式预期为 divX_{类型}_OJ_比赛名.md
+    # 我们可以通过字符串分割来提取相关信息
+
+    # 确保文件名符合预期格式
+    if filename.endswith(".md"):
         try:
-            with open(os.path.join(directory, filename), 'r', encoding='utf-8') as file:
-                # 读取前几行以获取 Front Matter 信息
-                front_matter = ''
-                line_count = 0
-                
-                while line_count < max_lines:
-                    line = file.readline().strip()
-                    print("line..")
-                    if not line:  # 如果是空行则跳过
-                        continue
-                    
-                    if line == '---':
-                        if front_matter:  # 如果已经开始了 Front Matter 的读取，则跳出
-                            break
-                    front_matter += line + '\n'
-                    line_count += 1
+            # 解析文件名
+            parts = filename[:-3].split('_')  # 去除 ".md" 后分割文件名
+            div_part = parts[0]  # divX
+            types_part = parts[1][1:-1]  # 去除花括号
+            oj_part = parts[2]  # OJ
+            contest_part = parts[3]  # 比赛名
+            
+            div = div_part[3:]  # 获取数字部分，即 divX 中的 X
+            types = types_part.split(';')  # 处理类型，可以有多个
+            oj = oj_part  # OJ 平台
+            contest = contest_part  # 比赛名
 
-                # 从 Front Matter 中提取 author 信息
-                author_match = re.search(r'author:\s*"([^"]+)"', front_matter)
-                if author_match:
-                    authors = [author_match.group(1).strip()]  # 提取作者并去除空白字符
-                else:
-                    authors = ['Unknown']  # 如果没有找到作者信息，设置为 'Unknown'
+            # 默认作者信息为空
+            authors = None
+            
+            try:
+                # 读取文件的 Front Matter 部分，获取作者信息
+                with open(os.path.join(directory, filename), 'r', encoding='utf-8') as file:
+                    front_matter = ''
+                    line_count = 0
 
-        except Exception as e:
-            print(f"读取文件 {filename} 出错: {e}")
+                    while line_count < max_lines:
+                        line = file.readline().strip()
+                        if not line:  # 如果是空行则跳过
+                            continue
+                        
+                        if line == '---':  # 到达 Front Matter 的分隔符
+                            if front_matter:  # 如果已经读取了 Front Matter，跳出
+                                break
+                        front_matter += line + '\n'
+                        line_count += 1
+
+                    # 从 Front Matter 中提取作者信息
+                    author_match = re.search(r'author:\s*"([^"]+)"', front_matter)
+                    if author_match:
+                        authors = [author_match.group(1).strip()]  # 提取作者并去除空白字符
+                    else:
+                        authors = ['Unknown']  # 如果没有找到作者信息，设置为 'Unknown'
+
+            except Exception as e:
+                print(f"读取文件 {filename} 出错: {e}")
+            
+            return div, types, authors
         
-        return div_match, types, authors
-    
+        except Exception as e:
+            print(f"文件名解析失败: {filename}, 错误: {e}")
+            return None, None, None
+
     return None, None, None
+
 
 '''
 (['div1'], ['type1', 'type2'], ['小明'])

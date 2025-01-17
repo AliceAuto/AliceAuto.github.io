@@ -102,6 +102,8 @@ def generate_catalog_html(root_directory, catalog_html_path):
     
     # 遍历文件目录，从 OJ 子文件夹开始
     oj_directory = os.path.join(root_directory, 'OJ')
+    catalog_items = []
+
     for root, dirs, files in os.walk(oj_directory):
         for file in files:
             if file.endswith(".md"):
@@ -111,7 +113,7 @@ def generate_catalog_html(root_directory, catalog_html_path):
                     title = match.group("title")
                     oj = match.group("oj")
                     difficulty = match.group("difficulty")
-                    types = match.group("types")
+                    types = match.group("types")[1:-1].split(';')  # 移除花括号并分割类型
                     
                     # 生成相对路径链接，并移除 `OJ` 前缀
                     relative_path = os.path.relpath(os.path.join(root, file), oj_directory)
@@ -119,10 +121,19 @@ def generate_catalog_html(root_directory, catalog_html_path):
                     # 构建带有前缀的目录项链接
                     full_url = f"https://aliceauto.github.io/刷题模块/OJ/{relative_path.replace(os.sep, '/')}"
 
-                    # 构建目录项
+                    # 目录项
+                    catalog_items.append({
+                        "title": title,
+                        "difficulty": difficulty,
+                        "types": ', '.join(types),
+                        "oj": oj,
+                        "url": full_url
+                    })
+
+                    # HTML 目录项
                     catalog_html.append("<div class=\"problem-item\">")
                     catalog_html.append(f"  <a href=\"{full_url}\">{title}</a>")
-                    catalog_html.append(f"  <div class=\"problem-meta\">难度: {difficulty} | 类型: {types}| OJ: {oj}</div>")
+                    catalog_html.append(f"  <div class=\"problem-meta\">难度: {difficulty} | 类型: {', '.join(types)} | OJ: {oj}</div>")
                     catalog_html.append("</div>")
 
     # 添加 HTML 尾部
@@ -135,11 +146,33 @@ def generate_catalog_html(root_directory, catalog_html_path):
         f.write("\n".join(catalog_html))
 
     print(f"目录 HTML 文件已生成: {catalog_html_path}")
+    
+    # 同时生成 README.md 文件
+    generate_readme_md(catalog_items, os.path.join(root_directory, "OJ/README.md"))
 
-# 示例调用
-# root_directory = "/path/to/root"
-# catalog_html_path = "/path/to/output/catalog.html"
-# generate_catalog_html(root_directory, catalog_html_path)
+def generate_readme_md(catalog_items, readme_md_path):
+    """生成 Markdown 格式的目录文件"""
+    readme_md = []
+
+    readme_md.append("# 题目目录")
+    readme_md.append("\n以下是所有题目的目录，点击链接可跳转到对应题目。")
+    readme_md.append("\n")
+
+    for item in catalog_items:
+        # 确保 item 是一个字典对象
+        if isinstance(item, dict):
+            readme_md.append(f"## {item['title']}")
+            readme_md.append(f"- **难度**: {item['difficulty']}")
+            readme_md.append(f"- **类型**: {item['types']}")
+            readme_md.append(f"- **OJ**: {item['oj']}")
+            readme_md.append(f"- [点击查看题目]({item['url']})")
+            readme_md.append("\n")
+
+    # 将目录内容写入 Markdown 文件
+    with open(readme_md_path, "w", encoding="utf-8") as f:
+        f.write("\n".join(readme_md))
+
+    print(f"目录 README 文件已生成: {readme_md_path}")
 
 
 # ------------------------------ 中文字体设置 ------------------------------
@@ -503,6 +536,7 @@ class DirectoryHandler(FileSystemEventHandler):
 
 
 
+
 def start_watching(directory, save_directory, interval, mode):
     """ 启动目录监听 """
     event_handler = DirectoryHandler(directory, save_directory, mode, interval)
@@ -558,6 +592,7 @@ if __name__ == "__main__":
 
        
         generate_catalog_html(".", "OJ/index.html")
+  
 
     else:
         print("实时监听模式")

@@ -3,296 +3,240 @@
 以下是所有题目的目录，点击链接可跳转到对应题目。
 
 
-<div class="problem-item">
+## 无趣的数字
+- **难度**: div3
+- **类型**: 贪心
+- **OJ**: Codeforces
+- [点击查看题目](https://aliceauto.github.io/刷题模块/OJ/codeforces/div3_{贪心}_Codeforces_无趣的数字.md)
 
-  - ### [C](codeforces/div3_{贪心;数论}_C.md) **`div3`**
 
-</div>
+## 最大化整数串
+- **难度**: div3
+- **类型**: 贪心
+- **OJ**: Codeforces
+- [点击查看题目](https://aliceauto.github.io/刷题模块/OJ/codeforces/div3_{贪心}_Codeforces_最大化整数串.md)
 
-<div class="problem-item">
 
-  - ### [D](codeforces/div3_{贪心}_D.md) **`div3`**
+## 能不能为0
+- **难度**: div4
+- **类型**: 数学, 思维题
+- **OJ**: Codeforces
+- [点击查看题目](https://aliceauto.github.io/刷题模块/OJ/codeforces/div4_{数学;思维题}_Codeforces_能不能为0.md)
 
-</div>
 
-<div class="problem-item">
+## 数位计数
+- **难度**: div3
+- **类型**: 计数, 思维题, 数位
+- **OJ**: 洛谷
+- [点击查看题目](https://aliceauto.github.io/刷题模块/OJ/洛谷/div3_{计数;思维题;数位}_洛谷_数位计数.md)
 
-  - ### [天梯赛B](天梯赛pta/div2_{二分}_天梯赛B.md) **`div2`**
 
-</div>
+## 我们N个实在太厉害了
+- **难度**: div4
+- **类型**: 数学, 思维题
+- **OJ**: 牛客
+- [点击查看题目](https://aliceauto.github.io/刷题模块/OJ/牛客/周赛60/div4_{数学;思维题}_牛客_我们N个实在太厉害了.md)
 
-<div class="problem-item">
 
-  - ### [天梯赛](天梯赛pta/div2_{思维题;贪心}_天梯赛.md) **`div2`**
+## 字符串重排
+- **难度**: div2
+- **类型**: 思维题, 技巧
+- **OJ**: 牛客
+- [点击查看题目](https://aliceauto.github.io/刷题模块/OJ/牛客/周赛64/div2_{思维题;技巧}_牛客_字符串重排.md)
 
-</div>
 
-<div class="problem-item">
+## 矩阵上的博弈
+- **难度**: div3
+- **类型**: 思维题, 博弈论
+- **OJ**: 牛客
+- [点击查看题目](https://aliceauto.github.io/刷题模块/OJ/牛客/周赛64/div3_{思维题;博弈论}_牛客_矩阵上的博弈.md)
 
-  - ### [天梯赛D](天梯赛pta/div2_{集合论}_天梯赛D.md) **`div2`**
 
-</div>
+## 乌鸦
+- **难度**: div3
+- **类型**: 思维题, 平衡
+- **OJ**: 牛客
+- [点击查看题目](https://aliceauto.github.io/刷题模块/OJ/牛客/周赛65/div3_{思维题;平衡}_牛客_乌鸦.md)
 
-<div class="problem-item">
 
-  - ### [洛谷_数位计数](洛谷/div3_{计数;思维题;数位}_洛谷_数位计数.md) **`div3`**
+## 潮汐
+- **难度**: div4
+- **类型**: 动态规划, 贪心
+- **OJ**: 牛客
+- [点击查看题目](https://aliceauto.github.io/刷题模块/OJ/牛客/周赛65/div4_{动态规划;贪心}_牛客_潮汐.md)
 
-</div>
 
-<div class="problem-item">
+## 蓄水池
+- **难度**: div4
+- **类型**: 并查集
+- **OJ**: 牛客
+- [点击查看题目](https://aliceauto.github.io/刷题模块/OJ/牛客/周赛66/div4_{并查集}_牛客_蓄水池.md)
 
-  - ### [D](牛客/周赛60/div4_{思维题}_D.md) **`div4`**
 
-</div>
+## 为何不贪
+- **难度**: div5
+- **类型**: 贪心, 技巧
+- **OJ**: 牛客
+- [点击查看题目](https://aliceauto.github.io/刷题模块/OJ/牛客/周赛67/div5_{贪心;技巧}_牛客_为何不贪.md)
 
-<div class="problem-item">
 
-  - ### [F](牛客/周赛62/div1_{线段树;树状数组}_F.md) **`div1`**
+## 两个数组
+- **难度**: div3
+- **类型**: 贪心, 思维题, 平衡
+- **OJ**: 牛客
+- [点击查看题目](https://aliceauto.github.io/刷题模块/OJ/牛客/周赛68/div3_{贪心;思维题;平衡}_牛客_两个数组.md)
 
-</div>
 
-<div class="problem-item">
+## 最大矩阵
+- **难度**: div4
+- **类型**: 数学, 前缀和
+- **OJ**: 牛客
+- [点击查看题目](https://aliceauto.github.io/刷题模块/OJ/牛客/周赛68/div4_{数学;前缀和}_牛客_最大矩阵.md)
 
-  - ### [E](牛客/周赛64/div2_{技巧题;思维题}_E.md) **`div2`**
 
-</div>
+## 起啥名呢
+- **难度**: div4
+- **类型**: 搜索, 状态压缩
+- **OJ**: 牛客
+- [点击查看题目](https://aliceauto.github.io/刷题模块/OJ/牛客/周赛69/div4_{搜索;状态压缩}_牛客_起啥名呢.md)
 
-<div class="problem-item">
 
-  - ### [D](牛客/周赛64/div3_{思维题;博弈论;平衡}_D.md) **`div3`**
+## 气球谜题
+- **难度**: div3
+- **类型**: 动态规划
+- **OJ**: 牛客
+- [点击查看题目](https://aliceauto.github.io/刷题模块/OJ/牛客/周赛71/div3_{动态规划}_牛客_气球谜题.md)
 
-</div>
 
-<div class="problem-item">
+## 循环节诈骗
+- **难度**: div4
+- **类型**: 贪心, 思维题, 诈骗题
+- **OJ**: 牛客
+- [点击查看题目](https://aliceauto.github.io/刷题模块/OJ/牛客/周赛71/div4_{贪心;思维题;诈骗题}_牛客_循环节诈骗.md)
 
-  - ### [G](牛客/周赛65/div3_{思维题;平衡}_G.md) **`div3`**
 
-</div>
+## 01串
+- **难度**: div4
+- **类型**: 滑动窗口, 双指针
+- **OJ**: 牛客
+- [点击查看题目](https://aliceauto.github.io/刷题模块/OJ/牛客/周赛72/div4_{滑动窗口;双指针}_牛客_01串.md)
 
-<div class="problem-item">
 
-  - ### [F](牛客/周赛65/div4_{贪心;思维题;动态规划}_F.md) **`div4`**
+## 不一样的01串
+- **难度**: div4
+- **类型**: 贪心, 思维题, 平衡
+- **OJ**: 牛客
+- [点击查看题目](https://aliceauto.github.io/刷题模块/OJ/牛客/周赛72/div4_{贪心;思维题;平衡}_牛客_不一样的01串.md)
 
-</div>
 
-<div class="problem-item">
+## 二分图构造
+- **难度**: div3
+- **类型**: 动态规划
+- **OJ**: 牛客
+- [点击查看题目](https://aliceauto.github.io/刷题模块/OJ/牛客/周赛73/div3_{动态规划}_牛客_二分图构造.md)
 
-  - ### [D](牛客/周赛66/div4_{并查集}_D.md) **`div4`**
 
-</div>
+## 构造01子序列
+- **难度**: div3
+- **类型**: 滑动窗口, 双指针
+- **OJ**: 牛客
+- [点击查看题目](https://aliceauto.github.io/刷题模块/OJ/牛客/周赛73/div3_{滑动窗口;双指针}_牛客_构造01子序列.md)
 
-<div class="problem-item">
 
-  - ### [E](牛客/周赛67/div3_{思维题;贪心}_E.md) **`div3`**
+## 一个排列构造
+- **难度**: div4
+- **类型**: 思维题, 构造
+- **OJ**: 牛客
+- [点击查看题目](https://aliceauto.github.io/刷题模块/OJ/牛客/周赛73/div4_{思维题;构造}_牛客_一个排列构造.md)
 
-</div>
 
-<div class="problem-item">
+## 小红的区间构造
+- **难度**: div5
+- **类型**: 思维题, 构造
+- **OJ**: 牛客
+- [点击查看题目](https://aliceauto.github.io/刷题模块/OJ/牛客/周赛73/div5_{思维题;构造}_牛客_小红的区间构造.md)
 
-  - ### [B](牛客/周赛67/div5_{贪心;技巧题}_B.md) **`div5`**
 
-</div>
+## 最大最小路
+- **难度**: div2
+- **类型**: 图论, 计数, 搜索, 状态压缩, 前后缀
+- **OJ**: 牛客
+- [点击查看题目](https://aliceauto.github.io/刷题模块/OJ/牛客/周赛74/div2_{图论;计数;搜索;状态压缩;前后缀}_牛客_最大最小路.md)
 
-<div class="problem-item">
 
-  - ### [C](牛客/周赛68/div3_{思维题;模拟;贪心}_C.md) **`div3`**
+## 而后单调
+- **难度**: div3
+- **类型**: 二分, 滑动窗口, 双指针
+- **OJ**: 牛客
+- [点击查看题目](https://aliceauto.github.io/刷题模块/OJ/牛客/周赛74/div3_{二分;滑动窗口;双指针}_牛客_而后单调.md)
 
-</div>
 
-<div class="problem-item">
+## 牌神
+- **难度**: div4
+- **类型**: 贪心, 思维题
+- **OJ**: 牛客
+- [点击查看题目](https://aliceauto.github.io/刷题模块/OJ/牛客/周赛74/div4_{贪心;思维题}_牛客_牌神.md)
 
-  - ### [D](牛客/周赛68/div3_{数论}_D.md) **`div3`**
 
-</div>
+## 求格模型(简单版)
+- **难度**: div5
+- **类型**: 思维题
+- **OJ**: 牛客
+- [点击查看题目](https://aliceauto.github.io/刷题模块/OJ/牛客/周赛74/div5_{思维题}_牛客_求格模型(简单版).md)
 
-<div class="problem-item">
 
-  - ### [B](牛客/周赛68/div4_{前缀和;组合数学}_B.md) **`div4`**
+## 联通块问题
+- **难度**: div3
+- **类型**: 思维题, 割点
+- **OJ**: 牛客
+- [点击查看题目](https://aliceauto.github.io/刷题模块/OJ/牛客/小白月赛105/div3_{思维题;割点}_牛客_联通块问题.md)
 
-</div>
 
-<div class="problem-item">
+## 染色方案
+- **难度**: div3
+- **类型**: 计数, 并查集
+- **OJ**: 牛客
+- [点击查看题目](https://aliceauto.github.io/刷题模块/OJ/牛客/小白月赛105/div3_{计数;并查集}_牛客_染色方案.md)
 
-  - ### [D](牛客/周赛69/div4_{DFS;状态压缩}_D.md) **`div4`**
 
-</div>
+## 二维上的贪心
+- **难度**: div4
+- **类型**: 贪心, 思维题
+- **OJ**: 牛客
+- [点击查看题目](https://aliceauto.github.io/刷题模块/OJ/牛客/小白月赛106/div4_{贪心;思维题}_牛客_二维上的贪心.md)
 
-<div class="problem-item">
 
-  - ### [E](牛客/周赛69/div4_{前后缀;贪心;树状数组}_E.md) **`div4`**
+## 数学家的胃
+- **难度**: div4
+- **类型**: 数学, 组合优化
+- **OJ**: 牛客
+- [点击查看题目](https://aliceauto.github.io/刷题模块/OJ/牛客/杂/div4_{数学;组合优化}_牛客_数学家的胃.md)
 
-</div>
 
-<div class="problem-item">
+## 纸牌之王
+- **难度**: div5
+- **类型**: 思维题
+- **OJ**: 牛客
+- [点击查看题目](https://aliceauto.github.io/刷题模块/OJ/牛客/杂/div5_{思维题}_牛客_纸牌之王.md)
 
-  - ### [D](牛客/周赛71/div3_{动态规划}_D.md) **`div3`**
 
-</div>
+## 生物繁育问题
+- **难度**: div5
+- **类型**: 数学, 思维题
+- **OJ**: 牛客
+- [点击查看题目](https://aliceauto.github.io/刷题模块/OJ/牛客/杂/div5_{数学;思维题}_牛客_生物繁育问题.md)
 
-<div class="problem-item">
 
-  - ### [C](牛客/周赛71/div4_{思维题;诈骗题;贪心}_C.md) **`div4`**
+## 狠狠地算吗
+- **难度**: div5
+- **类型**: 贪心, 数学, 思维题
+- **OJ**: 牛客
+- [点击查看题目](https://aliceauto.github.io/刷题模块/OJ/牛客/杂/div5_{贪心;数学;思维题}_牛客_狠狠地算吗.md)
 
-</div>
 
-<div class="problem-item">
+## 闸门点灯
+- **难度**: div3
+- **类型**: 搜索, 状态压缩
+- **OJ**: 牛客
+- [点击查看题目](https://aliceauto.github.io/刷题模块/OJ/牛客/跨年娱乐赛/div3_{搜索;状态压缩}_牛客_闸门点灯.md)
 
-  - ### [D](牛客/周赛72/div3_{动态规划;图论}_D.md) **`div3`**
-
-</div>
-
-<div class="problem-item">
-
-  - ### [B](牛客/周赛72/div4_{滑动窗口;双指针}_B.md) **`div4`**
-
-</div>
-
-<div class="problem-item">
-
-  - ### [C](牛客/周赛72/div4_{贪心;模拟;平衡;构造}_C.md) **`div4`**
-
-</div>
-
-<div class="problem-item">
-
-  - ### [F](牛客/周赛73/div2_{未知}_F.md) **`div2`**
-
-</div>
-
-<div class="problem-item">
-
-  - ### [E](牛客/周赛73/div3_{动态规划}_E.md) **`div3`**
-
-</div>
-
-<div class="problem-item">
-
-  - ### [D](牛客/周赛73/div3_{双指针;滑动窗口}_D.md) **`div3`**
-
-</div>
-
-<div class="problem-item">
-
-  - ### [C](牛客/周赛73/div4_{构造;思维题}_C.md) **`div4`**
-
-</div>
-
-<div class="problem-item">
-
-  - ### [B](牛客/周赛73/div5_{思维题}_B.md) **`div5`**
-
-</div>
-
-<div class="problem-item">
-
-  - ### [牛客_F](牛客/周赛74/div2_{图论;计数;搜索;状态压缩;前后缀}_牛客_F.md) **`div2`**
-
-</div>
-
-<div class="problem-item">
-
-  - ### [牛客_E_1](牛客/周赛74/div3_{二分;滑动窗口;双指针}_牛客_E_1.md) **`div3`**
-
-</div>
-
-<div class="problem-item">
-
-  - ### [牛客_E_2](牛客/周赛74/div3_{思维题}_牛客_E_2.md) **`div3`**
-
-</div>
-
-<div class="problem-item">
-
-  - ### [牛客_D](牛客/周赛74/div4_{贪心;思维题}_牛客_D.md) **`div4`**
-
-</div>
-
-<div class="problem-item">
-
-  - ### [牛客_B](牛客/周赛74/div5_{思维题;构造}_牛客_B.md) **`div5`**
-
-</div>
-
-<div class="problem-item">
-
-  - ### [C](牛客/小白月赛105/div3_{割点;思维题}_C.md) **`div3`**
-
-</div>
-
-<div class="problem-item">
-
-  - ### [D](牛客/小白月赛105/div3_{计数;并查集}_D.md) **`div3`**
-
-</div>
-
-<div class="problem-item">
-
-  - ### [D](牛客/小白月赛106/div3_{最短路}_D.md) **`div3`**
-
-</div>
-
-<div class="problem-item">
-
-  - ### [C](牛客/小白月赛106/div4_{思维题;贪心}_C.md) **`div4`**
-
-</div>
-
-<div class="problem-item">
-
-  - ### [B](牛客/小白月赛107/div5_{思维题}_B.md) **`div5`**
-
-</div>
-
-<div class="problem-item">
-
-  - ### [47](牛客/杂/div4_{数论;组合优化}_47.md) **`div4`**
-
-</div>
-
-<div class="problem-item">
-
-  - ### [40](牛客/杂/div5_{思维题}_40.md) **`div5`**
-
-</div>
-
-<div class="problem-item">
-
-  - ### [41](牛客/杂/div5_{思维题}_41.md) **`div5`**
-
-</div>
-
-<div class="problem-item">
-
-  - ### [N](牛客/杂/div5_{思维题}_N.md) **`div5`**
-
-</div>
-
-<div class="problem-item">
-
-  - ### [NONE](牛客/杂/div5_{思维题}_NONE.md) **`div5`**
-
-</div>
-
-<div class="problem-item">
-
-  - ### [A](牛客/牛客挑战赛78/div3_{思维题}_A.md) **`div3`**
-
-</div>
-
-<div class="problem-item">
-
-  - ### [牛客_控制灯笼](牛客/跨年娱乐赛/div3_{搜索;状态压缩}_牛客_控制灯笼.md) **`div3`**
-
-</div>
-
-<div class="problem-item">
-
-  - ### [B](蓝桥杯/蓝桥算法双周赛24/div5_{数论}_B.md) **`div5`**
-
-</div>
-
-<div class="problem-item">
-
-  - ### [D](蓝桥杯/蓝桥算法双周赛24/div5_{数论}_D.md) **`div5`**
-
-</div>

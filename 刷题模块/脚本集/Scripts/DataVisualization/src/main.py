@@ -154,19 +154,24 @@ def generate_readme_md(catalog_items, readme_md_path):
     """生成 Markdown 格式的目录文件"""
     readme_md = []
 
+    # 添加标题和简介
     readme_md.append("# 题目目录")
-    readme_md.append("\n以下是所有题目的目录，点击链接可跳转到对应题目。")
-    readme_md.append("\n")
+    readme_md.append("\n以下是所有题目的目录，点击题目名称可跳转到对应题目。\n")
 
+    # 添加表格的表头
+    readme_md.append("| 题目名称 | 难度 | 类型 | OJ平台 |")
+    readme_md.append("| :------- | :--- | :--- | :----- |")
+
+    # 遍历每个目录项，按格式生成表格行
     for item in catalog_items:
         # 确保 item 是一个字典对象
         if isinstance(item, dict):
-            readme_md.append(f"## {item['title']}")
-            readme_md.append(f"- **难度**: {item['difficulty']}")
-            readme_md.append(f"- **类型**: {item['types']}")
-            readme_md.append(f"- **OJ**: {item['oj']}")
-            readme_md.append(f"- [点击查看题目]({item['url']})")
-            readme_md.append("\n")
+            # 题目名称变成一个链接
+            readme_md.append(f"| [**{item['title']}**]({item['url']}) | {item['difficulty']} | {item['types']} | {item['oj']} |")
+
+    # 添加结尾
+    readme_md.append("\n---")
+    readme_md.append("欢迎贡献更多题目！")
 
     # 将目录内容写入 Markdown 文件
     with open(readme_md_path, "w", encoding="utf-8") as f:

@@ -106,6 +106,8 @@ def generate_catalog_html(root_directory, catalog_html_path):
                 match = re.match(pattern, file)
                 if match:
                     title = match.group("title")
+                    oj = title.rsplit("_",1)[0]
+                    title = title.rsplit('_', 1)[-1]  # 提取倒数第一个"_"后的部分作为标题
                     difficulty = match.group("difficulty")
                     types = match.group("types")
                     
@@ -118,7 +120,7 @@ def generate_catalog_html(root_directory, catalog_html_path):
                     # 构建目录项
                     catalog_html.append("<div class=\"problem-item\">")
                     catalog_html.append(f"  <a href=\"{full_url}\">{title}</a>")
-                    catalog_html.append(f"  <div class=\"problem-meta\">难度: {difficulty} | 类型: {types}</div>")
+                    catalog_html.append(f"  <div class=\"problem-meta\">难度: {difficulty} | 类型: {types}| OJ: {oj}</div>")
                     catalog_html.append("</div>")
 
     # 添加 HTML 尾部

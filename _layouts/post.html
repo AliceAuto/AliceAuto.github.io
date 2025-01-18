@@ -1,73 +1,53 @@
-<!-- _layouts/default.html -->
+---
+layout: post
+title: "{{ page.title }}"
+date: {{ page.date }}
+categories: {{ page.categories }}
+---
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  {% include head.html %}
-  <!-- 基础 Meta 标签 -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="author" content="{{ site.author | default: 'Your Name' }}">
-  <meta name="description" content="{{ page.description | default: site.description }}">
-  <meta name="keywords" content="{{ page.keywords | default: site.keywords }}">
-  <meta name="robots" content="index, follow">
-  
-  <!-- 公式渲染 -->
-  <script type="text/javascript" async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.7/es5/tex-mml-chtml.js"></script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css">
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.js"></script>
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/contrib/auto-render.min.js"></script>
-  
-  <!-- 网站图标 -->
-  <link rel="icon" href="{{ "/assets/images/favicon.ico" | relative_url }}">
-
-  <!-- 页面标题 -->
-  <title>{{ page.title | default: site.title }}</title>
-
-  <!-- Open Graph Meta 标签（用于社交媒体分享） -->
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="{{ page.title | default: site.title }}">
-  <meta property="og:description" content="{{ page.description | default: site.description }}">
-  <meta property="og:image" content="{{ "/assets/images/og-image.jpg" | relative_url }}">
-  <meta property="og:url" content="{{ page.url | absolute_url }}">
-
-  <!-- Twitter Card Meta 标签 -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="{{ page.title | default: site.title }}">
-  <meta name="twitter:description" content="{{ page.description | default: site.description }}">
-  <meta name="twitter:image" content="{{ "/assets/images/twitter-image.jpg" | relative_url }}">
-
-  <!-- 外部字体 (Google Fonts) -->
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  
-  <!-- 可以在这里添加更多的 head 标签，例如 Google Analytics 或其他服务 -->
+  <title>{{ page.title }}</title>
+  <link rel="stylesheet" href="/assets/css/style.css"> <!-- 假设样式文件在 assets/css 文件夹中 -->
 </head>
 <body>
 
   <!-- Header -->
   <header>
-
-
-    <!-- 返回按钮 -->
-    <button onclick="window.history.back()">Back</button>
-
-    <!-- 回到主页按钮 -->
-    <button onclick="window.location.href='{{ site.baseurl | default: "/" }}'">Go to Homepage</button>
+    <div>
+      <h1>My Jekyll Blog</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </nav>
   </header>
 
   <!-- Main Content -->
   <main>
-    <article class="content">
-      {{ content }}
-    </article>
+    <div class="content">
+      <h2>{{ page.title }}</h2>
+      <p><em>Published on {{ page.date | date: "%B %d, %Y" }}</em></p>
+
+      <div class="post-body">
+        {{ content }} <!-- 渲染文章内容 -->
+      </div>
+
+      <!-- Button 示例 -->
+      <button onclick="window.location.href='/'">Back to Home</button>
+    </div>
   </main>
 
   <!-- Footer -->
   <footer>
-    <p>&copy; {{ "now" | date: "%Y" }} {{ site.title }}. All Rights Reserved.</p>
+    <p>&copy; {{ site.time | date: "%Y" }} My Jekyll Blog. All rights reserved.</p>
   </footer>
-
-  <!-- JavaScript -->
-  <script src="{{ "/assets/js/main.js" | relative_url }}"></script>
 
 </body>
 </html>

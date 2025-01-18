@@ -10,7 +10,13 @@
   <meta name="description" content="{{ page.description | default: site.description }}">
   <meta name="keywords" content="{{ page.keywords | default: site.keywords }}">
   <meta name="robots" content="index, follow">
-
+  
+  <!-- 公式渲染 -->
+  <script type="text/javascript" asyncsrc="https://cdn.jsdelivr.net/npm/mathjax@2.7.7/es5/tex-mml-chtml.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css">
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/contrib/auto-render.min.js"></script>
+  
   <!-- 网站图标 -->
   <link rel="icon" href="{{ "/assets/images/favicon.ico" | relative_url }}">
 
@@ -33,8 +39,7 @@
   <!-- 外部字体 (Google Fonts) -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
-  <!-- 外部样式文件 -->
-  <link rel="stylesheet" href="{{ "/assets/css/style.css" | relative_url }}">
+
 
   <!-- 可以在这里添加更多的 head 标签，例如 Google Analytics 或其他服务 -->
 </head>

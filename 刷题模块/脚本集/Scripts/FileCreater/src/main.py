@@ -170,7 +170,7 @@ def create_file_in_directory(root_dir, subfolder, file_name, username):
             file.write(f"date: {current_date}\n")  # 使用实时日期
             file.write(f"author: \"{username}\"\n")
             file.write(f"---\n\n")
-            file.write("# [返回](https://aliceauto.github.io/%E5%88%B7%E9%A2%98%E6%A8%A1%E5%9D%97/OJ/)\n")  # 可以根据需要填充更多内容
+            file.write("#### [备用返回通道](https://aliceauto.github.io/%E5%88%B7%E9%A2%98%E6%A8%A1%E5%9D%97/OJ/)\n")  # 可以根据需要填充更多内容
 
         messagebox.showinfo("成功", f"文件已创建：{file_path}")
         # 关闭文件创建窗口

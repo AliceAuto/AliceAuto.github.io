@@ -5,37 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ page.title }}</title>
 
-  <!-- 加载 KaTeX -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.5/dist/katex.min.css">
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.5/dist/katex.min.js"></script>
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.5/dist/contrib/auto-render.min.js"></script>
-  <script type="text/javascript">
-    document.addEventListener("DOMContentLoaded", function() {
-      renderMathInElement(document.body, {
-        delimiters: [
-          { left: "$$", right: "$$", display: true },
-          { left: "$", right: "$", display: false }
-        ]
-      });
-    });
-  </script>
 
   <style>
     /* 按钮的样式 */
     .btn {
-      background-color: #007bff;
-      color: white;
-      padding: 10px 20px;
-      border-radius: 5px;
-      font-size: 16px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-      text-align: center;
-      text-decoration: none;
+      background-color: #a0bddd; /* 蓝色背景 */
+      color: rgb(49, 46, 46); /* 白色文字 */
+      padding: 10px 20px; /* 内边距 */
+      font-size: 16px; /* 字体大小 */
+      border: none; /* 去除边框 */
+      border-radius: 5px; /* 圆角按钮 */
+      cursor: pointer; /* 鼠标悬停时显示为点击手指 */
+      transition: background-color 0.3s; /* 背景色过渡效果 */
+      margin: 20px; /* 按钮之间的间距 */
     }
 
     .btn:hover {
-      background-color: #0056b3;
+      background-color: #0056b3; /* 悬停时的背景色 */
     }
 
     /* 页面头部的样式 */
@@ -54,12 +40,12 @@
 
     /* 文章内容的样式 */
     .content {
-      max-width: 900px;
+      max-width: 800px;
       margin: 0 auto;
       padding: 20px;
       background-color: white;
       border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     }
 
     /* 日期的样式 */
@@ -67,19 +53,6 @@
       font-size: 14px;
       color: #6c757d;
       margin-bottom: 20px;
-    }
-
-    /* 代码块样式 */
-    pre code {
-      background-color: #2d2d2d; /* 更深的背景色 */
-      color: #f8f8f2; /* 明亮的文本颜色 */
-      padding: 12px;
-      border-radius: 5px;
-      font-family: "Courier New", Courier, monospace;
-      font-size: 1em;
-      line-height: 1.6;
-      overflow-x: auto;
-      border: 1px solid #444;
     }
 
     /* 一些常见的 Markdown 样式 */
@@ -160,12 +133,32 @@
       background-color: #f9f9f9;
     }
 
+    /* 代码块样式 */
+ 
+
+    /* 自定义代码高亮样式 */
+    pre {
+      background-color: #f4f4f4;
+      padding: 10px;
+      border-radius: 5px;
+    }
+
+    code {
+      font-family: "Courier New", Courier, monospace;
+      color: #d73a49;
+    }
+
+    pre code {
+      background-color: #282c34;
+      color: #abb2bf;
+    }
     /* 链接样式 */
     a {
       color: #007BFF;
       text-decoration: none;
       border-bottom: 1px solid #007BFF;
     }
+    
 
     a:hover {
       text-decoration: underline;

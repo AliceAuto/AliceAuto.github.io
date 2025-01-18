@@ -12,37 +12,57 @@ categories: {{ page.categories }}
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ page.title }}</title>
   <link rel="stylesheet" href="/assets/css/style.css"> <!-- 假设样式文件在 assets/css 文件夹中 -->
+  <style>
+    /* 按钮的样式 */
+    .back-btn {
+      background-color: #007BFF; /* 蓝色背景 */
+      color: white; /* 白色文字 */
+      padding: 10px 20px; /* 内边距 */
+      font-size: 16px; /* 字体大小 */
+      border: none; /* 去除边框 */
+      border-radius: 5px; /* 圆角按钮 */
+      cursor: pointer; /* 鼠标悬停时显示为点击手指 */
+      transition: background-color 0.3s; /* 背景色过渡效果 */
+    }
+    
+    .back-btn:hover {
+      background-color: #0056b3; /* 悬停时的背景色 */
+    }
+
+    /* 主体内容区域的样式 */
+    .content {
+      padding: 20px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    /* 页面头部的样式 */
+    header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    /* 页脚样式 */
+    footer {
+      text-align: center;
+      padding: 20px 0;
+      background-color: #f8f9fa;
+      margin-top: 20px;
+    }
+  </style>
 </head>
 <body>
 
   <!-- Header -->
   <header>
-    <div>
-      <h1>My Jekyll Blog</h1>
-    </div>
-    <nav>
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/about">About</a></li>
-        <li><a href="/contact">Contact</a></li>
-      </ul>
-    </nav>
+    <p><em>Published on {{ page.date | date: "%B %d, %Y" }}</em></p>
+    <button class="back-btn" onclick="window.location.href='/'">Back to Home</button> <!-- 美观的返回按钮 -->
   </header>
 
   <!-- Main Content -->
-  <main>
-    <div class="content">
-      <h2>{{ page.title }}</h2>
-      <p><em>Published on {{ page.date | date: "%B %d, %Y" }}</em></p>
 
-      <div class="post-body">
-        {{ content }} <!-- 渲染文章内容 -->
-      </div>
+{{ content }} <!-- 渲染文章内容 -->
 
-      <!-- Button 示例 -->
-      <button onclick="window.location.href='/'">Back to Home</button>
-    </div>
-  </main>
 
   <!-- Footer -->
   <footer>

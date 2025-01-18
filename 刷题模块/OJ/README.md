@@ -33,6 +33,7 @@
 | [**联通块问题**](https://aliceauto.github.io/刷题模块/OJ/牛客/小白月赛105/div3_{思维题;割点}_牛客_联通块问题.md) | div3 | 思维题, 割点 | 牛客 |
 | [**染色方案**](https://aliceauto.github.io/刷题模块/OJ/牛客/小白月赛105/div3_{计数;并查集}_牛客_染色方案.md) | div3 | 计数, 并查集 | 牛客 |
 | [**二维上的贪心**](https://aliceauto.github.io/刷题模块/OJ/牛客/小白月赛106/div4_{贪心;思维题}_牛客_二维上的贪心.md) | div4 | 贪心, 思维题 | 牛客 |
+| [**猪猪的养成计划**](https://aliceauto.github.io/刷题模块/OJ/牛客/小白月赛109/div4_{思维题;技巧}_牛客_猪猪的养成计划.md) | div4 | 思维题, 技巧 | 牛客 |
 | [**数学家的胃**](https://aliceauto.github.io/刷题模块/OJ/牛客/杂/div4_{数学;组合优化}_牛客_数学家的胃.md) | div4 | 数学, 组合优化 | 牛客 |
 | [**纸牌之王**](https://aliceauto.github.io/刷题模块/OJ/牛客/杂/div5_{思维题}_牛客_纸牌之王.md) | div5 | 思维题 | 牛客 |
 | [**生物繁育问题**](https://aliceauto.github.io/刷题模块/OJ/牛客/杂/div5_{数学;思维题}_牛客_生物繁育问题.md) | div5 | 数学, 思维题 | 牛客 |

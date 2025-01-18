@@ -1,11 +1,11 @@
-# 站点的基础设置
-title: 我的博客
-description: 这是我的 Jekyll 博客
-url: "https://AliceAuto.github.io"
-
-# 代码高亮设置
-highlighter: rouge
 markdown: kramdown
-
-# 主题配置（如果有的话）
-theme: jekyll-theme-minimal
+kramdown:
+ syntax_highlighter: rouge
+ syntax_highlighter_opts: # Rouge Options › https://github.com/jneen/rouge#full-options
+ css_class: highlight
+ # default_lang: console
+ span:
+ line_numbers: false
+ block:
+ line_numbers: true
+ start_line: 1

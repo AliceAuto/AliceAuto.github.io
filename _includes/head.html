@@ -1,0 +1,27 @@
+<head>
+    <!-- 网站编码 -->
+    <meta charset="UTF-8">
+    
+    <!-- 视口设置，确保移动设备兼容 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- 网站标题 -->
+    <title>{{ site.title }}</title>
+    
+    <!-- 网站描述 -->
+    <meta name="description" content="{{ site.description }}">
+    
+    <!-- 设置网站图标（favicon） -->
+    <link rel="icon" href="/assets/images/logo.png" type="image/png">
+    
+    <!-- 网站样式 -->
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+    
+    <!-- 其他可以根据需要添加的 meta 信息 -->
+    <meta name="author" content="{{ site.author }}">
+    <meta property="og:title" content="{{ site.title }}">
+    <meta property="og:description" content="{{ site.description }}">
+    
+    <!-- 引入 Google 字体 -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>

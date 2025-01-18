@@ -1,4 +1,4 @@
-# ![alt text](/资源依赖/icon.png) 
+# ![alt text](/assets/images/icon.png) 
 # AcEasy 算法训练平台
 
 ---

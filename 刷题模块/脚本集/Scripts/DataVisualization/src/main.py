@@ -74,6 +74,7 @@ def generate_catalog_html(root_directory, catalog_html_path):
     catalog_html.append("<!DOCTYPE html>")
     catalog_html.append("<html lang=\"zh\">")
     catalog_html.append("<head>")
+    catalog_html.append("    <link rel=\"icon\" href=\"/assets/LOGO.png\" type=\"image/png\">")
     catalog_html.append("    <meta charset=\"UTF-8\">")
     catalog_html.append("    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">")
     catalog_html.append("    <title>题目目录</title>")

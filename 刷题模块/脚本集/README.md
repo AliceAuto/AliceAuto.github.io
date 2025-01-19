@@ -37,10 +37,8 @@ pip install -r requirements.txt
 ```shell
 pip install matplotlib watchdog keyboard
 ```
-`注意:记得配置python的环境变量`
+`注意:记得配置python的环境变量，不太明白的使用` **`豆包MarsCode`(web)端工作区** `直接装python拓展插件即可`
 ---
-
-## **使用说明**
 
 
 

@@ -1,260 +1,261 @@
 /* 基本重置 */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Arial', sans-serif;
-}
-
-/* 页面背景色 */
-body {
-  background-color: #f7f7f7;
-  color: #333;
-  line-height: 1.6;
-  padding: 30px;
-}
-
-/* 页面容器 */
-.container {
-  max-width: 1000px;
-  margin: 0 auto;
-  background-color: #ffffff;
-  padding: 30px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* 页面标题 */
-h1, h2, h3 {
-  color: #2c3e50;
-  margin-bottom: 15px;
-}
-
-h1 {
-  font-size: 3rem;
-  font-weight: bold;
-}
-
-h2 {
-  font-size: 2.5rem;
-  margin-bottom: 15px;
-  border-bottom: 2px solid #ddd;
-  padding-bottom: 5px;
-}
-
-h3 {
-  font-size: 1.8rem;
-  margin-bottom: 10px;
-  color: #555;
-}
-
-/* 段落样式 */
-p {
-  font-size: 1.1rem;
-  margin-bottom: 20px;
-  line-height: 1.8;
-  text-align: justify;
-}
-
-/* 链接样式 */
-a {
-  color: #3498db;
-  text-decoration: none;
-  transition: color 0.3s ease, text-decoration 0.3s ease;
-}
-
-a:hover {
-  color: #2980b9;
-  text-decoration: underline;
-}
-
-/* 图片样式 */
-img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px;
-}
-
-/* 引用样式 */
-blockquote {
-  background-color: #f9f9f9;
-  padding: 20px;
-  border-left: 5px solid #3498db;
-  margin: 20px 0;
-  font-style: italic;
-  color: #555;
-  font-size: 1.2rem;
-}
-
-/* 列表样式 */
-ul, ol {
-  margin-bottom: 20px;
-}
-
-li {
-  margin-bottom: 10px;
-  font-size: 1.1rem;
-}
-
-/* 代码块样式 */
-pre {
-  background-color: #2c3e50;
-  color: white;
-  padding: 20px;
-  border-radius: 8px;
-  overflow-x: auto;
-  margin-bottom: 20px;
-}
-
-code {
-  font-family: 'Courier New', Courier, monospace;
-  font-size: 1.1rem;
-  color: #e74c3c;
-}
-
-/* 页脚样式 */
-footer {
-  text-align: center;
-  font-size: 1rem;
-  color: #7f8c8d;
-  margin-top: 40px;
-  padding-top: 20px;
-}
-
-footer a {
-  color: #3498db;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-footer a:hover {
-  color: #2980b9;
-}
-
-/* 文章样式 */
-article {
-  margin-bottom: 40px;
-}
-
-/* 文章标题样式 */
-article h2 {
-  font-size: 2.5rem;
-  margin-bottom: 10px;
-  font-weight: bold;
-}
-
-/* 文章 meta 信息 */
-article .meta {
-  font-size: 0.9rem;
-  color: #7f8c8d;
-  margin-bottom: 20px;
-}
-
-/* 侧边栏样式 */
-.sidebar {
-  width: 300px;
-  float: right;
-  margin-left: 30px;
-  background-color: #f4f4f4;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-.sidebar h3 {
-  font-size: 1.5rem;
-  margin-bottom: 10px;
-}
-
-/* 侧边栏小部件样式 */
-.widget {
-  margin-bottom: 30px;
-}
-
-.widget ul {
-  list-style-type: none;
-}
-
-.widget ul li {
-  margin-bottom: 10px;
-}
-
-.widget ul li a {
-  color: #3498db;
-  font-size: 1.1rem;
-  transition: color 0.3s ease;
-}
-
-.widget ul li a:hover {
-  color: #2980b9;
-}
-
-/* 响应式设计 */
-@media (max-width: 1024px) {
-  .container {
-      padding: 20px;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
   }
-
+  
+  /* 页面背景色 */
+  body {
+    background-color: #f7f7f7;
+    color: #333;
+    line-height: 1.6;
+    padding: 30px;
+  }
+  
+  /* 页面容器 */
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* 页面标题 */
+  h1, h2, h3 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+  }
+  
+  h1 {
+    font-size: 3rem;
+    font-weight: bold;
+  }
+  
+  h2 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 5px;
+  }
+  
+  h3 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: #555;
+  }
+  
+  /* 段落样式 */
+  p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    line-height: 1.8;
+    text-align: justify;
+  }
+  
+  /* 链接样式 */
+  a {
+    color: #3498db;
+    text-decoration: none;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+  }
+  
+  a:hover {
+    color: #2980b9;
+    text-decoration: underline;
+  }
+  
+  /* 图片样式 */
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  }
+  
+  /* 引用样式 */
+  blockquote {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-left: 5px solid #3498db;
+    margin: 20px 0;
+    font-style: italic;
+    color: #555;
+    font-size: 1.2rem;
+  }
+  
+  /* 列表样式 */
+  ul, ol {
+    margin-bottom: 20px;
+  }
+  
+  li {
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+  }
+  
+  /* 代码块样式 */
+  pre {
+    background-color: #2c3e50;
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    overflow-x: auto;
+    margin-bottom: 20px;
+  }
+  
+  code {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.1rem;
+    color: #e74c3c;
+  }
+  
+  /* 页脚样式 */
+  footer {
+    text-align: center;
+    font-size: 1rem;
+    color: #7f8c8d;
+    margin-top: 40px;
+    padding-top: 20px;
+  }
+  
+  footer a {
+    color: #3498db;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  footer a:hover {
+    color: #2980b9;
+  }
+  
+  /* 文章样式 */
+  article {
+    margin-bottom: 40px;
+  }
+  
+  /* 文章标题样式 */
+  article h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  
+  /* 文章 meta 信息 */
+  article .meta {
+    font-size: 0.9rem;
+    color: #7f8c8d;
+    margin-bottom: 20px;
+  }
+  
+  /* 侧边栏样式 */
   .sidebar {
+    width: 300px;
+    float: right;
+    margin-left: 30px;
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .sidebar h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  /* 侧边栏小部件样式 */
+  .widget {
+    margin-bottom: 30px;
+  }
+  
+  .widget ul {
+    list-style-type: none;
+  }
+  
+  .widget ul li {
+    margin-bottom: 10px;
+  }
+  
+  .widget ul li a {
+    color: #3498db;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+  }
+  
+  .widget ul li a:hover {
+    color: #2980b9;
+  }
+  
+  /* 响应式设计 */
+  @media (max-width: 1024px) {
+    .container {
+      padding: 20px;
+    }
+  
+    .sidebar {
       width: 100%;
       float: none;
       margin-left: 0;
-  }
-
-  h1 {
+    }
+  
+    h1 {
       font-size: 2.5rem;
-  }
-
-  h2 {
+    }
+  
+    h2 {
       font-size: 2rem;
-  }
-
-  p, ul, ol {
+    }
+  
+    p, ul, ol {
       font-size: 1.1rem;
-  }
-
-  footer {
+    }
+  
+    footer {
       font-size: 1rem;
+    }
   }
-}
-
-@media (max-width: 768px) {
-  .container {
+  
+  @media (max-width: 768px) {
+    .container {
       padding: 15px;
-  }
-
-  h1 {
+    }
+  
+    h1 {
       font-size: 2rem;
-  }
-
-  h2 {
+    }
+  
+    h2 {
       font-size: 1.5rem;
-  }
-
-  p, ul, ol {
+    }
+  
+    p, ul, ol {
       font-size: 1rem;
-  }
-
-  footer {
+    }
+  
+    footer {
       font-size: 0.9rem;
+    }
   }
-}
-
-@media (max-width: 480px) {
-  h1 {
+  
+  @media (max-width: 480px) {
+    h1 {
       font-size: 1.8rem;
-  }
-
-  h2 {
+    }
+  
+    h2 {
       font-size: 1.3rem;
-  }
-
-  p {
+    }
+  
+    p {
       font-size: 1rem;
-  }
-
-  footer {
+    }
+  
+    footer {
       font-size: 0.8rem;
+    }
   }
-}
+  

@@ -11,3 +11,6 @@ kramdown:
  start_line: 1
  input: GFM
  math_engine: mathjax
+
+highlighter: rouge
+

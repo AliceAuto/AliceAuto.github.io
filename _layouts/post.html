@@ -134,49 +134,102 @@
     }
 
     /* 代码块样式 */
-    pre {
-            background-color: #110303; /* 背景色 */
-            color: #d4d4d4; /* 代码颜色 */
-            padding: 10px;
-            border-radius: 5px;
-            font-family: 'Courier New', monospace;
-            overflow-x: auto; /* 使代码块横向滚动 */
-            white-space: pre-wrap; /* 自动换行 */
-        }
-        /* 关键字 */
-        .keyword { color: #569cd6; }
-        /* 变量 */
-        .variable { color: #9cdcfe; }
-        /* 函数名 */
-        .function { color: #d69d85; }
-        /* 注释 */
-        .comment { color: #6a9955; }
-        /* 字符串 */
-        .string { color: #d69d85; }
-        /* 数字 */
-        .number { color: #b5cea8; }
-        /* 类型（如 int, float） */
-        .type { color: #4ec9b0; }
-        /* 运算符 */
-        .operator { color: #d4d4d4; }
-        /* 预处理指令 */
-        .preprocessor { color: #cc7832; }
-        /* 模板类和模板参数 */
-        .template { color: #c586c0; }
-        /* 引号 */
-        .quote { color: #d69d85; }
-        /* 符号 */
-        .symbol { color: #d4d4d4; }
-        /* 常量 */
-        .constant { color: #e1e1e1; }
-        /* 错误或未定义的类型 */
-        .error { color: #f44747; }
-        /* 注释内的链接 */
-        .link { color: #1f6f8b; }
-        /* 转义字符 */
-        .escape { color: #9cdcfe; }
-        /* 辅助函数（如 std::cout） */
-        .helper { color: #cfcfcf; }
+    /* 基本代码框样式 */
+    pre, code {
+        background-color: #1e1e1e; /* VSCode 背景颜色 */
+        color: #d4d4d4; /* 默认文字颜色 */
+        padding: 10px;
+        border-radius: 5px;
+        font-family: 'Courier New', monospace; /* 等宽字体 */
+        overflow-x: auto; /* 横向滚动 */
+        white-space: pre-wrap; /* 自动换行 */
+    }
+
+    /* 关键字高亮 */
+    .keyword {
+        color: #569cd6; /* VSCode 蓝色 */
+    }
+
+    /* 变量高亮 */
+    .variable {
+        color: #9cdcfe; /* 变量颜色 */
+    }
+
+    /* 函数名高亮 */
+    .function {
+        color: #d69d85; /* 函数颜色 */
+    }
+
+    /* 注释高亮 */
+    .comment {
+        color: #6a9955; /* 绿色 */
+    }
+
+    /* 字符串高亮 */
+    .string {
+        color: #d69d85; /* 字符串颜色 */
+    }
+
+    /* 数字高亮 */
+    .number {
+        color: #b5cea8; /* 数字颜色 */
+    }
+
+    /* 类型（如 int, float）高亮 */
+    .type {
+        color: #4ec9b0; /* 类型颜色 */
+    }
+
+    /* 运算符高亮 */
+    .operator {
+        color: #d4d4d4; /* 运算符颜色 */
+    }
+
+    /* 预处理指令高亮 */
+    .preprocessor {
+        color: #cc7832; /* 预处理指令颜色 */
+    }
+
+    /* 模板类和模板参数高亮 */
+    .template {
+        color: #c586c0; /* 模板类颜色 */
+    }
+
+    /* 引号高亮 */
+    .quote {
+        color: #d69d85; /* 引号颜色 */
+    }
+
+    /* 符号高亮 */
+    .symbol {
+        color: #d4d4d4; /* 符号颜色 */
+    }
+
+    /* 常量高亮 */
+    .constant {
+        color: #e1e1e1; /* 常量颜色 */
+    }
+
+    /* 错误或未定义的类型 */
+    .error {
+        color: #f44747; /* 错误红色 */
+    }
+
+    /* 注释内的链接 */
+    .link {
+        color: #1f6f8b; /* 链接颜色 */
+    }
+
+    /* 转义字符高亮 */
+    .escape {
+        color: #9cdcfe; /* 转义字符颜色 */
+    }
+
+    /* 辅助函数（如 std::cout） */
+    .helper {
+        color: #cfcfcf; /* 辅助函数颜色 */
+    }
+
 
     /* 链接样式 */
     a {

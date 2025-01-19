@@ -25,33 +25,25 @@ Python 脚本，用于分析 Markdown 文件并生成统计图表。支持中文
  ## **安装依赖**
 
 运行以下命令安装依赖：
-
-```
+- ###  方式一:
+```shell
 pip install -r requirements.txt
 ```
+`requirements.txt`文件在这里![alt text](image-2.png)
 
+- ### 方式二:
 或者单独安装 `matplotlib`、`keyboard`与 `watchdog`：
 
-```
+```shell
 pip install matplotlib watchdog keyboard
 ```
-
+`注意:记得配置python的环境变量`
 ---
 
 ## **使用说明**
 
 
 
-### **配置文件**：
-
-配置文件 `config.json` 示例：
-
-```json
-{
-    "root_directory": "..\\..\\",   // 扫描的根目录
-    "png_save_directory": "..\\img",     // 保存图表的目录
-}
-```
 
 ---
 

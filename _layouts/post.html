@@ -5,7 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ page.title }}</title>
 
-  
+  <!-- Prism.js 样式 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/default.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
   <style>
     /* 按钮的样式 */
     .btn {
@@ -130,12 +132,12 @@
       padding-left: 20px;
       font-style: italic;
       color: #555;
-      background-color: #f9f9f9;
+      background-color: #5f5858;
     }
 
     /* 代码块样式 */
     pre {
-      background-color: #f8f9fa;
+      background-color: #585a5c;
       padding: 20px;
       border-radius: 5px;
       font-family: monospace;
@@ -247,11 +249,6 @@
     {{ content }} <!-- 渲染文章内容 -->
   </div>
 
-  <!-- Footer -->
-  <footer>
-    
-    
-  </footer>
 
 </body>
 {% include footer.html %}

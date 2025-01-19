@@ -1,8 +1,10 @@
 kramdown:
+  syntax_highlighter_opts: # Rouge Options › https://github.com/jneen/rouge#full-options
+    default_lang: cpp
+    span:
+      line_numbers: false
+    block:
+      line_numbers: true
+      start_line: 1
   input: GFM
   math_engine: mathjax
-  syntax_highlighter: rouge
-  syntax_highlighter_opts:
-    css_class: 'highlight'
-    line_numbers: true
-    start_line: 1

@@ -12,5 +12,5 @@ kramdown:
  input: GFM
  math_engine: mathjax
 
-highlighter: rouge
+
 

@@ -13,4 +13,5 @@ kramdown:
  math_engine: mathjax
 
 
-
+css:
+  - "/assets/css/custom.css"

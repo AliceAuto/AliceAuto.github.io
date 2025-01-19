@@ -89,13 +89,13 @@ jobs:
 
       - name: 自动合并 PR
         run: |
-          pr_number=$(curl -s "https://api.github.com/repos/your-username/your-repository/pulls?state=open" | jq '.[0].number')
+          pr_number=$(curl -s "https://api.github.com/repos/AliceAuto/AliceAuto.github.io/pulls?state=open" | jq '.[0].number')
           if [ ! -z "$pr_number" ]; then
-            pr_user=$(curl -s "https://api.github.com/repos/your-username/your-repository/pulls/${pr_number}" | jq -r .user.login)
+            pr_user=$(curl -s "https://api.github.com/repos/AliceAuto/AliceAuto.github.io/pulls/${pr_number}" | jq -r .user.login)
             if [ "$pr_user" == "staticman" ]; then
               curl -X PUT -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
               -d '{"merge": true}' \
-              "https://api.github.com/repos/your-username/your-repository/pulls/${pr_number}/merge"
+              "https://api.github.com/repos/AliceAuto/AliceAuto.github.io/pulls/${pr_number}/merge"
             fi
           fi
 

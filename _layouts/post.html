@@ -7,6 +7,13 @@
   <link rel="stylesheet" href="{{ "/assets/css/custom.css" | relative_url }}">
 
   <style>
+    /* 基础设置，确保布局能够适应不同分辨率 */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     /* 按钮的样式 */
     .btn {
       background-color: #a0bddd; /* 蓝色背景 */
@@ -135,19 +142,18 @@
 
     /* 代码块样式 */
     pre {
-    position: relative; /* 使按钮能够绝对定位 */
-    background-color: #1e1e1e; /* 背景色 */
-    color: #d4d4d4; /* 代码颜色 */
-    padding: 15px;
-    border-radius: 5px;
-    font-family: 'Courier New', monospace;
-    font-weight: 600; /* 设置字体粗细 */
-    font-size: 16px; /* 调整字体大小 */
-    line-height: 1.4; /* 调整行高，增加可读性 */
-    overflow-x: auto; /* 使代码块横向滚动 */
-    white-space: pre-wrap; /* 自动换行 */
-  }
-
+      position: relative; /* 使按钮能够绝对定位 */
+      background-color: #1e1e1e; /* 背景色 */
+      color: #d4d4d4; /* 代码颜色 */
+      padding: 15px;
+      border-radius: 5px;
+      font-family: 'Courier New', monospace;
+      font-weight: 600; /* 设置字体粗细 */
+      font-size: 16px; /* 调整字体大小 */
+      line-height: 1.4; /* 调整行高，增加可读性 */
+      overflow-x: auto; /* 使代码块横向滚动 */
+      white-space: pre-wrap; /* 自动换行 */
+    }
 
     /* 复制按钮的样式 */
     .copy-btn {
@@ -163,7 +169,6 @@
       font-size: 14px;
       transition: background-color 0.3s;
     }
-       
 
     /* 链接样式 */
     a {
@@ -238,6 +243,48 @@
     .btn:hover {
       background-color: #0056b3;
     }
+
+    /* 响应式设计 */
+    @media (max-width: 768px) {
+      .content {
+        padding: 15px;
+      }
+
+      h1 {
+        font-size: 2em;
+      }
+
+      h2 {
+        font-size: 1.75em;
+      }
+
+      h3 {
+        font-size: 1.5em;
+      }
+
+      h4 {
+        font-size: 1.25em;
+      }
+
+      .btn {
+        padding: 8px 12px;
+        font-size: 14px;
+        margin: 10px;
+      }
+    }
+
+    /* 极小屏幕的适配 */
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.75em;
+      }
+
+      .btn {
+        width: 100%;
+        padding: 12px;
+        font-size: 15px;
+      }
+    }
   </style>
 </head>
 {% include mathjax_support.html %}
@@ -254,10 +301,9 @@
 
   <!-- Main Content -->
   <div class="content">
-
     {{ content }} <!-- 渲染文章内容 -->
-    
   </div>
+
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       // 为所有代码块添加复制按钮
@@ -279,12 +325,16 @@
           textarea.select();
           document.execCommand('copy');
           document.body.removeChild(textarea);
-          alert('代码已复制！');
+          alert('代码已复制');
         });
       });
     });
   </script>
 
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 </p>
+  </footer>
+
 </body>
-{% include footer.html %}
 </html>

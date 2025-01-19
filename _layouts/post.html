@@ -135,14 +135,30 @@
 
     /* 代码块样式 */
     pre {
-            background-color: #1e1e1e; /* 背景色 */
-            color: #d4d4d4; /* 代码颜色 */
-            padding: 10px;
-            border-radius: 5px;
-            font-family: 'Courier New', monospace;
-            overflow-x: auto; /* 使代码块横向滚动 */
-            white-space: pre-wrap; /* 自动换行 */
-        }
+      position: relative; /* 使按钮能够绝对定位 */
+      background-color: #1e1e1e; /* 背景色 */
+      color: #d4d4d4; /* 代码颜色 */
+      padding: 15px;
+      border-radius: 5px;
+      font-family: 'Courier New', monospace;
+      overflow-x: auto; /* 使代码块横向滚动 */
+      white-space: pre-wrap; /* 自动换行 */
+    }
+
+    /* 复制按钮的样式 */
+    .copy-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background-color 0.3s;
+    }
        
 
     /* 链接样式 */
@@ -238,7 +254,32 @@
     {{ content }} <!-- 渲染文章内容 -->
     
   </div>
-
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // 为所有代码块添加复制按钮
+      const codeBlocks = document.querySelectorAll('pre');
+      codeBlocks.forEach(block => {
+        const copyButton = document.createElement('button');
+        copyButton.classList.add('copy-btn');
+        copyButton.innerText = '复制代码';
+        
+        // 将按钮添加到代码块的右上角
+        block.appendChild(copyButton);
+        
+        // 复制按钮点击事件
+        copyButton.addEventListener('click', function() {
+          const code = block.querySelector('code').innerText;
+          const textarea = document.createElement('textarea');
+          textarea.value = code;
+          document.body.appendChild(textarea);
+          textarea.select();
+          document.execCommand('copy');
+          document.body.removeChild(textarea);
+          alert('代码已复制！');
+        });
+      });
+    });
+  </script>
 
 </body>
 {% include footer.html %}

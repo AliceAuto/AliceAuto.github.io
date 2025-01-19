@@ -5,6 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ page.title }}</title>
 
+  <!-- Prism.js 样式 -->
+  <link href="https://unpkg.com/prismjs@1.28.0/themes/prism-tomorrow.css" rel="stylesheet" />
+
+  <!-- Prism 核心库 -->
+  <script src="https://unpkg.com/prismjs@1.28.0/prism.js"></script>
+
+  <!-- Prism 语言插件 -->
+  <script src="https://unpkg.com/prismjs@1.28.0/components/prism-cpp.min.js"></script>
+  <script src="https://unpkg.com/prismjs@1.28.0/components/prism-python.min.js"></script>
+  <script src="https://unpkg.com/prismjs@1.28.0/components/prism-markup.min.js"></script>
 
   <style>
     /* 按钮的样式 */
@@ -135,7 +145,7 @@
 
     /* 代码块样式 */
     pre {
-            background-color: #110303; /* 背景色 */
+            background-color: #1e1e1e; /* 背景色 */
             color: #d4d4d4; /* 代码颜色 */
             padding: 10px;
             border-radius: 5px;
@@ -269,26 +279,7 @@
   <div class="content">
 
     {{ content }} <!-- 渲染文章内容 -->
-    <pre>
-      <code>
-          <span class="keyword">#include</span> &lt;iostream&gt;
-          <span class="keyword">using</span> <span class="keyword">namespace</span> std;
-
-          <span class="comment">// 一个简单的函数，返回两个数的和</span>
-          <span class="keyword">int</span> <span class="function">add</span>(<span class="keyword">int</span> <span class="variable">a</span>, <span class="keyword">int</span> <span class="variable">b</span>) {
-              <span class="keyword">return</span> <span class="variable">a</span> + <span class="variable">b</span>;
-          }
-
-          <span class="keyword">int</span> <span class="function">main</span>() {
-              <span class="keyword">int</span> <span class="variable">x</span> = <span class="variable">5</span>;
-              <span class="keyword">int</span> <span class="variable">y</span> = <span class="variable">10</span>;
-
-              <span class="keyword">cout</span> << <span class="string">"Sum of "</span> << <span class="variable">x</span> << <span class="string">" and "</span> << <span class="variable">y</span> << <span class="string">" is "</span> << <span class="function">add</span>(<span class="variable">x</span>, <span class="variable">y</span>) << <span class="string">"</span> << <span class="variable">endl</span>;
-
-              <span class="keyword">return</span> <span class="variable">0</span>;
-          }
-      </code>
-  </pre>
+    
   </div>
 
   <!-- Prism 初始化代码 -->

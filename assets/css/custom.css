@@ -1,229 +1,233 @@
-/* assets/css/custom.css */
-
-/* 基础代码块样式 */
-pre {
-    background-color: #f5f5f5;
+/* Basic styling for code blocks */
+.language-cpp {
+    background-color: #2d2d2d;
     border-radius: 8px;
-    padding: 15px;
-    overflow-x: auto;
+    padding: 20px;
+    color: #f8f8f2;
+    font-family: "Courier New", Courier, monospace;
     font-size: 16px;
-    line-height: 1.5;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    font-family: 'Courier New', Courier, monospace;
-}
-
-/* 注释 */
-pre code .comment {
-    color: #808080; /* 灰色 */
+  }
+  
+  .language-cpp .highlight {
+    display: block;
+  }
+  
+  .language-cpp .highlight pre {
+    margin: 0;
+    padding: 0;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+  
+  .language-cpp code {
+    display: block;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+  
+  /* Keyword (e.g. int, if, return, etc.) */
+  .language-cpp .k {
+    color: #66d9ef;
+  }
+  
+  /* Type (e.g. int, float, void) */
+  .language-cpp .kt {
+    color: #f8f8f2;
+  }
+  
+  /* Identifier (variable, function, class names) */
+  .language-cpp .n {
+    color: #a6e22e;
+  }
+  
+  /* Operator (e.g. +, -, ==, &&) */
+  .language-cpp .o {
+    color: #f8f8f2;
+  }
+  
+  /* Punctuation (e.g. ;, {}, [], ()) */
+  .language-cpp .p {
+    color: #f8f8f2;
+  }
+  
+  /* Integer literal (e.g. 42, 1000) */
+  .language-cpp .mi {
+    color: #f8f8f2;
+  }
+  
+  /* Function name (e.g. main, solve) */
+  .language-cpp .nf {
+    color: #f8f8f2;
+  }
+  
+  /* Preprocessor directives (e.g. #include, #define) */
+  .language-cpp .cp {
+    color: #f92672;
+  }
+  
+  /* Preprocessor function (e.g. #include <iostream>) */
+  .language-cpp .cpf {
+    color: #66d9ef;
+  }
+  
+  /* String literal (e.g. "Hello World") */
+  .language-cpp .s {
+    color: #e6db74;
+  }
+  
+  /* Comment (e.g. // comment or /* block comment */) */
+  .language-cpp .c {
+    color: #75715e;
     font-style: italic;
-}
-
-/* 关键字 */
-pre code .keyword {
-    color: #1e90ff; /* 蓝色 */
-    font-weight: bold;
-}
-
-/* 字符串 */
-pre code .string {
-    color: #32cd32; /* 绿色 */
-}
-
-/* 数字 */
-pre code .literal {
-    color: #8a2be2; /* 紫色 */
-}
-
-/* 函数 */
-pre code .function {
-    color: #ff6347; /* 红色 */
-}
-
-/* 类名 */
-pre code .class {
-    color: #daa520; /* 金色 */
-}
-
-/* 变量 */
-pre code .variable {
-    color: #c71585; /* 紫红色 */
-}
-
-/* 参数 */
-pre code .parameter {
-    color: #20b2aa; /* 海绿色 */
-}
-
-/* 常量 */
-pre code .constant {
-    color: #ff8c00; /* 橙色 */
-}
-
-/* C++ 特定样式 */
-pre code.language-cpp .keyword {
-    color: #1e90ff;  /* 蓝色 */
-}
-
-pre code.language-cpp .comment {
-    color: #808080;  /* 灰色 */
-}
-
-pre code.language-cpp .string {
-    color: #32cd32;  /* 绿色 */
-}
-
-pre code.language-cpp .function {
-    color: #ff6347;  /* 红色 */
-}
-
-pre code.language-cpp .literal {
-    color: #8a2be2;  /* 紫色 */
-}
-
-pre code.language-cpp .class {
-    color: #daa520;  /* 金色 */
-}
-
-/* Python 特定样式 */
-pre code.language-python .keyword {
-    color: #ff6347;  /* 红色 */
-}
-
-pre code.language-python .comment {
-    color: #008000;  /* 绿色 */
-}
-
-pre code.language-python .string {
-    color: #32cd32;  /* 绿色 */
-}
-
-pre code.language-python .function {
-    color: #1e90ff;  /* 蓝色 */
-}
-
-pre code.language-python .literal {
-    color: #8a2be2;  /* 紫色 */
-}
-
-/* JavaScript 特定样式 */
-pre code.language-javascript .keyword {
-    color: #ff4500;  /* 橙色 */
-}
-
-pre code.language-javascript .comment {
-    color: #808080;  /* 灰色 */
-}
-
-pre code.language-javascript .string {
-    color: #8a2be2;  /* 紫色 */
-}
-
-pre code.language-javascript .function {
-    color: #ff6347;  /* 红色 */
-}
-
-pre code.language-javascript .literal {
-    color: #32cd32;  /* 绿色 */
-}
-
-/* Java 特定样式 */
-pre code.language-java .keyword {
-    color: #1e90ff;  /* 蓝色 */
-}
-
-pre code.language-java .comment {
-    color: #808080;  /* 灰色 */
-}
-
-pre code.language-java .string {
-    color: #32cd32;  /* 绿色 */
-}
-
-pre code.language-java .function {
-    color: #ff6347;  /* 红色 */
-}
-
-pre code.language-java .literal {
-    color: #8a2be2;  /* 紫色 */
-}
-
-/* HTML 特定样式 */
-pre code.language-html .keyword {
-    color: #ff6347;  /* 红色 */
-}
-
-pre code.language-html .comment {
-    color: #808080;  /* 灰色 */
-}
-
-pre code.language-html .string {
-    color: #32cd32;  /* 绿色 */
-}
-
-pre code.language-html .tag {
-    color: #1e90ff;  /* 蓝色 */
-}
-
-/* CSS 特定样式 */
-pre code.language-css .property {
-    color: #1e90ff;  /* 蓝色 */
-}
-
-pre code.language-css .value {
-    color: #ff6347;  /* 红色 */
-}
-
-pre code.language-css .selector {
-    color: #32cd32;  /* 绿色 */
-}
-
-/* Ruby 特定样式 */
-pre code.language-ruby .keyword {
-    color: #ff6347;  /* 红色 */
-}
-
-pre code.language-ruby .comment {
-    color: #808080;  /* 灰色 */
-}
-
-pre code.language-ruby .string {
-    color: #32cd32;  /* 绿色 */
-}
-
-pre code.language-ruby .function {
-    color: #1e90ff;  /* 蓝色 */
-}
-
-/* C# 特定样式 */
-pre code.language-csharp .keyword {
-    color: #ff4500;  /* 橙色 */
-}
-
-pre code.language-csharp .comment {
-    color: #808080;  /* 灰色 */
-}
-
-pre code.language-csharp .string {
-    color: #32cd32;  /* 绿色 */
-}
-
-pre code.language-csharp .function {
-    color: #ff6347;  /* 红色 */
-}
-
-/* Go 特定样式 */
-pre code.language-go .keyword {
-    color: #ff6347;  /* 红色 */
-}
-
-pre code.language-go .comment {
-    color: #808080;  /* 灰色 */
-}
-
-pre code.language-go .string {
-    color: #32cd32;  /* 绿色 */
-}
-
-pre code.language-go .function {
-    color: #1e90ff;  /* 蓝色 */
-}
+  }
+  
+  /* Class names (e.g. MyClass) */
+  .language-cpp .cl {
+    color: #f8f8f2;
+  }
+  
+  /* Variable names */
+  .language-cpp .v {
+    color: #f8f8f2;
+  }
+  
+  /* Control structure keywords (e.g. if, else, for, while) */
+  .language-cpp .kw {
+    color: #66d9ef;
+  }
+  
+  /* Constant (e.g. constexpr, true, false) */
+  .language-cpp .constant {
+    color: #f8f8f2;
+  }
+  
+  /* Function arguments (e.g. int x, float y) */
+  .language-cpp .func-args {
+    color: #f8f8f2;
+  }
+  
+  /* Template argument (e.g. <typename T>) */
+  .language-cpp .template-argument {
+    color: #f8f8f2;
+  }
+  
+  /* Namespace (e.g. std, mynamespace) */
+  .language-cpp .ns {
+    color: #66d9ef;
+  }
+  
+  /* Class method or member function (e.g. void foo(), void bar()) */
+  .language-cpp .cl-method {
+    color: #f8f8f2;
+  }
+  
+  /* Function pointer (e.g. void (*func)(int)) */
+  .language-cpp .fn-pointer {
+    color: #f8f8f2;
+  }
+  
+  /* Enum (e.g. enum Color {Red, Green, Blue}) */
+  .language-cpp .enum {
+    color: #f8f8f2;
+  }
+  
+  /* Enum value (e.g. Red, Green, Blue in enum Color) */
+  .language-cpp .enum-value {
+    color: #f8f8f2;
+  }
+  
+  /* Struct (e.g. struct MyStruct) */
+  .language-cpp .struct {
+    color: #f8f8f2;
+  }
+  
+  /* Template declaration (e.g. template<typename T>) */
+  .language-cpp .template-decl {
+    color: #66d9ef;
+  }
+  
+  /* Type alias (e.g. using MyInt = int) */
+  .language-cpp .type-alias {
+    color: #f8f8f2;
+  }
+  
+  /* Type conversion (e.g. static_cast<int>(x)) */
+  .language-cpp .type-cast {
+    color: #f8f8f2;
+  }
+  
+  /* Destructor (e.g. ~MyClass()) */
+  .language-cpp .destructor {
+    color: #f8f8f2;
+  }
+  
+  /* Static variable (e.g. static int x) */
+  .language-cpp .static {
+    color: #f8f8f2;
+  }
+  
+  /* Virtual function (e.g. virtual void foo()) */
+  .language-cpp .virtual {
+    color: #f8f8f2;
+  }
+  
+  /* Override keyword (e.g. void foo() override) */
+  .language-cpp .override {
+    color: #f8f8f2;
+  }
+  
+  /* Private access modifier (e.g. private: in class) */
+  .language-cpp .private {
+    color: #f8f8f2;
+  }
+  
+  /* Public access modifier (e.g. public: in class) */
+  .language-cpp .public {
+    color: #f8f8f2;
+  }
+  
+  /* Protected access modifier (e.g. protected: in class) */
+  .language-cpp .protected {
+    color: #f8f8f2;
+  }
+  
+  /* Friend function (e.g. friend void foo() in class) */
+  .language-cpp .friend {
+    color: #f8f8f2;
+  }
+  
+  /* Inline function (e.g. inline void foo()) */
+  .language-cpp .inline {
+    color: #f8f8f2;
+  }
+  
+  /* Const keyword (e.g. const int x) */
+  .language-cpp .const {
+    color: #f8f8f2;
+  }
+  
+  /* Thread local storage keyword (e.g. thread_local int x) */
+  .language-cpp .thread-local {
+    color: #f8f8f2;
+  }
+  
+  /* Lambda function (e.g. auto f = [](){}) */
+  .language-cpp .lambda {
+    color: #f8f8f2;
+  }
+  
+  /* noexcept (e.g. void foo() noexcept) */
+  .language-cpp .noexcept {
+    color: #f8f8f2;
+  }
+  
+  /* Virtual function override (e.g. void foo() override) */
+  .language-cpp .override {
+    color: #f8f8f2;
+  }
+  
+  /* Dynamic memory management (e.g. new, delete) */
+  .language-cpp .memory {
+    color: #f8f8f2;
+  }
+  

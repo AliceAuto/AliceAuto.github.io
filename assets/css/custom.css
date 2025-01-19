@@ -1,233 +1,232 @@
 /* Basic styling for code blocks */
 .language-cpp {
-    background-color: #2d2d2d;
-    border-radius: 8px;
-    padding: 20px;
-    color: #f8f8f2;
-    font-family: "Courier New", Courier, monospace;
-    font-size: 16px;
-  }
-  
-  .language-cpp .highlight {
-    display: block;
-  }
-  
-  .language-cpp .highlight pre {
-    margin: 0;
-    padding: 0;
-    white-space: pre-wrap;
-    word-wrap: break-word;
-  }
-  
-  .language-cpp code {
-    display: block;
-    white-space: pre-wrap;
-    word-wrap: break-word;
-  }
-  
-  /* Keyword (e.g. int, if, return, etc.) */
-  .language-cpp .k {
-    color: #66d9ef;
-  }
-  
-  /* Type (e.g. int, float, void) */
-  .language-cpp .kt {
-    color: #f8f8f2;
-  }
-  
-  /* Identifier (variable, function, class names) */
-  .language-cpp .n {
-    color: #a6e22e;
-  }
-  
-  /* Operator (e.g. +, -, ==, &&) */
-  .language-cpp .o {
-    color: #f8f8f2;
-  }
-  
-  /* Punctuation (e.g. ;, {}, [], ()) */
-  .language-cpp .p {
-    color: #f8f8f2;
-  }
-  
-  /* Integer literal (e.g. 42, 1000) */
-  .language-cpp .mi {
-    color: #f8f8f2;
-  }
-  
-  /* Function name (e.g. main, solve) */
-  .language-cpp .nf {
-    color: #f8f8f2;
-  }
-  
-  /* Preprocessor directives (e.g. #include, #define) */
-  .language-cpp .cp {
-    color: #f92672;
-  }
-  
-  /* Preprocessor function (e.g. #include <iostream>) */
-  .language-cpp .cpf {
-    color: #66d9ef;
-  }
-  
-  /* String literal (e.g. "Hello World") */
-  .language-cpp .s {
-    color: #e6db74;
-  }
-  
-  /* Comment (e.g. // comment or /* block comment */) */
-  .language-cpp .c {
-    color: #75715e;
-    font-style: italic;
-  }
-  
-  /* Class names (e.g. MyClass) */
-  .language-cpp .cl {
-    color: #f8f8f2;
-  }
-  
-  /* Variable names */
-  .language-cpp .v {
-    color: #f8f8f2;
-  }
-  
-  /* Control structure keywords (e.g. if, else, for, while) */
-  .language-cpp .kw {
-    color: #66d9ef;
-  }
-  
-  /* Constant (e.g. constexpr, true, false) */
-  .language-cpp .constant {
-    color: #f8f8f2;
-  }
-  
-  /* Function arguments (e.g. int x, float y) */
-  .language-cpp .func-args {
-    color: #f8f8f2;
-  }
-  
-  /* Template argument (e.g. <typename T>) */
-  .language-cpp .template-argument {
-    color: #f8f8f2;
-  }
-  
-  /* Namespace (e.g. std, mynamespace) */
-  .language-cpp .ns {
-    color: #66d9ef;
-  }
-  
-  /* Class method or member function (e.g. void foo(), void bar()) */
-  .language-cpp .cl-method {
-    color: #f8f8f2;
-  }
-  
-  /* Function pointer (e.g. void (*func)(int)) */
-  .language-cpp .fn-pointer {
-    color: #f8f8f2;
-  }
-  
-  /* Enum (e.g. enum Color {Red, Green, Blue}) */
-  .language-cpp .enum {
-    color: #f8f8f2;
-  }
-  
-  /* Enum value (e.g. Red, Green, Blue in enum Color) */
-  .language-cpp .enum-value {
-    color: #f8f8f2;
-  }
-  
-  /* Struct (e.g. struct MyStruct) */
-  .language-cpp .struct {
-    color: #f8f8f2;
-  }
-  
-  /* Template declaration (e.g. template<typename T>) */
-  .language-cpp .template-decl {
-    color: #66d9ef;
-  }
-  
-  /* Type alias (e.g. using MyInt = int) */
-  .language-cpp .type-alias {
-    color: #f8f8f2;
-  }
-  
-  /* Type conversion (e.g. static_cast<int>(x)) */
-  .language-cpp .type-cast {
-    color: #f8f8f2;
-  }
-  
-  /* Destructor (e.g. ~MyClass()) */
-  .language-cpp .destructor {
-    color: #f8f8f2;
-  }
-  
-  /* Static variable (e.g. static int x) */
-  .language-cpp .static {
-    color: #f8f8f2;
-  }
-  
-  /* Virtual function (e.g. virtual void foo()) */
-  .language-cpp .virtual {
-    color: #f8f8f2;
-  }
-  
-  /* Override keyword (e.g. void foo() override) */
-  .language-cpp .override {
-    color: #f8f8f2;
-  }
-  
-  /* Private access modifier (e.g. private: in class) */
-  .language-cpp .private {
-    color: #f8f8f2;
-  }
-  
-  /* Public access modifier (e.g. public: in class) */
-  .language-cpp .public {
-    color: #f8f8f2;
-  }
-  
-  /* Protected access modifier (e.g. protected: in class) */
-  .language-cpp .protected {
-    color: #f8f8f2;
-  }
-  
-  /* Friend function (e.g. friend void foo() in class) */
-  .language-cpp .friend {
-    color: #f8f8f2;
-  }
-  
-  /* Inline function (e.g. inline void foo()) */
-  .language-cpp .inline {
-    color: #f8f8f2;
-  }
-  
-  /* Const keyword (e.g. const int x) */
-  .language-cpp .const {
-    color: #f8f8f2;
-  }
-  
-  /* Thread local storage keyword (e.g. thread_local int x) */
-  .language-cpp .thread-local {
-    color: #f8f8f2;
-  }
-  
-  /* Lambda function (e.g. auto f = [](){}) */
-  .language-cpp .lambda {
-    color: #f8f8f2;
-  }
-  
-  /* noexcept (e.g. void foo() noexcept) */
-  .language-cpp .noexcept {
-    color: #f8f8f2;
-  }
-  
-  /* Virtual function override (e.g. void foo() override) */
-  .language-cpp .override {
-    color: #f8f8f2;
-  }
-  
-  /* Dynamic memory management (e.g. new, delete) */
-  .language-cpp .memory {
-    color: #f8f8f2;
-  }
-  
+  background-color: #2d2d2d;
+  border-radius: 8px;
+  padding: 20px;
+  color: #f8f8f2;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 16px;
+}
+
+.language-cpp .highlight {
+  display: block;
+}
+
+.language-cpp .highlight pre {
+  margin: 0;
+  padding: 0;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.language-cpp code {
+  display: block;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+/* Keyword (e.g. int, if, return, etc.) */
+.language-cpp .k {
+  color: #66d9ef;
+}
+
+/* Type (e.g. int, float, void) */
+.language-cpp .kt {
+  color: #f8f8f2;
+}
+
+/* Identifier (variable, function, class names) */
+.language-cpp .n {
+  color: #a6e22e;
+}
+
+/* Operator (e.g. +, -, ==, &&) */
+.language-cpp .o {
+  color: #f8f8f2;
+}
+
+/* Punctuation (e.g. ;, {}, [], ()) */
+.language-cpp .p {
+  color: #f8f8f2;
+}
+
+/* Integer literal (e.g. 42, 1000) */
+.language-cpp .mi {
+  color: #f8f8f2;
+}
+
+/* Function name (e.g. main, solve) */
+.language-cpp .nf {
+  color: #f8f8f2;
+}
+
+/* Preprocessor directives (e.g. #include, #define) */
+.language-cpp .cp {
+  color: #f92672;
+}
+
+/* Preprocessor function (e.g. #include <iostream>) */
+.language-cpp .cpf {
+  color: #66d9ef;
+}
+
+/* String literal (e.g. "Hello World") */
+.language-cpp .s {
+  color: #e6db74;
+}
+
+/* Comment (e.g. // comment or /* block comment */) */
+.language-cpp .c {
+  color: #75715e;
+  font-style: italic;
+}
+
+/* Class names (e.g. MyClass) */
+.language-cpp .cl {
+  color: #f8f8f2;
+}
+
+/* Variable names */
+.language-cpp .v {
+  color: #f8f8f2;
+}
+
+/* Control structure keywords (e.g. if, else, for, while) */
+.language-cpp .kw {
+  color: #66d9ef;
+}
+
+/* Constant (e.g. constexpr, true, false) */
+.language-cpp .constant {
+  color: #f8f8f2;
+}
+
+/* Function arguments (e.g. int x, float y) */
+.language-cpp .func-args {
+  color: #f8f8f2;
+}
+
+/* Template argument (e.g. <typename T>) */
+.language-cpp .template-argument {
+  color: #f8f8f2;
+}
+
+/* Namespace (e.g. std, mynamespace) */
+.language-cpp .ns {
+  color: #66d9ef;
+}
+
+/* Class method or member function (e.g. void foo(), void bar()) */
+.language-cpp .cl-method {
+  color: #f8f8f2;
+}
+
+/* Function pointer (e.g. void (*func)(int)) */
+.language-cpp .fn-pointer {
+  color: #f8f8f2;
+}
+
+/* Enum (e.g. enum Color {Red, Green, Blue}) */
+.language-cpp .enum {
+  color: #f8f8f2;
+}
+
+/* Enum value (e.g. Red, Green, Blue in enum Color) */
+.language-cpp .enum-value {
+  color: #f8f8f2;
+}
+
+/* Struct (e.g. struct MyStruct) */
+.language-cpp .struct {
+  color: #f8f8f2;
+}
+
+/* Template declaration (e.g. template<typename T>) */
+.language-cpp .template-decl {
+  color: #66d9ef;
+}
+
+/* Type alias (e.g. using MyInt = int) */
+.language-cpp .type-alias {
+  color: #f8f8f2;
+}
+
+/* Type conversion (e.g. static_cast<int>(x)) */
+.language-cpp .type-cast {
+  color: #f8f8f2;
+}
+
+/* Destructor (e.g. ~MyClass()) */
+.language-cpp .destructor {
+  color: #f8f8f2;
+}
+
+/* Static variable (e.g. static int x) */
+.language-cpp .static {
+  color: #f8f8f2;
+}
+
+/* Virtual function (e.g. virtual void foo()) */
+.language-cpp .virtual {
+  color: #f8f8f2;
+}
+
+/* Override keyword (e.g. void foo() override) */
+.language-cpp .override {
+  color: #f8f8f2;
+}
+
+/* Private access modifier (e.g. private: in class) */
+.language-cpp .private {
+  color: #f8f8f2;
+}
+
+/* Public access modifier (e.g. public: in class) */
+.language-cpp .public {
+  color: #f8f8f2;
+}
+
+/* Protected access modifier (e.g. protected: in class) */
+.language-cpp .protected {
+  color: #f8f8f2;
+}
+
+/* Friend function (e.g. friend void foo() in class) */
+.language-cpp .friend {
+  color: #f8f8f2;
+}
+
+/* Inline function (e.g. inline void foo()) */
+.language-cpp .inline {
+  color: #f8f8f2;
+}
+
+/* Const keyword (e.g. const int x) */
+.language-cpp .const {
+  color: #f8f8f2;
+}
+
+/* Thread local storage keyword (e.g. thread_local int x) */
+.language-cpp .thread-local {
+  color: #f8f8f2;
+}
+
+/* Lambda function (e.g. auto f = [](){}) */
+.language-cpp .lambda {
+  color: #f8f8f2;
+}
+
+/* noexcept (e.g. void foo() noexcept) */
+.language-cpp .noexcept {
+  color: #f8f8f2;
+}
+
+/* Virtual function override (e.g. void foo() override) */
+.language-cpp .override {
+  color: #f8f8f2;
+}
+
+/* Dynamic memory management (e.g. new, delete) */
+.language-cpp .memory {
+  color: #f8f8f2;
+}

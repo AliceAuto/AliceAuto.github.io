@@ -5,9 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ page.title }}</title>
 
+  
+   <!-- Prism.js 样式 -->
+   <link href="https://unpkg.com/prismjs@1.28.0/themes/prism-tomorrow.css" rel="stylesheet" />
 
-  <link rel="stylesheet" href="/assets/css/syntax.css">
-
+   <!-- Prism 核心库 -->
+   <script src="https://unpkg.com/prismjs@1.28.0/prism.js"></script>
+ 
+   <!-- Prism 语言插件 -->
+   <script src="https://unpkg.com/prismjs@1.28.0/components/prism-cpp.min.js"></script>
+   <script src="https://unpkg.com/prismjs@1.28.0/components/prism-python.min.js"></script>
+   <script src="https://unpkg.com/prismjs@1.28.0/components/prism-markup.min.js"></script>
+ 
 
   <style>
     /* 按钮的样式 */
@@ -250,7 +259,6 @@
     {{ content }} <!-- 渲染文章内容 -->
     
   </div>
-
 
 
 </body>

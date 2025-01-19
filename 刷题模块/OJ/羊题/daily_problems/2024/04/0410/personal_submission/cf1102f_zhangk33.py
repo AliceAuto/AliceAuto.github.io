@@ -1,4 +1,4 @@
-# Submission link: https://codeforces.com/contest/1102/submission/255971934
+
 
 II = lambda: int(input())
 MII = lambda: map(int, input().split())

@@ -1,4 +1,11 @@
 <footer>
+    <script type="text/javascript">
+        // MathJax 3.x 渲染完成后
+        window.onload = function() {
+            MathJax.typeset();  // 自动渲染页面中的数学公式
+            console.log("MathJax 渲染完成！");
+        };
+    </script>
     <div class="footer-content">
         <p>&copy; {{ site.time | date: "%Y" }} {{ site.title }}. All Rights Reserved.</p>
         <p>Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a></p>

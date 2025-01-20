@@ -15,5 +15,4 @@ kramdown:
 css:
   - "/assets/css/custom.css"
 
-exclude:
-  - README.md
+

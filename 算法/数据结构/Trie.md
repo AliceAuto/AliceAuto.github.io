@@ -1,3 +1,9 @@
+---
+layout: post
+title: "Trie树"
+date: 2025-01-20
+author: "JNMC李衍坤"
+---
 # Trie(字典树)
 
 ## 定义：高效地存储和查找字符串集合的数据结构

@@ -120,7 +120,7 @@ def generate_catalog_html(root_directory, catalog_html_path):
                     relative_path = os.path.relpath(os.path.join(root, file), oj_directory)
                     
                     # 构建带有前缀的目录项链接
-                    full_url = f"https://aliceauto.github.io/刷题模块/OJ/{relative_path.replace(os.sep, '/')}"
+                    full_url = f"{relative_path.replace(os.sep, '/')}"
 
                     # 目录项
                     catalog_items.append({

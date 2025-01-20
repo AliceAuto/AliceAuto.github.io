@@ -84,6 +84,7 @@ NO
 python
 
 ```py
+
 n = int(input())
 
 li = list(map(int,input().split()))
@@ -94,4 +95,5 @@ if(max(cnt)-min(cnt) >1):
     print("NO")
 else:
     print("YES")
+    
 ```

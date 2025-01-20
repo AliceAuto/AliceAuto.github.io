@@ -79,3 +79,17 @@ NO
 3. 到这里解题就已经结束了,但这里补充一下:
   - 我为什么一定确定,需要的性质，可能在`cnt`上呢？
     - **因为我可以排序，因此我这个性质最好与顺序无关，因此我找计数性质，以便后续确定这个性质是不是充分的**
+## 代码实现
+python
+```python
+n = int(input())
+
+li = list(map(int,input().split()))
+cnt = [0]*9
+for i in li:
+    cnt[i-1]+=1
+if(max(cnt)-min(cnt) >1):
+    print("NO")
+else:
+    print("YES")
+```

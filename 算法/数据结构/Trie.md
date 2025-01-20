@@ -10,7 +10,7 @@ author: "JNMC李衍坤"
 
 ## 模板
 
-```C++
+```cpp
 int son[N][26], cnt[N], idx;
 
 // 0号点既是根节点，又是空节点
@@ -59,7 +59,7 @@ idx是节点编号,从0开始,在创建新节点时递增。
 输入格式:第一行输入一个整数N:第二行输入N个整数。  
 输出格式：输出一个整数，表示答案。
 
-```C++
+```cpp
 #include <iostream>
 #include <algorithm>
 using namespace std;

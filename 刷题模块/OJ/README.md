@@ -30,6 +30,7 @@
 | [**而后单调**](https://aliceauto.github.io/刷题模块/OJ/牛客/周赛74/div3_{二分;滑动窗口;双指针}_牛客_而后单调.md) | div3 | 二分, 滑动窗口, 双指针 | 牛客 |
 | [**牌神**](https://aliceauto.github.io/刷题模块/OJ/牛客/周赛74/div4_{贪心;思维题}_牛客_牌神.md) | div4 | 贪心, 思维题 | 牛客 |
 | [**求格模型(简单版)**](https://aliceauto.github.io/刷题模块/OJ/牛客/周赛74/div5_{思维题}_牛客_求格模型(简单版).md) | div5 | 思维题 | 牛客 |
+| [**数独数组**](https://aliceauto.github.io/刷题模块/OJ/牛客/周赛77/div4_{思维题}_牛客_数独数组.md) | div4 | 思维题 | 牛客 |
 | [**联通块问题**](https://aliceauto.github.io/刷题模块/OJ/牛客/小白月赛105/div3_{思维题;割点}_牛客_联通块问题.md) | div3 | 思维题, 割点 | 牛客 |
 | [**染色方案**](https://aliceauto.github.io/刷题模块/OJ/牛客/小白月赛105/div3_{计数;并查集}_牛客_染色方案.md) | div3 | 计数, 并查集 | 牛客 |
 | [**二维上的贪心**](https://aliceauto.github.io/刷题模块/OJ/牛客/小白月赛106/div4_{贪心;思维题}_牛客_二维上的贪心.md) | div4 | 贪心, 思维题 | 牛客 |

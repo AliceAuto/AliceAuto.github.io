@@ -95,3 +95,30 @@ if(max(cnt)-min(cnt) >1):
 else:
     print("YES")
 ```
+
+cpp
+
+```cpp
+#include<bits/stdc++.h>
+using namespace std;
+const int inf = 0x3f3f3f3f;
+int n;
+int cnt[9];
+signed main(){
+    cin>>n;
+    int chace;
+    int MAX = 0;
+    int MIN = inf;
+    while(n--){
+        cin>>chace;
+        cnt[chace-1]++;
+    }
+    for (int i = 0 ;i<9;i++){
+        MAX = max(MAX,cnt[i]);
+        MIN = min(MIN,cnt[i]);
+    }
+    if (MAX-MIN >1) cout<<"NO"<<endl;
+    else cout<<"YES"<<endl;
+    return 0;
+}
+```

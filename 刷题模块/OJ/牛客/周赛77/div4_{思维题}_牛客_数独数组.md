@@ -81,10 +81,9 @@ NO
     - **因为我可以排序，因此我这个性质最好与顺序无关，因此我找计数性质，以便后续确定这个性质是不是充分的**
 ## 代码实现
 
-python
+python代码
 
-```py
-
+```python
 n = int(input())
 
 li = list(map(int,input().split()))
@@ -95,5 +94,4 @@ if(max(cnt)-min(cnt) >1):
     print("NO")
 else:
     print("YES")
-    
 ```

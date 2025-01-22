@@ -92,7 +92,7 @@ jobs:
 
       - name: 创建新的 gh-pages 分支
         run: |
-          git checkout --orphan gh-pages  # 创建一个孤立的分支 gh-pages
+          git checkout -B gh-pages  # 创建并切换到 gh-pages 分支
           git reset --hard
           git init  # 重新初始化 Git 仓库，确保有 .git 目录
 
@@ -108,4 +108,4 @@ jobs:
       - name: 使用 Personal Access Token 推送
         run: |
           git remote set-url origin https://x-access-token:${{ secrets.MY_GITHUB_TOKEN }}@github.com/AliceAuto/AliceAuto.github.io.git
-          git push --set-upstream origin gh-pages
+          git push --force --set-upstream origin gh-pages

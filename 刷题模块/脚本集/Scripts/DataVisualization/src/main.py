@@ -171,7 +171,11 @@ def generate_readme_md(catalog_items, readme_md_path):
     readme_md = []
 
     # 添加标题和简介
-
+    readme_md.append("---")
+    readme_md.append("title: \"不渲染的页面\"")
+    readme_md.append("published: false")
+    readme_md.append("---")
+    readme_md.append(" ")
     readme_md.append("# 题目目录")
     readme_md.append("\n以下是所有题目的目录，点击题目名称可跳转到对应题目。\n")
 

@@ -32,6 +32,7 @@ jobs:
 
       - name: 复制字体到系统
         run: |
+          ls /home/runner/work/AliceAuto.github.io/AliceAuto.github.io/刷题模块/脚本集/data/fonts  # 检查字体文件是否存在
           sudo cp /home/runner/work/AliceAuto.github.io/AliceAuto.github.io/刷题模块/脚本集/data/fonts/msyh.ttf /usr/share/fonts/truetype/chinese
 
       - name: 更新字体缓存

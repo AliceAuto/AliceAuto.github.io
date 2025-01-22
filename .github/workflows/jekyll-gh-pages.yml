@@ -105,8 +105,7 @@ jobs:
             exit 1  # 退出流程
           fi
 
-      - name: 提交并推送到 gh-pages 分支
+      - name: 使用 Personal Access Token 推送
         run: |
-          git add .  # 将所有文件添加到 git 索引
-          git commit -m "自动生成并部署 Jekyll 网站" || echo "No changes to commit"  # 如果没有变化，跳过提交
-          git push --force --set-upstream https://x-access-token:${{ secrets.MY_GITHUB_TOKEN  }}@github.com/AliceAuto/AliceAuto.github.io.git gh-pages  # 使用 GITHUB_TOKEN 进行推送
+          git remote set-url origin https://x-access-token:${{ secrets.MY_GITHUB_TOKEN }}@github.com/AliceAuto/AliceAuto.github.io.git
+          git push --force

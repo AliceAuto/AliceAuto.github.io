@@ -107,7 +107,8 @@ jobs:
           echo "检查 _site 目录是否存在..."
           if [ -d "./_site" ]; then
             echo "_site 目录已存在，开始复制文件..."
-            cp -r ./_site/* .  # 如果 _site 存在，则复制文件
+            # 使用 rsync 替代 cp
+            rsync -av --exclude='.git' ./_site/ ./  # 将 _site 目录内容递归复制到根目录
           else
             echo "_site 目录未生成，请检查构建步骤。"  # 如果没有 _site 目录，输出错误信息
             exit 1  # 退出流程

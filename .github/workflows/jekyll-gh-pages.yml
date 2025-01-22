@@ -97,6 +97,8 @@ jobs:
           git init  # 重新初始化 Git 仓库，确保有 .git 目录
 
       - name: 列出当前工作目录
+
+      
         run: |
           echo "当前工作目录："
           pwd  # 输出当前工作目录

@@ -108,4 +108,4 @@ jobs:
       - name: 使用 Personal Access Token 推送
         run: |
           git remote set-url origin https://x-access-token:${{ secrets.MY_GITHUB_TOKEN }}@github.com/AliceAuto/AliceAuto.github.io.git
-          git push --force
+          git push --set-upstream origin gh-pages

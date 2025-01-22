@@ -100,17 +100,13 @@ jobs:
           git checkout --orphan gh-pages  # 创建一个孤立的分支 gh-pages
           git reset --hard
           git init  # 重新初始化 Git 仓库，确保有 .git 目录
-          git config --global user.name "GitHub Actions"
-          git config --global user.email "actions@github.com"
 
-      - name: 删除不必要的文件
+      - name: 将生成的静态内容复制到根目录
         run: |
-          rm -rf .git
-          rm -rf .github
-          rm -rf README.md  # 根据需求删除其他不需要的文件
+          cp -r ./_site/* .  # 将生成的静态文件拷贝到根目录
 
       - name: 提交并推送到 gh-pages 分支
         run: |
-          git add .
-          git commit -m "自动生成并部署 Jekyll 网站"
+          git add .  # 将所有文件添加到 git 索引
+          git commit -m "自动生成并部署 Jekyll 网站" || echo "No changes to commit"  # 如果没有变化，跳过提交
           git push --force --set-upstream origin gh-pages  # 强制推送到 gh-pages 分支

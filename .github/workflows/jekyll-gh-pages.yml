@@ -6,9 +6,9 @@ on:
   workflow_dispatch:  # 支持手动触发工作流
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: read  # 读取权限
+  pages: write  # 写入 GitHub Pages 权限
+  id-token: write  # 可选，根据需要
 
 concurrency:
   group: "pages"
@@ -59,8 +59,10 @@ jobs:
           cd ./刷题模块/
           python 脚本集/Scripts/DataVisualization/src/main.py
 
-  # Jekyll 网站构建和部署任务
-  build_and_deploy:
+  # 构建与部署任务
+  deploy:
+    environment:
+      name: github-pages
     runs-on: ubuntu-latest
     needs: work
     steps:
@@ -86,7 +88,7 @@ jobs:
       - name: 配置 GitHub 用户信息
         run: |
           git config --global user.name "GitHub Actions"
-          git config --global user.email "actions@github.com"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
       - name: 创建新的 gh-pages 分支
         run: |
@@ -107,4 +109,4 @@ jobs:
         run: |
           git add .  # 将所有文件添加到 git 索引
           git commit -m "自动生成并部署 Jekyll 网站" || echo "No changes to commit"  # 如果没有变化，跳过提交
-          git push --force --set-upstream origin gh-pages  # 强制推送到 gh-pages 分支
+          git push --force --set-upstream https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/AliceAuto/AliceAuto.github.io.git gh-pages  # 使用 GITHUB_TOKEN 进行推送

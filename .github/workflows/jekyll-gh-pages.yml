@@ -106,10 +106,6 @@ jobs:
           rm -rf .github
           rm -rf README.md  # 根据需求删除其他不需要的文件
 
-      - name: 拷贝生成的静态文件到 gh-pages 分支
-        run: |
-          cp -r ./_site/* .  # 将生成的静态文件拷贝到根目录
-          
       - name: 提交并推送到 gh-pages 分支
         run: |
           git add .

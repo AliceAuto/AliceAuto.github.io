@@ -65,7 +65,6 @@ import re
 
 import os
 import re
-
 def generate_catalog_html(root_directory, catalog_html_path):
     """生成带有题目 div 的目录 HTML 文件"""
     catalog_html = []
@@ -91,7 +90,13 @@ def generate_catalog_html(root_directory, catalog_html_path):
     catalog_html.append("        .div4 a { color: #4caf50; }")  # 绿色
     catalog_html.append("        .div5 a { color: #2196f3; }")  # 蓝色
     
-    catalog_html.append("        .problem-item { margin: 15px 0; padding: 10px; border-radius: 5px; transition: all 0.3s ease; }")
+    # 为不同难度设置不同的容器背景色
+    catalog_html.append("        .problem-item { margin: 15px 0; padding: 15px; border-radius: 5px; transition: all 0.3s ease;background-color: #e7e6e6;}")
+    catalog_html.append("        .div1 .problem-item { background-color: #ffebee; }")  # 红色容器背景
+    catalog_html.append("        .div2 .problem-item { background-color: #fff3e0; }")  # 橙色容器背景
+    catalog_html.append("        .div3 .problem-item { background-color: #fffde7; }")  # 黄色容器背景
+    catalog_html.append("        .div4 .problem-item { background-color: #e8f5e9; }")  # 绿色容器背景
+    catalog_html.append("        .div5 .problem-item { background-color: #e3f2fd; }")  # 蓝色容器背景
     catalog_html.append("        .problem-item:hover { background: #eaeaea; transform: translateY(-2px); }")
     catalog_html.append("        .problem-item a { text-decoration: none; font-size: 18px; font-weight: bold; }")
     catalog_html.append("        .problem-item a:hover { text-decoration: underline; }")

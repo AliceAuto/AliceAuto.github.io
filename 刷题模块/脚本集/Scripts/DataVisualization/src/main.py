@@ -83,9 +83,17 @@ def generate_catalog_html(root_directory, catalog_html_path):
     catalog_html.append("        .container { max-width: 800px; margin: 50px auto; background: #ffffff; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); }")
     catalog_html.append("        h1 { text-align: center; color: #333; margin-bottom: 20px; }")
     catalog_html.append("        p { text-align: center; color: #666; margin-bottom: 30px; }")
-    catalog_html.append("        .problem-item { margin: 15px 0; padding: 10px; background: #f4f4f4; border-radius: 5px; transition: all 0.3s ease; }")
+    
+    # 为不同难度设置题目链接颜色
+    catalog_html.append("        .div1 a { color: #f44336; }")  # 红色
+    catalog_html.append("        .div2 a { color: #ff9800; }")  # 橙色
+    catalog_html.append("        .div3 a { color: #ffeb3b; }")  # 黄色
+    catalog_html.append("        .div4 a { color: #4caf50; }")  # 绿色
+    catalog_html.append("        .div5 a { color: #2196f3; }")  # 蓝色
+    
+    catalog_html.append("        .problem-item { margin: 15px 0; padding: 10px; border-radius: 5px; transition: all 0.3s ease; }")
     catalog_html.append("        .problem-item:hover { background: #eaeaea; transform: translateY(-2px); }")
-    catalog_html.append("        .problem-item a { text-decoration: none; font-size: 18px; color: #007bff; font-weight: bold; }")
+    catalog_html.append("        .problem-item a { text-decoration: none; font-size: 18px; font-weight: bold; }")
     catalog_html.append("        .problem-item a:hover { text-decoration: underline; }")
     catalog_html.append("        .problem-meta { font-size: 14px; color: #999; margin-top: 5px; }")
     catalog_html.append("        .back-button { position: fixed; top: 20px; left: 20px; padding: 10px 20px; background-color: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; }")
@@ -121,7 +129,7 @@ def generate_catalog_html(root_directory, catalog_html_path):
                     
                     # 构建带有前缀的目录项链接
                     full_url = f"{relative_path.replace(os.sep, '/')}"
-
+                    
                     # 目录项
                     catalog_items.append({
                         "title": title,
@@ -131,8 +139,11 @@ def generate_catalog_html(root_directory, catalog_html_path):
                         "url": full_url
                     })
 
+                    # 根据 difficulty 设置对应的 CSS 类
+                    difficulty_class = difficulty.lower()  # 获取 div1, div2, ..., div5
+                    
                     # HTML 目录项
-                    catalog_html.append("<div class=\"problem-item\">")
+                    catalog_html.append("<div class=\"problem-item " + difficulty_class + "\">")
                     catalog_html.append(f"  <a href=\"{full_url}\">{title}</a>")
                     catalog_html.append(f"  <div class=\"problem-meta\">难度: {difficulty} | 类型: {', '.join(types)} | OJ: {oj}</div>")
                     catalog_html.append("</div>")
@@ -150,7 +161,6 @@ def generate_catalog_html(root_directory, catalog_html_path):
     
     # 同时生成 README.md 文件
     generate_readme_md(catalog_items, os.path.join(root_directory, "OJ/README.md"))
-
 def generate_readme_md(catalog_items, readme_md_path):
     """生成 Markdown 格式的目录文件"""
     readme_md = []

@@ -79,7 +79,7 @@ def generate_catalog_html(root_directory, catalog_html_path):
     catalog_html.append("    <title>题目目录</title>")
     catalog_html.append("    <style>")
     catalog_html.append("        body { font-family: 'Arial', sans-serif; line-height: 1.6; margin: 0; padding: 0; background-color: #f9f9f9; }")
-    catalog_html.append("        .container { max-width: 800px; margin: 50px auto; background: #ffffff; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); }")
+    catalog_html.append("        .container { max-width: 800px; margin: 50px auto; background: #e7e6e6; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); }")
     catalog_html.append("        h1 { text-align: center; color: #333; margin-bottom: 20px; }")
     catalog_html.append("        p { text-align: center; color: #666; margin-bottom: 30px; }")
     
@@ -91,7 +91,7 @@ def generate_catalog_html(root_directory, catalog_html_path):
     catalog_html.append("        .div5 a { color: #2196f3; }")  # 蓝色
     
     # 为不同难度设置不同的容器背景色
-    catalog_html.append("        .problem-item { margin: 15px 0; padding: 15px; border-radius: 5px; transition: all 0.3s ease;background-color: #e7e6e6;}")
+    catalog_html.append("        .problem-item { margin: 15px 0; padding: 15px; border-radius: 5px; transition: all 0.3s ease;background-color: #ffffff;}")
     catalog_html.append("        .div1 .problem-item { background-color: #ffebee; }")  # 红色容器背景
     catalog_html.append("        .div2 .problem-item { background-color: #fff3e0; }")  # 橙色容器背景
     catalog_html.append("        .div3 .problem-item { background-color: #fffde7; }")  # 黄色容器背景

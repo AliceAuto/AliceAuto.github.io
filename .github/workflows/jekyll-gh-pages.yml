@@ -76,6 +76,10 @@ jobs:
           source: ./  # Jekyll 源文件所在的目录
           destination: ./_site  # 输出目录
 
+      - name: 列出生成的文件
+        run: |
+          ls -R ./  # 列出当前目录下的所有文件，确认是否有 _site 目录
+
       - name: 上传构建产物
         uses: actions/upload-pages-artifact@v3
 

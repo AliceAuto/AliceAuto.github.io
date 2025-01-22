@@ -17,4 +17,4 @@ css:
 
 
 exclude:
-  - "README.md"
+  - "刷题模块\OJ\README.md"

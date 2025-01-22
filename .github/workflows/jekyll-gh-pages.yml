@@ -6,7 +6,7 @@ on:
   workflow_dispatch:  # 支持手动触发工作流
 
 permissions:
-  contents: read  # 读取权限
+  contents: write  # 读取权限
   pages: write  # 写入 GitHub Pages 权限
   id-token: write  # 可选，根据需要
 

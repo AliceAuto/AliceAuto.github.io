@@ -59,8 +59,8 @@ jobs:
           cd ./刷题模块/
           python 脚本集/Scripts/DataVisualization/src/main.py
 
-  # Jekyll 网站构建任务
-  build:
+  # Jekyll 网站构建和部署任务
+  build_and_deploy:
     runs-on: ubuntu-latest
     needs: work
     steps:
@@ -83,17 +83,6 @@ jobs:
       - name: 上传构建产物
         uses: actions/upload-pages-artifact@v3
 
-  # 部署任务到 GitHub Pages
-  deploy:
-    environment:
-      name: github-pages
-
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: 检出仓库
-        uses: actions/checkout@v4
-
       - name: 配置 GitHub 用户信息
         run: |
           git config --global user.name "GitHub Actions"
@@ -104,11 +93,6 @@ jobs:
           git checkout --orphan gh-pages  # 创建一个孤立的分支 gh-pages
           git reset --hard
           git init  # 重新初始化 Git 仓库，确保有 .git 目录
-
-      - name: 列出当前目录
-        run: |
-          pwd
-          ls -R .  # 确认工作目录和文件
 
       - name: 将生成的静态内容复制到根目录
         run: |

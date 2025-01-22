@@ -73,8 +73,8 @@ jobs:
       - name: 使用 Jekyll 构建网站
         uses: actions/jekyll-build-pages@v1
         with:
-          source: ./
-          destination: ./_site
+          source: ./  # Jekyll 源文件所在的目录
+          destination: ./_site  # 输出目录
 
       - name: 上传构建产物
         uses: actions/upload-pages-artifact@v3
@@ -103,15 +103,22 @@ jobs:
 
       - name: 列出生成的文件
         run: |
-          ls -R .  # 列出当前目录下的所有文件，确认是否有 _site 目录
+          ls -R ./  # 列出当前目录下的所有文件，确认是否有 _site 目录
+
+      - name: 确保 _site 目录存在
+        run: |
+          if [ -d "./_site" ]; then
+            echo "_site 目录已生成"
+          else
+            echo "未生成 _site 目录，请检查构建步骤。" && exit 1
+          fi
 
       - name: 将生成的静态内容复制到根目录
         run: |
-          if [ -d "_site" ]; then
+          if [ -d "./_site" ]; then
             cp -r ./_site/* .  # 如果 _site 存在，则复制文件
           else
-            echo "_site 目录未生成，请检查构建步骤。"  # 如果没有 _site 目录，输出错误信息
-            exit 1  # 退出流程
+            echo "_site 目录未生成，请检查构建步骤。" && exit 1
           fi
 
       - name: 提交并推送到 gh-pages 分支

@@ -101,9 +101,18 @@ jobs:
           git reset --hard
           git init  # 重新初始化 Git 仓库，确保有 .git 目录
 
+      - name: 列出生成的文件
+        run: |
+          ls -R .  # 列出当前目录下的所有文件，确认是否有 _site 目录
+
       - name: 将生成的静态内容复制到根目录
         run: |
-          cp -r ./_site/* .  # 将生成的静态文件拷贝到根目录
+          if [ -d "_site" ]; then
+            cp -r ./_site/* .  # 如果 _site 存在，则复制文件
+          else
+            echo "_site 目录未生成，请检查构建步骤。"  # 如果没有 _site 目录，输出错误信息
+            exit 1  # 退出流程
+          fi
 
       - name: 提交并推送到 gh-pages 分支
         run: |

@@ -65,6 +65,9 @@ import re
 
 import os
 import re
+import os
+import re
+
 def generate_catalog_html(root_directory, catalog_html_path):
     """生成带有题目 div 的目录 HTML 文件"""
     catalog_html = []
@@ -91,7 +94,7 @@ def generate_catalog_html(root_directory, catalog_html_path):
     catalog_html.append("        .div5 a { color: #2196f3; }")  # 蓝色
     
     # 为不同难度设置不同的容器背景色
-    catalog_html.append("        .problem-item { margin: 15px 0; padding: 15px; border-radius: 5px; transition: all 0.3s ease;background-color: #ffffff;}")
+    catalog_html.append("        .problem-item { margin: 15px 0; padding: 15px; border-radius: 5px; transition: all 0.3s ease;background-color: #ffffff;}")  
     catalog_html.append("        .div1 .problem-item { background-color: #ffebee; }")  # 红色容器背景
     catalog_html.append("        .div2 .problem-item { background-color: #fff3e0; }")  # 橙色容器背景
     catalog_html.append("        .div3 .problem-item { background-color: #fffde7; }")  # 黄色容器背景
@@ -134,7 +137,7 @@ def generate_catalog_html(root_directory, catalog_html_path):
                     
                     # 构建带有前缀的目录项链接
                     full_url = f"{relative_path.replace(os.sep, '/')}"
-                    
+
                     # 目录项
                     catalog_items.append({
                         "title": title,
@@ -162,10 +165,13 @@ def generate_catalog_html(root_directory, catalog_html_path):
     with open(catalog_html_path, "w", encoding="utf-8") as f:
         f.write("\n".join(catalog_html))
 
-    print(f"目录 HTML 文件已生成: {catalog_html_path}")
+    # 输出生成的 HTML 文件的绝对路径
+    absolute_html_path = os.path.abspath(catalog_html_path)
+    print(f"目录 HTML 文件已生成: {absolute_html_path}")
     
     # 同时生成 README.md 文件
     generate_readme_md(catalog_items, os.path.join(root_directory, "OJ/README.md"))
+    
 def generate_readme_md(catalog_items, readme_md_path):
     """生成 Markdown 格式的目录文件"""
     readme_md = []
@@ -198,8 +204,9 @@ def generate_readme_md(catalog_items, readme_md_path):
     with open(readme_md_path, "w", encoding="utf-8") as f:
         f.write("\n".join(readme_md))
 
-    print(f"目录 README 文件已生成: {readme_md_path}")
-
+    # 输出生成的 README 文件的绝对路径
+    absolute_readme_path = os.path.abspath(readme_md_path)
+    print(f"目录 README 文件已生成: {absolute_readme_path}")
 
 # ------------------------------ 中文字体设置 ------------------------------
 import os

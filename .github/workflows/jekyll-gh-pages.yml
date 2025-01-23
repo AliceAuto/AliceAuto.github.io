@@ -94,6 +94,10 @@ jobs:
       - name: 检出仓库
         uses: actions/checkout@v4
 
+      - name: 拉取最新的远程仓库内容
+        run: |
+          git pull origin main  # 拉取最新的远程仓库内容
+
       - name: 清理旧的页面缓存
         run: |
           echo "清理旧的页面缓存..."

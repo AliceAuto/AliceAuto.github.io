@@ -64,7 +64,11 @@ jobs:
           echo "检查哪些文件被修改或新增："
           git status  # 查看当前工作区的状态
           git diff  # 查看文件差异，确认是否有新的文件修改
-
+      - name: 设置 Git 用户信息
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+    
       - name: 提交生成的文件
         run: |
           echo "提交生成的文件..."

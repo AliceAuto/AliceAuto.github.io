@@ -59,18 +59,9 @@ jobs:
           cd ./刷题模块/
           python 脚本集/Scripts/DataVisualization/src/main.py
 
-      # 确保生成的文件被正确放入 Jekyll 目录
-      - name: 列出生成的文件
-        run: |
-          echo "列出刷题模块目录中的文件："
-          ls -R ./刷题模块/脚本集  # 列出生成文件的目录，确保文件生成
-          echo "列出 Jekyll 项目的根目录中的文件："
-          ls -R ./  # 确保生成的文件在 Jekyll 项目的源目录中
-
   # 构建与部署任务
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
-    needs: work  # 依赖前面的工作
 
     steps:
       - name: 检出仓库
@@ -87,7 +78,26 @@ jobs:
 
       - name: 列出生成的文件
         run: |
+          echo "列出 _site 目录中的内容："
           ls -R ./_site  # 列出 _site 目录中的内容，确保其生成
+
+      # 复制生成的文件到 _site 中
+      - name: 复制生成文件到 _site 目录
+        run: |
+          echo "复制生成的文件到 _site 目录..."
+          if [ -d "./刷题模块/脚本集/images/png" ]; then
+            echo "文件夹存在，开始复制..."
+            # 使用 rsync 递归复制生成文件
+            rsync -av ./刷题模块/脚本集/images/png/ ./_site/assets/images/png/
+          else
+            echo "生成文件夹不存在，请检查生成路径"
+            exit 1
+          fi
+
+      - name: 列出 _site 目录中的内容（检查文件是否复制成功）
+        run: |
+          echo "检查 _site 目录："
+          ls -R ./_site  # 列出 _site 目录中的文件，确保文件已正确复制
 
       - name: 上传构建产物
         uses: actions/upload-pages-artifact@v3
@@ -114,7 +124,6 @@ jobs:
           echo "检查 _site 目录是否存在..."
           if [ -d "./_site" ]; then
             echo "_site 目录已存在，开始复制文件..."
-            # 使用 rsync 替代 cp
             rsync -av --exclude='.git' ./_site/ ./  # 将 _site 目录内容递归复制到根目录
           else
             echo "_site 目录未生成，请检查构建步骤。"  # 如果没有 _site 目录，输出错误信息

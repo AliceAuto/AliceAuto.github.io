@@ -131,7 +131,9 @@ jobs:
             exit 1  # 退出流程
           fi
 
-      - name: 使用 Personal Access Token 推送
+      # 提交生成的文件并推送到 gh-pages 分支
+      - name: 提交生成的文件并推送到 gh-pages
         run: |
-          git remote set-url origin https://x-access-token:${{ secrets.MY_GITHUB_TOKEN }}@github.com/AliceAuto/AliceAuto.github.io.git
-          git push --force --set-upstream origin gh-pages
+          git add -A  # 添加所有更改的文件
+          git commit -m "Deploy updated site"  # 提交更改
+          git push --force --set-upstream origin gh-pages  # 强制推送到 gh-pages 分支

@@ -98,7 +98,7 @@ jobs:
       - name: 列出生成的文件
         run: |
           echo "列出 _site 目录中的内容："
-          ls -R ./_site/assets/png  # 列出 _site 目录中的内容，确保其生成
+          ls -R ./_site/assets/images/png  # 列出 _site 目录中的内容，确保其生成
           
       - name: 上传构建产物
         uses: actions/upload-pages-artifact@v3
@@ -120,16 +120,7 @@ jobs:
           pwd  # 输出当前工作目录
           ls -R  # 列出当前工作目录下的所有文件，确保路径正确
 
-      - name: 将生成的静态内容复制到根目录
-        run: |
-          echo "检查 _site 目录是否存在..."
-          if [ -d "./_site" ]; then
-            echo "_site 目录已存在，开始复制文件..."
-            rsync -av --exclude='.git' ./_site/ ./  # 将 _site 目录内容递归复制到根目录
-          else
-            echo "_site 目录未生成，请检查构建步骤。"  # 如果没有 _site 目录，输出错误信息
-            exit 1  # 退出流程
-          fi
+
 
       - name: 使用 Personal Access Token 推送
         run: |

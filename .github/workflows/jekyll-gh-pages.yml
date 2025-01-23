@@ -88,7 +88,7 @@ jobs:
       - name: 列出生成的文件
         run: |
           echo "列出 _site 目录中的内容："
-          ls -R ./_site  # 列出 _site 目录中的内容，确保其生成
+          ls -R ./_site/assets/png  # 列出 _site 目录中的内容，确保其生成
           
       - name: 上传构建产物
         uses: actions/upload-pages-artifact@v3

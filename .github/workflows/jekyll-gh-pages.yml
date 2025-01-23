@@ -88,7 +88,7 @@ jobs:
           if [ -d "./刷题模块/脚本集/images/png" ]; then
             echo "文件夹存在，开始复制..."
             # 使用 rsync 递归复制生成文件
-            rsync -av ./刷题模块/脚本集/images/png/ ./_site/assets/images/png/
+            rsync -av ./assets/images/png/ ./_site/assets/images/png/
           else
             echo "生成文件夹不存在，请检查生成路径"
             exit 1

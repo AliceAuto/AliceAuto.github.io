@@ -59,6 +59,14 @@ jobs:
           cd ./刷题模块/
           python 脚本集/Scripts/DataVisualization/src/main.py
 
+      # 确保生成的文件被正确放入 Jekyll 目录
+      - name: 列出生成的文件
+        run: |
+          echo "列出刷题模块目录中的文件："
+          ls -R ./刷题模块/脚本集  # 列出生成文件的目录，确保文件生成
+          echo "列出 Jekyll 项目的根目录中的文件："
+          ls -R ./  # 确保生成的文件在 Jekyll 项目的源目录中
+
   # 构建与部署任务
   build-and-deploy:
     runs-on: ubuntu-latest

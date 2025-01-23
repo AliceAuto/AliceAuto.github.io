@@ -59,13 +59,18 @@ jobs:
           cd ./刷题模块/
           python 脚本集/Scripts/DataVisualization/src/main.py  # 运行脚本生成文件
 
+      - name: 检查是否有新生成的文件
+        run: |
+          echo "检查哪些文件被修改或新增："
+          git status  # 查看当前工作区的状态
+          git diff  # 查看文件差异，确认是否有新的文件修改
+
       - name: 提交生成的文件
         run: |
-          git config --global user.name "GitHub Actions"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add -A  # 添加所有更改的文件
-          git commit -m "提交生成的文件"  # 提交更改
-          git push origin main  # 推送到 main 分支
+          echo "提交生成的文件..."
+          git add .  # 确保所有生成的文件被添加到暂存区
+          git commit -m "自动提交生成的文件" || echo "没有需要提交的更改"
+          git push origin main  # 提交到 main 分支
 
   # 构建与部署任务
   build:

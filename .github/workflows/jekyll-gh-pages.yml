@@ -64,17 +64,26 @@ jobs:
           echo "检查哪些文件被修改或新增："
           git status  # 查看当前工作区的状态
           git diff  # 查看文件差异，确认是否有新的文件修改
+
       - name: 设置 Git 用户信息
         run: |
           git config --global user.name "GitHub Actions"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-    
+
       - name: 提交生成的文件
         run: |
-          echo "提交生成的文件..."
-          git add .  # 确保所有生成的文件被添加到暂存区
-          git commit -m "自动提交生成的文件" || echo "没有需要提交的更改"
-          git push origin main  # 提交到 main 分支
+          # 设置 Git 用户信息
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+          # 添加所有修改过的文件
+          git add .
+
+          # 检查是否有文件差异（如果没有差异，不提交）
+          git diff --cached --quiet || (git commit -m "自动提交生成的文件" && git push origin main)
+
+          # 如果没有更改，git diff --cached --quiet 会使得提交跳过
+          echo "提交完成（如果有更改的话）。"
 
   # 构建与部署任务
   build:
@@ -123,8 +132,6 @@ jobs:
           echo "当前工作目录："
           pwd  # 输出当前工作目录
           ls -R  # 列出当前工作目录下的所有文件，确保路径正确
-
-
 
       - name: 使用 Personal Access Token 推送
         run: |

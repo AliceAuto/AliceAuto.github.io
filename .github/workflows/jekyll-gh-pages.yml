@@ -2,35 +2,52 @@ name: 自动生成并部署 Jekyll 到 GitHub Pages
 
 on:
   push:
-    branches: ["main"]
-  workflow_dispatch:
+    branches: ["main"]  # 监听 `main` 分支的推送，自动触发工作流
+  workflow_dispatch:  # 支持手动触发工作流
 
 permissions:
-  contents: write
-  pages: write
-  id-token: write
+  contents: write  # 读取权限
+  pages: write  # 写入 GitHub Pages 权限
+  id-token: write  # 可选，根据需要
 
 concurrency:
   group: "pages"
   cancel-in-progress: false
 
-
-
-  
 jobs:
-  # 预部署任务
+  # 预部署任务，确保依赖和字体准备就绪
   work:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
 
     steps:
       - name: 检出仓库
         uses: actions/checkout@v4
 
+      - name: 更新软件包列表并安装依赖
+        run: |
+          sudo mkdir -p /usr/share/fonts/truetype/chinese
+
+      - name: 复制字体到系统
+        run: |
+          sudo cp /home/runner/work/AliceAuto.github.io/AliceAuto.github.io/刷题模块/脚本集/data/fonts/msyh.ttf /usr/share/fonts/truetype/chinese
+
+      - name: 更新字体缓存
+        run: |
+          sudo fc-cache -fv
+          fc-list :lang=zh
+
+      - name: 禁用字体缓存
+        run: |
+          export FONTCONFIG_PATH=/dev/null
+          fc-cache -fv
+
       - name: 设置 Python 环境
         uses: actions/setup-python@v4
         with:
           python-version: '3.9'
-
 
       - name: 安装 Python 依赖
         run: |
@@ -40,19 +57,20 @@ jobs:
       - name: 运行自定义 Python 脚本
         run: |
           cd ./刷题模块/
-          python 脚本集/Scripts/DataVisualization/src/main.py
+          python 脚本集/Scripts/DataVisualization/src/main.py  # 运行脚本生成文件
 
       - name: 提交生成的文件
         run: |
-          echo "提交生成的文件到 Git 仓库..."
-          git add .
-          git commit -m "自动提交生成的文件"
-          git push origin main  # 提交到 main 分支
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A  # 添加所有更改的文件
+          git commit -m "提交生成的文件"  # 提交更改
+          git push origin main  # 推送到 main 分支
 
   # 构建与部署任务
   build:
     runs-on: ubuntu-latest
-    needs: work  # 确保 work 完成后执行
+    needs: work  # 确保 build 步骤在 work 完成后执行
 
     steps:
       - name: 检出仓库
@@ -72,11 +90,11 @@ jobs:
           source: ./  # 确保源目录是正确的
           destination: ./_site  # 确保构建目录是 _site
 
-      - name: 列出 _site 目录中的内容
+      - name: 列出生成的文件
         run: |
           echo "列出 _site 目录中的内容："
-          ls -R ./_site  # 列出 _site 目录中的内容，确保其生成
-
+          ls -R ./_site/assets/png  # 列出 _site 目录中的内容，确保其生成
+          
       - name: 上传构建产物
         uses: actions/upload-pages-artifact@v3
 
@@ -87,9 +105,15 @@ jobs:
 
       - name: 创建新的 gh-pages 分支
         run: |
-          git checkout -B gh-pages
+          git checkout -B gh-pages  # 创建并切换到 gh-pages 分支
           git reset --hard
-          git init
+          git init  # 重新初始化 Git 仓库，确保有 .git 目录
+
+      - name: 列出当前工作目录
+        run: |
+          echo "当前工作目录："
+          pwd  # 输出当前工作目录
+          ls -R  # 列出当前工作目录下的所有文件，确保路径正确
 
       - name: 将生成的静态内容复制到根目录
         run: |
@@ -99,7 +123,7 @@ jobs:
             rsync -av --exclude='.git' ./_site/ ./  # 将 _site 目录内容递归复制到根目录
           else
             echo "_site 目录未生成，请检查构建步骤。"  # 如果没有 _site 目录，输出错误信息
-            exit 1
+            exit 1  # 退出流程
           fi
 
       - name: 使用 Personal Access Token 推送

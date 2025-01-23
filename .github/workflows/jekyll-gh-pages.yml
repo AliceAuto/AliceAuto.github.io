@@ -57,7 +57,15 @@ jobs:
       - name: 运行自定义 Python 脚本
         run: |
           cd ./刷题模块/
-          python 脚本集/Scripts/DataVisualization/src/main.py
+          python 脚本集/Scripts/DataVisualization/src/main.py  # 运行脚本生成文件
+
+      - name: 提交生成的文件
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A  # 添加所有更改的文件
+          git commit -m "提交生成的文件"  # 提交更改
+          git push origin main  # 推送到 main 分支
 
   # 构建与部署任务
   build:
@@ -81,25 +89,7 @@ jobs:
         run: |
           echo "列出 _site 目录中的内容："
           ls -R ./_site  # 列出 _site 目录中的内容，确保其生成
-
-      # 复制生成的文件到 _site 中
-      - name: 复制生成文件到 _site 目录
-        run: |
-          echo "复制生成的文件到 _site 目录..."
-          if [ -d "./assets/images/png" ]; then
-            echo "文件夹存在，开始复制..."
-            # 使用 rsync 递归复制生成文件
-            rsync -av ./assets/images/png/ ./_site/assets/images/png/
-          else
-            echo "生成文件夹不存在，请检查生成路径"
-            exit 1
-          fi
-
-      - name: 列出 _site 目录中的内容（检查文件是否复制成功）
-        run: |
-          echo "检查 _site 目录："
-          ls -R ./_site  # 列出 _site 目录中的文件，确保文件已正确复制
-
+          
       - name: 上传构建产物
         uses: actions/upload-pages-artifact@v3
 
@@ -131,9 +121,7 @@ jobs:
             exit 1  # 退出流程
           fi
 
-      # 提交生成的文件并推送到 gh-pages 分支
-      - name: 提交生成的文件并推送到 gh-pages
+      - name: 使用 Personal Access Token 推送
         run: |
-          git add -A  # 添加所有更改的文件
-          git commit -m "Deploy updated site"  # 提交更改
-          git push --force --set-upstream origin gh-pages  # 强制推送到 gh-pages 分支
+          git remote set-url origin https://x-access-token:${{ secrets.MY_GITHUB_TOKEN }}@github.com/AliceAuto/AliceAuto.github.io.git
+          git push --force --set-upstream origin gh-pages

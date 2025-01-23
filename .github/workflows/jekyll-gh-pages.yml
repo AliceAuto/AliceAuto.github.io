@@ -85,7 +85,7 @@ jobs:
       - name: 复制生成文件到 _site 目录
         run: |
           echo "复制生成的文件到 _site 目录..."
-          if [ -d "./刷题模块/脚本集/images/png" ]; then
+          if [ -d "./assets/images/png" ]; then
             echo "文件夹存在，开始复制..."
             # 使用 rsync 递归复制生成文件
             rsync -av ./assets/images/png/ ./_site/assets/images/png/

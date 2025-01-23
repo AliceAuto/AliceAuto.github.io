@@ -60,7 +60,11 @@ jobs:
           python 脚本集/Scripts/DataVisualization/src/main.py
 
   # 构建与部署任务
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    needs: work  # 依赖前面的工作
 
+    steps:
       - name: 检出仓库
         uses: actions/checkout@v4
 
@@ -92,8 +96,6 @@ jobs:
           git init  # 重新初始化 Git 仓库，确保有 .git 目录
 
       - name: 列出当前工作目录
-
-
         run: |
           echo "当前工作目录："
           pwd  # 输出当前工作目录

@@ -58,6 +58,9 @@ jobs:
         run: |
           cd ./刷题模块/
           python 脚本集/Scripts/DataVisualization/src/main.py  # 运行脚本生成文件
+          cd ..
+          cd assets/scripts/UserPersonalSpace/src/
+          python CalendarCreater.py
 
       - name: 检查是否有新生成的文件
         run: |

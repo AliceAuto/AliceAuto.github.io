@@ -4,7 +4,7 @@ import json
 import os
 # 生成对应 user 的 HTML 文件
 def generate_calendar_html(user,user_data):
-    user = user.replace("\"", "")
+
     # 导入必要的库
     import calendar
     year = datetime.now().year
@@ -241,8 +241,10 @@ def generate_calendar_html(user,user_data):
         f.write(html)
 
 #数据库路径常量
-DB_PATH = "D:\\AcEasy\\assets\\json_Database\\Database.json"
-
+DB_PATH = "assets/json_Database/Database.json"
+parent_path = os.path.dirname(os.path.abspath(__file__))
+parent_path = os.path.join(parent_path, "..","..","..","..")
+DB_PATH = os.path.join(parent_path, DB_PATH)
 
 # 读取 JSON 数据
 with open(DB_PATH, "r",encoding= "utf-8") as file:

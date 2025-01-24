@@ -586,6 +586,147 @@ def start_watching(directory, save_directory, interval, mode):
         print("监听停止")
     observer.join()
 
+import os
+import json
+import re
+from datetime import datetime
+from collections import defaultdict
+
+# 读取 Markdown 文件并提取头部元数据
+def extract_metadata_from_markdown(file_path):
+    with open(file_path, 'r', encoding='utf-8') as file:
+        content = file.read()
+        
+        # 使用正则表达式提取头部信息
+        metadata = {}
+        match = re.match(r'---\s*\n(.*?)\n---', content, re.DOTALL)  # 匹配头部的 YAML 格式
+        if match:
+            header = match.group(1)
+            for line in header.split('\n'):
+                # 提取 key: value 格式的数据
+                if ':' in line:
+                    key, value = line.split(':', 1)
+                    metadata[key.strip()] = value.strip()
+        
+        # 返回提取的元数据
+        return metadata
+
+# 扫描目录并生成文件信息列表
+def scan_markdown_files(directory):
+    author_data = defaultdict(list)  # 用一个列表存储每个作者的所有文章信息
+    
+    for root, dirs, files in os.walk(directory):
+        for file in files:
+            if file.endswith(".md"):  # 只处理 Markdown 文件
+                file_path = os.path.join(root, file)
+                
+                # 提取文件的元数据
+                metadata = extract_metadata_from_markdown(file_path)
+                
+                if metadata:  # 只有提取到有效元数据才进行处理
+                    creator = metadata.get('author')
+                    date = metadata.get('date')
+                    link = metadata.get('permalink')  # 使用 permalink 作为链接字段
+                    title = metadata.get('title', file)  # 如果没有标题字段，使用文件名
+                    
+                    if creator and date and link:
+                        # 转换日期为 "MM/DD/YYYY" 格式
+                        try:
+                            date_obj = datetime.strptime(date, "%Y-%m-%d")
+                            date_str = date_obj.strftime("%m/%d/%Y")
+                            
+                            # 每篇文章存储日期、标题、链接和报告数量
+                            author_data[creator].append({
+                                "date": date_str,
+                                "title": title,
+                                "link": link,
+                                "report_count": 1  # 每篇文章计数 1 次
+                            })
+                            
+
+                            # 调试：只输出扫描成功的文章
+                            print(f"Processed {file_path}: {metadata}")
+                        except ValueError:
+                            print(f"Date format error in {file_path}: {date}")
+                    else:
+                        print(f"Skipping {file_path}: Missing required metadata.")
+                else:
+                    print(f"Skipping {file_path}: No valid metadata found.")
+    
+    # 输出扫描到的作者数据
+    if author_data:
+        print(f"Author data collected: {dict(author_data)}")
+    else:
+        print("No author data found.")
+    
+    return author_data
+
+import os
+import json
+import os
+import json
+
+# 更新 JSON 文件中的用户信息
+def update_json_users(author_data, json_file_path):
+    # 检查文件是否存在，并且不是空文件
+    if os.path.exists(json_file_path):
+        file_size = os.stat(json_file_path).st_size
+        if file_size == 0:
+            data = {"users": {}}  # 如果文件为空，初始化为默认结构
+            print(f"JSON 文件为空，初始化为默认结构: {json_file_path}")
+        else:
+            try:
+                # 读取现有的 JSON 数据
+                with open(json_file_path, 'r', encoding='utf-8') as f:
+                    data = json.load(f)  # 尝试加载 JSON 数据
+            except (json.JSONDecodeError, ValueError) as e:
+                # 如果 JSON 格式不正确，初始化为默认结构
+                print(f"读取 JSON 文件时发生错误，初始化为默认结构: {json_file_path}")
+                print(f"错误详情: {e}")
+                data = {"users": {}}  # 格式不正确时使用标准结构
+    else:
+        data = {"users": {}}  # 如果文件不存在，初始化为空结构
+        print(f"JSON 文件不存在，初始化为默认结构: {json_file_path}")
+
+    # 确保 JSON 数据包含 users 键
+    if "users" not in data:
+        data["users"] = {}
+
+    # 更新每个作者的 posts 部分
+    for author, posts in author_data.items():
+        # 去掉作者名两端的引号
+        author = author.strip('"')  # 去除首尾的引号
+
+        if author not in data["users"]:
+            # 如果作者不存在，则创建新作者并初始化 posts
+            data["users"][author] = {"posts": []}
+        
+        # 获取当前作者的 posts 列表
+        current_posts = data["users"][author].get("posts", [])
+        
+        # 合并文章信息到 posts 部分，避免重复
+        existing_titles = {post['title'] for post in current_posts}  # 记录已存在文章的标题
+        for post in posts:
+            # 去掉文章标题两端的引号
+            post['title'] = post['title'].strip('"')  # 去除首尾的引号
+
+        # 过滤出没有重复标题的新文章
+        new_posts = [post for post in posts if post['title'] not in existing_titles]
+        
+        # 如果有新的文章，添加到 posts 中
+        if new_posts:
+            data["users"][author]["posts"].extend(new_posts)
+        else:
+            print(f"Skipping duplicate posts for {author}: {posts}")
+
+    # 将更新后的数据写回 JSON 文件
+    if data:
+        # 使用 ensure_ascii=False 来确保中文字符正常存储
+        with open(json_file_path, 'w', encoding='utf-8') as f:
+            json.dump(data, f, indent=4, ensure_ascii=False)
+        print(f'用户数据已更新到 {json_file_path}')
+    else:
+        print("No data to update in JSON.")
 
 # ------------------------------ 主程序入口 ------------------------------
 import os
@@ -630,3 +771,15 @@ if __name__ == "__main__":
     else:
         print("实时监听模式")
         start_watching(root_directory, save_directory, args.interval, args.mode)
+        
+
+    DB_PATH = '../assets/json_Database/Database.json'  # 这里指定 JSON 文件的路径
+    
+    # 扫描文件并获取按作者分类的文件信息
+    author_data = scan_markdown_files(root_directory)
+    
+    if author_data:
+        # 更新用户数据中的作者信息
+        update_json_users(author_data, DB_PATH)
+    else:
+        print("没有扫描到任何文章。")

@@ -241,7 +241,7 @@ def generate_calendar_html(user,user_data):
         f.write(html)
 
 
-def generate_html(directory, output_file):
+def generate_html(root_path,directory, output_file):
 
     title = "贡献者"
 
@@ -345,8 +345,9 @@ def generate_html(directory, output_file):
             
             # 文件名去除.html作为连接title
             link_title = file_name.replace('.html', '')
-
-            html_content += "<li><a href='{}'>{}</a></li>".format(file_path, link_title)
+            # 获得相对路径
+            file_relative_path = os.path.relpath(file_path, directory)
+            html_content += "<li><a href='{}'>{}</a></li>".format(file_relative_path, link_title)
 
     # 关闭HTML标签
     html_content += """
@@ -383,13 +384,14 @@ for username, user_data in users.items():
     print(f"Generated calendar for {username}")
 #=============================================================
 
-directory = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+#获得根目录
+directory = os.path.dirname(os.path.abspath(__file__))
+directory = os.path.join(directory, "..","..","..","..")
 # 设置目标目录路径
-PATH = os.path.join(directory, 'users_html')
+PATH = os.path.join(directory, "assets","scripts","UserPersonalSpace","users_html")
 
 # 设置输出的HTML文件路径
-output_file = 'index.html'
-output_file_path = os.path.join(directory, output_file)
+output_path = os.path.join(directory, "assets","scripts","UserPersonalSpace","index.html")
 
 # 调用生成HTML的函数
-generate_html(PATH, output_file_path)
+generate_html(directory,PATH, output_path)

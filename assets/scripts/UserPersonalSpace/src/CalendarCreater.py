@@ -3,7 +3,8 @@ import calendar
 import json
 import os
 # 生成对应 user 的 HTML 文件
-def generate_calendar_html(user):
+def generate_calendar_html(user,user_data):
+    user = user.replace("\"", "")
     # 导入必要的库
     import calendar
     year = datetime.now().year
@@ -130,23 +131,7 @@ def generate_calendar_html(user):
     # 定义每个日期的HTML模板
     day_template = """<rect class="day" width="11" height="11" y="{}" fill="{}" data-item="{}" data-date="{}"></rect>"""
 
-    # 读取JSON文件
-    def read_json_file(file_path):
-        with open(file_path, 'r', encoding='utf-8') as file:
-            return json.load(file)
-
-    # 获取脚本的当前路径
-    import os
-    current_path = os.path.dirname(os.path.abspath(__file__))
-    parent_path = os.path.dirname(current_path)
-    file_path = os.path.join(parent_path, "data", "users_data.json")
-    users_data = read_json_file(file_path)
-
-    # 获取用户数据
- 
-    user_data = users_data.get(user, {})
-
-    # 获取博客数据
+   
     posts = user_data.get("posts", [])
 
     # 生成博客目录HTML
@@ -229,31 +214,34 @@ def generate_calendar_html(user):
 
     # 生成完整的HTML
     html = html_template.format(user, ''.join(weeks_each_year), total_report_count_in_all, max_consecutive_days, blog_posts_html)
-
+    parent_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     # 保存HTML文件
     folder_path = os.path.join(parent_path, "users_html")
     if not os.path.exists(folder_path):
         os.makedirs(folder_path)
+    #去除""
+    
     with open(os.path.join(folder_path, user + ".html"), "w", encoding="utf-8") as f:
         f.write(html)
 
-# 调
-# 读取 JSON 文件
-def read_json_file(file_path):
-    with open(file_path, 'r', encoding='utf-8') as file:
-        return json.load(file)
+#数据库路径常量
+DB_PATH = "D:\\AcEasy\\assets\\json_Database\\Database.json"
 
-# 获取用户数据
-def process_all_users():
-    current_path = os.path.dirname(os.path.abspath(__file__))
-    parent_path = os.path.dirname(current_path)
-    file_path = os.path.join(parent_path, "data", "users_data.json")
-    users_data = read_json_file(file_path)
+
+# 读取 JSON 数据
+with open(DB_PATH, "r",encoding= "utf-8") as file:
+    data = json.load(file)
+
+# 获取所有用户
+users = data['users']
+
+# 遍历每个用户并生成对应的 HTML
+for username, user_data in users.items():
+    print(f"Generating calendar for user: {username}")
     
+    # 调用你已经实现的 generate_calendar_html 函数来生成用户的 HTML
+    generate_calendar_html(username, user_data)
     
-    
-    # 遍历所有用户生成 HTML
-    for user, user_data in users_data.items():
-        print(f"为{user}生成个人空间")
-        generate_calendar_html(user)
-process_all_users()
+    print(f"Generated calendar for {username}")
+
+

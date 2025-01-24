@@ -15,6 +15,99 @@ def generate_calendar_html(user,user_data):
     <head>
         <meta charset="UTF-8">
        <style>
+       body {{ font-family: 'Arial', sans-serif; line-height: 1.6; margin: 0; padding: 0; background-color: #f9f9f9; }}
+                .container {{ max-width: 800px; margin: 50px auto; background: #e7e6e6; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); }}
+                h1 {{ text-align: center; color: #333; margin-bottom: 20px; }}
+                p {{ text-align: center; color: #666; margin-bottom: 30px; }}
+                .div1 a {{ color: #f44336; }}
+                .div2 a {{ color: #ff9800; }}
+                .div3 a {{ color: #ffeb3b; }}
+                .div4 a {{ color: #4caf50; }}
+                .div5 a {{ color: #2196f3; }}
+                .problem-item {{ margin: 15px 0; padding: 15px; border-radius: 5px; transition: all 0.3s ease;background-color: #ffffff;}}
+                .div1 .problem-item {{ background-color: #ffebee; }}
+                .div2 .problem-item {{ background-color: #fff3e0; }}
+                .div3 .problem-item {{ background-color: #fffde7; }}
+                .div4 .problem-item {{ background-color: #e8f5e9; }}
+                .div5 .problem-item {{ background-color: #e3f2fd; }}
+                .problem-item:hover {{ background: #eaeaea; transform: translateY(-2px); }}
+                .problem-item a {{ text-decoration: none; font-size: 18px; font-weight: bold; }}
+                .problem-item a:hover {{ text-decoration: underline; }}
+                .problem-meta {{ font-size: 14px; color: #999; margin-top: 5px; }}
+                .back-button {{ position: fixed; top: 20px; left: 20px; padding: 10px 20px; background-color: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; }}
+                .back-button:hover {{ background-color: #0056b3; }}
+            
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                background-color: #f4f7fb;
+                color: #333;
+                margin: 20px;
+                line-height: 1.6;
+            }}
+
+            h1 {{
+                color: #444;
+                text-align: center;
+                font-size: 2.2em;
+                margin-bottom: 20px;
+            }}
+
+            /* 列表样式 */
+            ul {{
+                list-style-type: none;
+                padding-left: 0;
+                max-width: 800px;
+                margin: 0 auto;
+            }}
+
+            li {{
+                padding: 12px;
+                margin: 8px 0;
+                background-color: #ffffff;
+                border-radius: 8px;
+                box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+                transition: background-color 0.3s ease, transform 0.2s ease;
+            }}
+
+            li:hover {{
+                background-color: #e1f5fe;
+                transform: translateX(5px);
+            }}
+
+            /* 链接样式 */
+            a {{
+                text-decoration: none;
+                color: #0066cc;
+                font-size: 1.1em;
+                font-weight: 500;
+                transition: color 0.3s ease, text-decoration 0.2s ease;
+            }}
+
+            a:hover {{
+                color: #005bb5;
+                text-decoration: underline;
+            }}
+
+            /* 目录项样式 */
+            b {{
+                font-weight: 600;
+                color: #3a3a3a;
+            }}
+
+            /* 响应式设计 */
+            @media (max-width: 768px) {{
+                h1 {{
+                    font-size: 1.6em;
+                }}
+
+                ul {{
+                    padding-left: 20px;
+                }}
+
+                li {{
+                    padding: 10px;
+                    font-size: 1em;
+                }}
+            }}
         .box-container {{
             display: flex;
             background-color: #f8f8f8; /* 更柔和的背景色 */
@@ -90,7 +183,7 @@ def generate_calendar_html(user,user_data):
     }}
         </style>
     </head>
-    <body>
+    <body class = container>
     
     <div class="_UserActivityFrame_header xh-highlight">
         <div class="_UserActivityFrame_title" style="text-align: center;">
@@ -254,7 +347,28 @@ def generate_html(root_path,directory, output_file):
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Directory Listing for {title}</title>
         <style>
-            body {{
+            body {{ font-family: 'Arial', sans-serif; line-height: 1.6; margin: 0; padding: 0; background-color: #f9f9f9; }}
+                .container {{ max-width: 800px; margin: 50px auto; background: #e7e6e6; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); }}
+                h1 {{ text-align: center; color: #333; margin-bottom: 20px; }}
+                p {{ text-align: center; color: #666; margin-bottom: 30px; }}
+                .div1 a {{ color: #f44336; }}
+                .div2 a {{ color: #ff9800; }}
+                .div3 a {{ color: #ffeb3b; }}
+                .div4 a {{ color: #4caf50; }}
+                .div5 a {{ color: #2196f3; }}
+                .problem-item {{ margin: 15px 0; padding: 15px; border-radius: 5px; transition: all 0.3s ease;background-color: #ffffff;}}
+                .div1 .problem-item {{ background-color: #ffebee; }}
+                .div2 .problem-item {{ background-color: #fff3e0; }}
+                .div3 .problem-item {{ background-color: #fffde7; }}
+                .div4 .problem-item {{ background-color: #e8f5e9; }}
+                .div5 .problem-item {{ background-color: #e3f2fd; }}
+                .problem-item:hover {{ background: #eaeaea; transform: translateY(-2px); }}
+                .problem-item a {{ text-decoration: none; font-size: 18px; font-weight: bold; }}
+                .problem-item a:hover {{ text-decoration: underline; }}
+                .problem-meta {{ font-size: 14px; color: #999; margin-top: 5px; }}
+                .back-button {{ position: fixed; top: 20px; left: 20px; padding: 10px 20px; background-color: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; }}
+                .back-button:hover {{ background-color: #0056b3; }}
+            
                 font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
                 background-color: #f4f7fb;
                 color: #333;

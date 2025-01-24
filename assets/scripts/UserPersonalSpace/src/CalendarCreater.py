@@ -37,12 +37,7 @@ def generate_calendar_html(user,user_data):
                 .back-button {{ position: fixed; top: 20px; left: 20px; padding: 10px 20px; background-color: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; }}
                 .back-button:hover {{ background-color: #0056b3; }}
             
-                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-                background-color: #f4f7fb;
-                color: #333;
-                margin: 20px;
-                line-height: 1.6;
-            }}
+               
 
             h1 {{
                 color: #444;
@@ -184,7 +179,7 @@ def generate_calendar_html(user,user_data):
         </style>
     </head>
     <body class = container>
-    <button class="back-button" onclick="window.location.href='https://aliceauto.github.io/assets/scripts/UserPersonalSpace/">返回</button>
+    <button class="back-button" onclick=window.location.href="https://aliceauto.github.io/assets/scripts/UserPersonalSpace/"> 返回 </button>
     <div class="_UserActivityFrame_header xh-highlight">
         <div class="_UserActivityFrame_title" style="text-align: center;">
             <div class="_UserActivityFrame_titleText" style="font-weight: bold;">{}的个人空间</div>

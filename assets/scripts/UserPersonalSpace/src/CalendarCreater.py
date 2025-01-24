@@ -48,24 +48,30 @@ def generate_calendar_html(user):
             border-radius: 5px;
             background-color: #f9f9f9;
         }}
-        .blog-button {{
-            padding: 10px 20px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-            cursor: pointer;
-            transition: transform 0.2s, background-color 0.2s;
-        }}
-        .blog-button:hover {{
-            background-color: #0056b3;
-            transform: scale(1.05);  /* 按钮放大效果 */
-        }}
-        .blog-button:active {{
-            background-color: #003f7f;
-            transform: scale(1.1);  /* 按钮点击时的放大效果 */
-        }}
+         .blog-button {{
+        padding: 12px 24px;  /* 按钮内边距 */
+        background: linear-gradient(135deg, #6e7aee, #4e61b2); /* 渐变背景色 */
+        color: white;  /* 字体颜色 */
+        border: none;  /* 去掉边框 */
+        border-radius: 8px;  /* 圆角边框 */
+        font-size: 16px;  /* 字体大小 */
+        cursor: pointer;  /* 鼠标悬停时变成指针 */
+        transition: all 0.3s ease;  /* 过渡效果 */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);  /* 按钮阴影 */
+        text-decoration: none; /* 去掉链接下划线 */
+    }}
+
+    .blog-button:hover {{
+        background: linear-gradient(135deg, #4e61b2, #6e7aee); /* 悬停时改变背景色 */
+        transform: scale(1.05);  /* 放大效果 */
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);  /* 更强的阴影效果 */
+    }}
+
+    .blog-button:active {{
+        background: #2f3d8a;  /* 点击时的背景色 */
+        transform: scale(0.98);  /* 按钮点击时缩小 */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);  /* 还原阴影 */
+    }}
         </style>
     </head>
     <body>

@@ -14,15 +14,30 @@ def generate_calendar_html(user,user_data):
     <html lang="zh-CN">
     <head>
         <meta charset="UTF-8">
-        <style>
+       <style>
         .box-container {{
             display: flex;
             background-color: #f8f8f8; /* 更柔和的背景色 */
             padding: 10px;
             border-top: 1px solid #ddd; /* 更柔和的边框颜色 */
         }}
+        ._UserActivityFrame_header {{
+            background-color: #f8f8f8; /* 更柔和的背景色 */
+            padding: 10px;
+            border-bottom: 1px solid #ddd; /* 更柔和的边框颜色 */
+        }}
+        ._UserActivityFrame_body {{
+            background-color: #f8f8f8; /* 更柔和的背景色 */
+            padding: 10px;
+            border-bottom: 1px solid #ddd; /* 更柔和的边框颜色 */
+        }}
+        ._UserActivityFrame_footer {{
+            background-color: #f8f8f8; /* 更柔和的背景色 */
+            padding: 10px;
+            border-bottom: 1px solid #ddd; /* 更柔和的边框颜色 */
+        }}
         ._UserActivityFrame_countersRow {{
-            display: inline-block;
+   
             padding: 10px;
         }}
         ._UserActivityFrame_counter {{
@@ -76,6 +91,7 @@ def generate_calendar_html(user,user_data):
         </style>
     </head>
     <body>
+    
     <div class="_UserActivityFrame_header xh-highlight">
         <div class="_UserActivityFrame_title" style="text-align: center;">
             <div class="_UserActivityFrame_titleText" style="font-weight: bold;">{}的个人空间</div>

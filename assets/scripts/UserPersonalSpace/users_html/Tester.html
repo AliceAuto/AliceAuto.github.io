@@ -13,7 +13,6 @@
         ._UserActivityFrame_countersRow {
             display: inline-block;
             padding: 10px;
-       
         }
         ._UserActivityFrame_counter {
             border: 1px solid #ddd; /* 更柔和的边框颜色 */
@@ -29,18 +28,47 @@
         ._UserActivityFrame_counterDescription {
             color: #666; /* 中灰色文本 */
         }
+        .blog-directory {
+            margin-top: 20px;
+        }
+        .blog-post {
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .blog-button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+        .blog-button:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);  /* 按钮放大效果 */
+        }
+        .blog-button:active {
+            background-color: #003f7f;
+            transform: scale(1.1);  /* 按钮点击时的放大效果 */
+        }
         </style>
     </head>
+    <body>
     <div class="_UserActivityFrame_header xh-highlight">
         <div class="_UserActivityFrame_title" style="text-align: center;">
             <div class="_UserActivityFrame_titleText" style="font-weight: bold;">Tester的个人空间</div>
         </div>
     </div>
     <div class="_UserActivityFrame_body xh-highlight">
-    
+        <!-- 日历部分内容 -->
         <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMinYMin meet" viewBox="0 0 721 110">
-        <g transform="translate(25, 20)">
-            <g transform="translate(13,0)">
+            <g transform="translate(25, 20)">
+                <g transform="translate(13,0)">
         <rect class="day" width="11" height="11" y="26" fill="#d4edda" data-item="1" data-date="01/01/2025"></rect><rect class="day" width="11" height="11" y="39" fill="#c3e6cb" data-item="2" data-date="01/02/2025"></rect><rect class="day" width="11" height="11" y="52" fill="#85adad" data-item="4" data-date="01/03/2025"></rect><rect class="day" width="11" height="11" y="65" fill="#85adad" data-item="4" data-date="01/04/2025"></rect><rect class="day" width="11" height="11" y="78" fill="#f2f2f2" data-item="0" data-date="01/05/2025"></rect>
     </g>
     <g transform="translate(26,0)">
@@ -227,38 +255,50 @@
         <rect class="day" width="11" height="11" y="0" fill="#f2f2f2" data-item="0" data-date="12/29/2025"></rect><rect class="day" width="11" height="11" y="13" fill="#f2f2f2" data-item="0" data-date="12/30/2025"></rect><rect class="day" width="11" height="11" y="26" fill="#f2f2f2" data-item="0" data-date="12/31/2025"></rect>
     </g>
     
-            <text x="13" y="-5" class="month">Feb</text><text x="66" y="-5" class="month">Mar</text>
-            <text x="130" y="-5" class="month">Apr</text><text x="182" y="-5" class="month">May</text>
-            <text x="234" y="-5" class="month">Jun</text><text x="299" y="-5" class="month">Jul</text>
-            <text x="351" y="-5" class="month">Aug</text><text x="403" y="-5" class="month">Sep</text>
-            <text x="468" y="-5" class="month">Oct</text><text x="520" y="-5" class="month">Nov</text>
-            <text x="572" y="-5" class="month">Dec</text><text x="637" y="-5" class="month">Jan</text>
-            <text text-anchor="middle" class="wday" dx="-13" dy="22">Mon</text><text text-anchor="middle" class="wday" dx="-13" dy="44">Wed</text>
-            <text text-anchor="middle" class="wday" dx="-13" dy="74">Fri</text>
-        </g>
+                <text x="13" y="-5" class="month">Feb</text><text x="66" y="-5" class="month">Mar</text>
+                <text x="130" y="-5" class="month">Apr</text><text x="182" y="-5" class="month">May</text>
+                <text x="234" y="-5" class="month">Jun</text><text x="299" y="-5" class="month">Jul</text>
+                <text x="351" y="-5" class="month">Aug</text><text x="403" y="-5" class="month">Sep</text>
+                <text x="468" y="-5" class="month">Oct</text><text x="520" y="-5" class="month">Nov</text>
+                <text x="572" y="-5" class="month">Dec</text><text x="637" y="-5" class="month">Jan</text>
+                <text text-anchor="middle" class="wday" dx="-13" dy="22">Mon</text><text text-anchor="middle" class="wday" dx="-13" dy="44">Wed</text>
+                <text text-anchor="middle" class="wday" dx="-13" dy="74">Fri</text>
+            </g>
         </svg>
     </div>
     <div class="_UserActivityFrame_footer xh-highlight">
         <div class="box-container">
-        <div class="_UserActivityFrame_countersRow">
-            <div class="_UserActivityFrame_counter">
-                <div class="_UserActivityFrame_counterValue">10 篇</div>
-                <div class="_UserActivityFrame_counterDescription">
-                    总文章数
+            <div class="_UserActivityFrame_countersRow">
+                <div class="_UserActivityFrame_counter">
+                    <div class="_UserActivityFrame_counterValue">10 篇</div>
+                    <div class="_UserActivityFrame_counterDescription">总文章数</div>
+                </div>
+            </div>
+            <div class="_UserActivityFrame_countersRow">
+                <div class="_UserActivityFrame_counter">
+                    <div class="_UserActivityFrame_counterValue">4 天</div>
+                    <div class="_UserActivityFrame_counterDescription">最多连续打卡</div>
                 </div>
             </div>
         </div>
-    
-        <div class="_UserActivityFrame_countersRow">
-            <div class="_UserActivityFrame_counter">
-                <div class="_UserActivityFrame_counterValue">4 天</div>
-                <div class="_UserActivityFrame_counterDescription">
-                    最多连续打卡.
-                </div>
-            </div>
+        <!-- 个人博客目录部分 -->
+        <div class="blog-directory">
+            <h3>个人博客目录</h3>
+            
+        <div class="blog-post">
+            <button class="blog-button" onclick="window.location.href='https://www.example.com'">
+                First post
+            </button>
         </div>
+        
+        <div class="blog-post">
+            <button class="blog-button" onclick="window.location.href='https://www.example.com'">
+                Second post
+            </button>
+        </div>
+        
         </div>
     </div>
+    </body>
     </html>
-
     

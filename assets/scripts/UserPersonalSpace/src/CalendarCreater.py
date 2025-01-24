@@ -113,7 +113,8 @@ def generate_calendar_html(user):
     json_data = read_json_file(file_path)
     
     # 获取用户数据
-    user_data = json_data.get(user, {})
+    users_data = json_data.get("users", {})
+    user_data = users_data.get(user, {})
     
     # 获取每日报告数据
     daily_report_count_in_year = user_data.get("daliy_report_count_in_year", {})

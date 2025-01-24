@@ -346,7 +346,7 @@ def generate_html(root_path,directory, output_file):
             # 文件名去除.html作为连接title
             link_title = file_name.replace('.html', '')
             # 获得相对路径
-            file_relative_path = os.path.relpath(file_path, directory)
+            file_relative_path = os.path.relpath(file_path, root_path)
             html_content += "<li><a href='{}'>{}</a></li>".format(file_relative_path, link_title)
 
     # 关闭HTML标签

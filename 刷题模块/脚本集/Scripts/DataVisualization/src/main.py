@@ -16,7 +16,6 @@ from threading import Timer  # 导入定时器
 
 
 
-
 # ------------------------------ 配置文件处理 ------------------------------
 def resource_path(relative_path):
     """ 获取资源文件的路径 """

@@ -190,12 +190,12 @@ def generate_calendar_html(user,user_data):
         <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMinYMin meet" viewBox="0 0 721 110">
             <g transform="translate(25, 20)">
                 {}
-                <text x="13" y="-5" class="month">Feb</text><text x="66" y="-5" class="month">Mar</text>
-                <text x="130" y="-5" class="month">Apr</text><text x="182" y="-5" class="month">May</text>
-                <text x="234" y="-5" class="month">Jun</text><text x="299" y="-5" class="month">Jul</text>
-                <text x="351" y="-5" class="month">Aug</text><text x="403" y="-5" class="month">Sep</text>
-                <text x="468" y="-5" class="month">Oct</text><text x="520" y="-5" class="month">Nov</text>
-                <text x="572" y="-5" class="month">Dec</text><text x="637" y="-5" class="month">Jan</text>
+                <text x="13" y="-5" class="month">Jan</text><text x="66" y="-5" class="month">Feb</text>
+                <text x="130" y="-5" class="month">Mar</text><text x="182" y="-5" class="month">Apr</text>
+                <text x="234" y="-5" class="month">May</text><text x="299" y="-5" class="month">Jun</text>
+                <text x="351" y="-5" class="month">Jul</text><text x="403" y="-5" class="month">Aug</text>
+                <text x="468" y="-5" class="month">Sep</text><text x="520" y="-5" class="month">Oct</text>
+                <text x="572" y="-5" class="month">Nov</text><text x="637" y="-5" class="month">Dec</text>
                 <text text-anchor="middle" class="wday" dx="-13" dy="22">Mon</text><text text-anchor="middle" class="wday" dx="-13" dy="44">Wed</text>
                 <text text-anchor="middle" class="wday" dx="-13" dy="74">Fri</text>
             </g>
@@ -252,9 +252,10 @@ def generate_calendar_html(user,user_data):
 
 
     # 获取每日报告数据
-    daily_report_count_in_year = user_data.get("daliy_report_count_in_year", {})
+    daily_report_count_in_year = user_data.get("daily_report_count_in_year", {})
     total_report_count_in_all = user_data.get("total_report_count_in_all", 0)
-    
+    print("daily_report_count_in_year:",daily_report_count_in_year)
+    print("total_report_count_in_all:",total_report_count_in_all)
     # 计算连续天数的最大值
     max_consecutive_days = 0
     current_consecutive_days = 0
@@ -267,54 +268,50 @@ def generate_calendar_html(user,user_data):
 
     # 生成每个日期的HTML
     weeks_each_year = []
-    first_day_of_year = datetime(year, 1, 1).weekday()
-    day_in_year_cnt = first_day_of_year
+
+    day_in_year_cnt = 0
     days_each_week = []
     for month in range(1, 13):
         cal = calendar.monthcalendar(year, month)
         for week in cal:
             for day in week:
+                
                 if day != 0:
+                    print("Day:",day)
                     if day_in_year_cnt % 7 == 0:
                         days_each_week.clear()
                     date = datetime(year, month, day).strftime("%m/%d/%Y")
                     y = (day_in_year_cnt % 7) * 13
-                    daily_data = user_data.get("daliy_report_count_in_year", {}).get(date, 0)
+                   
+                    daily_data = user_data.get("daily_report_count_in_year", {}).get(date, 0)
                     
                     # 根据每日数据设置颜色,逐渐变绿
                     if daily_data == 0:#浅灰色
                         color = "#f2f2f2"
-                    elif daily_data == 1:#浅绿色
-                        color = "#d4edda"
-                    elif daily_data == 2:#深一点的绿色
-                        color = "#c3e6cb"
-                    elif daily_data == 3:#深绿色
-                        color = "#a3c2c2"
-                    elif daily_data == 4:#深一点的绿色
-                        color = "#85adad"
-                    elif daily_data == 5:#深绿色
-                        color = "#669696"
-                    elif daily_data == 6:#深绿色
-                        color = "#4c7878"
-                    elif daily_data == 7:#深绿色
-                        color = "#354c5c"
-                    elif daily_data == 8:#深绿色
-                        color = "#2a3f44"
-                    elif daily_data == 9:#深绿色
-                        color = "#202b33"
-                    elif daily_data == 10:#深绿色
-                        color = "#151a20"
-                    elif daily_data == 11:#深绿色
-                        color = "#0a0d10"
-                    elif daily_data == 12:#深绿色
-                        color = "#000000"
-                    else:#深绿色
-                        color = "#000000"
+                    elif daily_data <2:#浅绿色
+                        color = "#37c043"
+                    elif daily_data <3:#深一点的绿色
+                        color = "#1f9e2a"
+                    elif daily_data <5:#深绿色
+                        color = "#13911e"
+                    elif daily_data <6:#深一点的绿色
+                        color = "#0c8816"
+                    elif daily_data <7:#深绿色
+                        color = "#0c8816"
+                    elif daily_data <8:#深绿色
+                        color = "#05530b"
+                    elif daily_data <9:#深绿色
+                        color = "#043b09"
+                    else:
+                        color = "#023506"
+                  
                     days_each_week.append(day_template.format(y, color, daily_data, date))
                     day_in_year_cnt += 1
-            if days_each_week:
-                str_week_str = ''.join(days_each_week)
-                weeks_each_year.append(week_template.format((day_in_year_cnt // 7) * 13, str_week_str))
+                    if day_in_year_cnt%7==0:
+                        
+                        str_week_str = ''.join(days_each_week)
+                        weeks_each_year.append(week_template.format((day_in_year_cnt // 7) * 13, str_week_str))
+                        print(week,(day_in_year_cnt // 7) * 13)
 
     # 生成完整的HTML
     html = html_template.format(user, ''.join(weeks_each_year), total_report_count_in_all, max_consecutive_days, blog_posts_html)

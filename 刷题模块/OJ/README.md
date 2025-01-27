@@ -13,6 +13,7 @@ published: false
 | [**最大化整数串**](codeforces/div3_{贪心}_Codeforces_最大化整数串.md) | div3 | 贪心 | Codeforces |
 | [**无趣的数字**](codeforces/div3_{贪心}_Codeforces_无趣的数字.md) | div3 | 贪心 | Codeforces |
 | [**能不能为0**](codeforces/div4_{数学;思维题}_Codeforces_能不能为0.md) | div4 | 数学, 思维题 | Codeforces |
+| [**K倍区间**](未知/div3_{前缀和}_其他_K倍区间.md) | div3 | 前缀和 | 其他 |
 | [**二维上的贪心**](牛客/小白月赛106/div4_{贪心;思维题}_牛客_二维上的贪心.md) | div4 | 贪心, 思维题 | 牛客 |
 | [**我们N个实在太厉害了**](牛客/周赛60/div4_{数学;思维题}_牛客_我们N个实在太厉害了.md) | div4 | 数学, 思维题 | 牛客 |
 | [**不一样的01串**](牛客/周赛72/div4_{贪心;思维题;平衡}_牛客_不一样的01串.md) | div4 | 贪心, 思维题, 平衡 | 牛客 |

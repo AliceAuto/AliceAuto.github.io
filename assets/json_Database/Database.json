@@ -159,6 +159,30 @@
                     "report_count": 1
                 },
                 {
+                    "date": "01/26/2025",
+                    "title": "小红的01子序列计数（hard）",
+                    "link": "/刷题模块/OJ/牛客/周赛78/div2_{计数;字符串;子序列}_牛客_小红的01子序列计数（hard）.md/",
+                    "report_count": 1
+                },
+                {
+                    "date": "01/26/2025",
+                    "title": "在树上游玩",
+                    "link": "/刷题模块/OJ/牛客/周赛78/div3_{图论}_牛客_在树上游玩.md/",
+                    "report_count": 1
+                },
+                {
+                    "date": "01/26/2025",
+                    "title": "翻之",
+                    "link": "/刷题模块/OJ/牛客/周赛78/div4_{思维题}_牛客_翻之.md/",
+                    "report_count": 1
+                },
+                {
+                    "date": "01/26/2025",
+                    "title": "乘之",
+                    "link": "/刷题模块/OJ/牛客/周赛78/div5_{思维题;博弈论}_牛客_乘之.md/",
+                    "report_count": 1
+                },
+                {
                     "date": "01/22/2025",
                     "title": "一个Good树",
                     "link": "/刷题模块/OJ/牛客/寒假训练营2025/第一场/div4_{图论}_牛客_一个Good树.md/",
@@ -241,32 +265,16 @@
                     "title": "子矩阵",
                     "link": "/刷题模块/OJ/蓝桥杯/每日一题/div3_{滑动窗口}_蓝桥杯_子矩阵.md/",
                     "report_count": 1
-                },
-                {
-                    "date": "01/26/2025",
-                    "title": "翻之",
-                    "link": "/刷题模块/OJ/牛客/周赛78/div4_{思维题}_牛客_翻之.md/",
-                    "report_count": 1
-                },
-                {
-                    "date": "01/26/2025",
-                    "title": "乘之",
-                    "link": "/刷题模块/OJ/牛客/周赛78/div5_{思维题;博弈论}_牛客_乘之.md/",
-                    "report_count": 1
-                },
-                {
-                    "date": "01/26/2025",
-                    "title": "在树上游玩",
-                    "link": "/刷题模块/OJ/牛客/周赛78/div3_{图论}_牛客_在树上游玩.md/",
-                    "report_count": 1
-                },
-                {
-                    "date": "01/26/2025",
-                    "title": "小红的01子序列计数（hard）",
-                    "link": "/刷题模块/OJ/牛客/周赛78/div2_{计数;字符串;子序列}_牛客_小红的01子序列计数（hard）.md/",
-                    "report_count": 1
                 }
-            ]
+            ],
+            "total_report_count_in_all": 44,
+            "daily_report_count_in_year": {
+                "01/17/2025": 31,
+                "01/20/2025": 4,
+                "01/26/2025": 4,
+                "01/22/2025": 4,
+                "01/18/2025": 1
+            }
         },
         "JNMC程家贺": {
             "posts": [
@@ -276,7 +284,11 @@
                     "link": "/刷题模块/OJ/牛客/周赛69/div4_{搜索;状态压缩}_牛客_起啥名呢.md/",
                     "report_count": 1
                 }
-            ]
+            ],
+            "total_report_count_in_all": 1,
+            "daily_report_count_in_year": {
+                "01/17/2025": 1
+            }
         },
         "JNMC张富涵": {
             "posts": [
@@ -286,17 +298,25 @@
                     "link": "/刷题模块/OJ/牛客/周赛74/div3_{二分;滑动窗口;双指针}_牛客_而后单调.md/",
                     "report_count": 1
                 }
-            ]
+            ],
+            "total_report_count_in_all": 1,
+            "daily_report_count_in_year": {
+                "01/17/2025": 1
+            }
         },
         "JNMC李衍坤": {
             "posts": [
                 {
                     "date": "01/27/2025",
                     "title": "K倍区间",
-                    "link": "/刷题模块/OJ/未知/div3_{前缀和}_其他_K倍区间.md/",
+                    "link": "/刷题模块/OJ/蓝桥杯/每日一题/div3_{前缀和}_其他_K倍区间.md/",
                     "report_count": 1
                 }
-            ]
+            ],
+            "total_report_count_in_all": 1,
+            "daily_report_count_in_year": {
+                "01/27/2025": 1
+            }
         }
     }
 }

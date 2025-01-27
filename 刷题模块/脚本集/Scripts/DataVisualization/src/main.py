@@ -378,6 +378,19 @@ def count_author_contributions(file_info):
     return author_counts
 
 # 其他函数保持不变...
+
+def scan_directory(directory, mode):
+    """ 扫描目录及子目录中的所有文件并提取信息 """
+    print(f"扫描的根目录的绝对路径：{os.path.abspath(directory)}")  # 打印根目录的绝对路径
+    file_info = []
+    for root, dirs, files in os.walk(directory):
+        for filename in files:
+            if filename.endswith(".md"):
+                div_match, types, author = analyze_filename(filename, root)
+                if div_match:
+                    file_info.append((div_match, types, author))
+                print(f"扫描文件: {filename}")
+    return file_info
 def plot_author_ranking(author_counts, save_path):
     """可视化作者创作量排名，并保存为 PNG 图片"""
     # 根据创作量对作者进行排序，创作量多的在前
@@ -396,19 +409,6 @@ def plot_author_ranking(author_counts, save_path):
     print(f"作者排名榜图表已保存到：{save_path}")
     plt.close()
    
-def scan_directory(directory, mode):
-    """ 扫描目录及子目录中的所有文件并提取信息 """
-    print(f"扫描的根目录的绝对路径：{os.path.abspath(directory)}")  # 打印根目录的绝对路径
-    file_info = []
-    for root, dirs, files in os.walk(directory):
-        for filename in files:
-            if filename.endswith(".md"):
-                div_match, types, author = analyze_filename(filename, root)
-                if div_match:
-                    file_info.append((div_match, types, author))
-                print(f"扫描文件: {filename}")
-    return file_info
-
 # ------------------------------ 绘图和输出 ------------------------------
 # ------------------------------ 绘图和输出 ------------------------------
 def plot_div_distribution(div_counts, save_path):
@@ -425,7 +425,9 @@ def plot_div_distribution(div_counts, save_path):
     # 指定 div 的排序顺序
     div_order = ['div1', 'div2', 'div3', 'div4', 'div5']
     # 按照指定顺序绘制 div 的条形图
-    ordered_div_counts = {div: div_counts[div] for div in div_order if div in div_counts}
+  
+    ordered_div_counts = {div: div_counts[div[3::]] for div in div_order if div[3::] in div_counts}
+    
     if(len(ordered_div_counts)==0):
         print("数据异常")
         return

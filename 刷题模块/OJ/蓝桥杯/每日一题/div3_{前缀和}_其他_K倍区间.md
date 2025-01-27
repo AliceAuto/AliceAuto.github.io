@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "K倍区间"
-permalink: /刷题模块/OJ/未知/div3_{前缀和}_其他_K倍区间.md/
+permalink: /刷题模块/OJ/蓝桥杯/每日一题/div3_{前缀和}_其他_K倍区间.md/
 date: 2025-01-27
 author: "JNMC李衍坤"
 ---

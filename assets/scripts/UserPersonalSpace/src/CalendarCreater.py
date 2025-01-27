@@ -268,8 +268,8 @@ def generate_calendar_html(user,user_data):
 
     # 生成每个日期的HTML
     weeks_each_year = []
-
-    day_in_year_cnt = 0
+    last_week_num=None
+    day_in_year_cnt = first_day_of_year = datetime(year, 1, 1).weekday()
     days_each_week = []
     for month in range(1, 13):
         cal = calendar.monthcalendar(year, month)
@@ -277,12 +277,15 @@ def generate_calendar_html(user,user_data):
             for day in week:
                 
                 if day != 0:
-                    print("Day:",day)
-                    if day_in_year_cnt % 7 == 0:
+                    # day ==0表示该月没有日期，跳过.day ==1表示该周的第一天
+                    
+                    if datetime(year, month, day).weekday() == 0:
+               
                         days_each_week.clear()
+                        
                     date = datetime(year, month, day).strftime("%m/%d/%Y")
-                    y = (day_in_year_cnt % 7) * 13
-                   
+                    y = datetime(year, month, day).weekday()* 13
+            
                     daily_data = user_data.get("daily_report_count_in_year", {}).get(date, 0)
                     
                     # 根据每日数据设置颜色,逐渐变绿
@@ -304,14 +307,19 @@ def generate_calendar_html(user,user_data):
                         color = "#043b09"
                     else:
                         color = "#023506"
-                  
+
                     days_each_week.append(day_template.format(y, color, daily_data, date))
-                    day_in_year_cnt += 1
-                    if day_in_year_cnt%7==0:
+                    
+                   
+
+                    if datetime(year, month, day).weekday()==6 or (month == 12 and day == 31):
                         
-                        str_week_str = ''.join(days_each_week)
-                        weeks_each_year.append(week_template.format((day_in_year_cnt // 7) * 13, str_week_str))
-                        print(week,(day_in_year_cnt // 7) * 13)
+                        str_week_str = '\n'.join(days_each_week)
+                        
+                        week_num = datetime(year, month, day).isocalendar()[1] if year == datetime(year,month,day).isocalendar()[0] else last_week_num +1
+                        last_week_num =week_num
+                        weeks_each_year.append(week_template.format(week_num * 13, str_week_str))
+                
 
     # 生成完整的HTML
     html = html_template.format(user, ''.join(weeks_each_year), total_report_count_in_all, max_consecutive_days, blog_posts_html)

@@ -318,7 +318,7 @@ def generate_calendar_html(user,user_data):
                         
                         week_num = datetime(year, month, day).isocalendar()[1] if year == datetime(year,month,day).isocalendar()[0] else last_week_num +1
                         last_week_num =week_num
-                        weeks_each_year.append(week_template.format(week_num * 13, str_week_str))
+                        weeks_each_year.append(week_template.format((week_num-1) * 13, str_week_str))
                 
 
     # 生成完整的HTML

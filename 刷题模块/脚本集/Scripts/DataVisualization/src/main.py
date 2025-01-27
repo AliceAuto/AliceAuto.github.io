@@ -1,4 +1,4 @@
-
+import copy
 import os
 import re
 import json
@@ -614,6 +614,7 @@ def extract_metadata_from_markdown(file_path):
 
 # 扫描目录并生成文件信息列表
 def scan_markdown_files(directory):
+    
     author_data = defaultdict(list)  # 用一个列表存储每个作者的所有文章信息
     
     for root, dirs, files in os.walk(directory):
@@ -645,8 +646,6 @@ def scan_markdown_files(directory):
                             })
                             
 
-                            # 调试：只输出扫描成功的文章
-                            print(f"Processed {file_path}: {metadata}")
                         except ValueError:
                             print(f"Date format error in {file_path}: {date}")
                     else:
@@ -656,7 +655,7 @@ def scan_markdown_files(directory):
     
     # 输出扫描到的作者数据
     if author_data:
-        print(f"Author data collected: {dict(author_data)}")
+        pass
     else:
         print("No author data found.")
     
@@ -666,74 +665,11 @@ import json
 from datetime import datetime
 from collections import defaultdict
 
-def extract_metadata_from_markdown(file_path):
-    with open(file_path, 'r', encoding='utf-8') as file:
-        content = file.read()
-        
-        # 使用正则表达式提取头部信息
-        metadata = {}
-        import re
-        match = re.match(r'---\s*\n(.*?)\n---', content, re.DOTALL)  # 匹配头部的 YAML 格式
-        if match:
-            header = match.group(1)
-            for line in header.split('\n'):
-                # 提取 key: value 格式的数据
-                if ':' in line:
-                    key, value = line.split(':', 1)
-                    metadata[key.strip()] = value.strip()
-        
-        # 返回提取的元数据
-        return metadata
 
-def scan_markdown_files(directory):
-    author_data = defaultdict(list)  # 用一个列表存储每个作者作者的文章信息
-    
-    for root, dirs, files in os.walk(directory):
-        for file in files:
-            if file.endswith(".md"):  # 只处理 Markdown 文件
-                file_path = os.path.join(root, file)
-                
-                # 提取文件的元数据
-                metadata = extract_metadata_from_markdown(file_path)
-                
-                if metadata:  # 只有提取到有效元数据才进行处理
-                    creator = metadata.get('author')
-                    date = metadata.get('date')
-                    link = metadata.get('permalink')  # 使用 permalink 作为链接字段
-                    title = metadata.get('title', file)  # 如果没有标题字段，使用文件名
-                    
-                    if creator and date and link:
-                        # 转换日期为 "MM/DD/YYYY" 格式
-                        try:
-                            date_obj = datetime.strptime(date, "%Y-%m-%d")
-                            date_str = date_obj.strftime("%m/%d/%Y")
-                            
-                            # 每篇文章存储日期、标题、链接和报告数量
-                            author_data[creator].append({
-                                "date": date_str,
-                                "title": title,
-                                "link": link,
-                                "report_count": 1  # 每篇文章计数 1 次
-                            })
-                            
-                            # 调试：只输出扫描成功的文章
-                            print(f"Processed {file_path}: {metadata}")
-                        except ValueError:
-                            print(f"Date format error in {file_path}: {date}")
-                    else:
-                        print(f"Skipping {file_path}: Missing required metadata.")
-                else:
-                    print(f"Skipping {file_path}: No valid metadata found.")
-    
-    # 输出扫描到的作者数据
-    if author_data:
-        print(f"Author data collected: {dict(author_data)}")
-    else:
-        print("No author data found")
-    
-    return author_data
 
 def update_json_users(author_data, json_file_path):
+    # 初始化一个新的计数字典，用于覆盖原有的计数
+    
     # 检查文件是否存在，并且不是空文件
     if os.path.exists(json_file_path):
         file_size = os.stat(json_file_path).st_size
@@ -758,9 +694,14 @@ def update_json_users(author_data, json_file_path):
     # 确保 JSON 数据包含 users 键
     if "users" not in data:
         data["users"] = {}
+    
+    
+    new_data = {}
+
 
     # 更新每个作者的 posts 部分
     for author, posts in author_data.items():
+        
         # 去掉作者名两端的引号
         author = author.strip('"')  # 去除首尾的引号
 
@@ -772,12 +713,13 @@ def update_json_users(author_data, json_file_path):
                 "daily_report_count_in_year": {}  # 修正拼写错误
             }
             print(f"新作者 {author} 已添加到 JSON 数据中")
-        
+        new_data[author] = {
+            "total_report_count_in_all": 0,
+            "daily_report_count_in_year": {}
+        }
         # 获取当前作者的 posts 列表
         current_posts = data["users"][author].get("posts", [])
-        total_report_count_in_all = data["users"][author].get("total_report_count_in_all", 0)
-        daily_report_count_in_year = data["users"][author].get("daily_report_count_in_year", {})  # 修正拼写错误
-        
+
         # 合并文章信息到 posts 部分，避免重复
         existing_titles = {post['title'] for post in current_posts}  # 记录已存在文章的标题
         for post in posts:
@@ -785,29 +727,33 @@ def update_json_users(author_data, json_file_path):
             post['title'] = post['title'].strip('"')  # 去除首尾的引号
 
             # 更新 total_report_count_in_all
-            total_report_count_in_all += post['report_count']
-            print(f"更新 total_report_count_in_all 为 {total_report_count_in_all} 对于作者 {author}")
+            new_data[author]["total_report_count_in_all"]   += post['report_count']
+    
 
-            # 更新 daily_report_count_in_year
             date_str = post['date']
-            if date_str in daily_report_count_in_year:
-                daily_report_count_in_year[date_str] += post['report_count']
-                print(f"更新 daily_report_count_in_year 中 {date_str} 的计数为 {daily_report_count_in_year[date_str]} 对于作者 {author}")
+            # 累加计数，如果日期不存在则添加新的日期和计数
+            
+            if date_str in new_data[author]["daily_report_count_in_year"]:
+                new_data[author]["daily_report_count_in_year"][date_str] += post['report_count']
+                
             else:
-                daily_report_count_in_year[date_str] = post['report_count']
-                print(f"新日期 {date_str} 已添加到 daily_report_count_in_year 对于作者 {author}")
-
+                new_data[author]["daily_report_count_in_year"][date_str] = post['report_count']
+                
+          
+        print(new_data[author])
         # 如果有新的文章，添加到 posts 中
         new_posts = [post for post in posts if post['title'] not in existing_titles]
         if new_posts:
             current_posts.extend(new_posts)
             data["users"][author]["posts"] = current_posts
-            data["users"][author]["total_report_count_in_all"] = total_report_count_in_all
-            data["users"][author]["daily_report_count_in_year"] = daily_report_count_in_year
-            print(f"新帖子已添加到作者 {author} 的 posts 中")
-        else:
-            print(f"Skipping duplicate posts for {author}: {posts}")
+            data["users"][author]["total_report_count_in_all"] = copy.deepcopy(new_data[author]["total_report_count_in_all"])
+            data["users"][author]["daily_report_count_in_year"] = copy.deepcopy(new_data[author]["daily_report_count_in_year"])
+                
 
+        #更新        total_report_count_in_all daily_report_count_in_year 
+        data["users"][author]["daily_report_count_in_year"] = copy.deepcopy(new_data[author]["daily_report_count_in_year"])
+        data["users"][author]["total_report_count_in_all"] = copy.deepcopy(new_data[author]["total_report_count_in_all"])
+                                                                                            
     # 将更新后的数据写回 JSON 文件
     if data:
         # 使用 ensure_ascii=False 来确保中文字符正常存储

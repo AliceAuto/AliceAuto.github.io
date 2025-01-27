@@ -265,7 +265,9 @@ def generate_calendar_html(user,user_data):
             max_consecutive_days = max(max_consecutive_days, current_consecutive_days)
         else:
             current_consecutive_days = 0
-
+    cnt_XXX  = [0] *400#用于连续Max天数计算的前缀数组
+    MAX_DAY_CONTINUE = 0
+    cnt_day_every_year=0
     # 生成每个日期的HTML
     weeks_each_year = []
     last_week_num=None
@@ -309,9 +311,15 @@ def generate_calendar_html(user,user_data):
                         color = "#023506"
 
                     days_each_week.append(day_template.format(y, color, daily_data, date))
+                    cnt_day_every_year+=1
+                    if daily_data >0:
+                        cnt_XXX[cnt_day_every_year] = cnt_XXX[cnt_day_every_year-1]+ 1
+                    else:
+                        cnt_XXX[cnt_day_every_year] = 0
                     
-                   
-
+                    MAX_DAY_CONTINUE = max(MAX_DAY_CONTINUE, cnt_XXX[cnt_day_every_year])
+                    # 上面是求的连续天数，下面是生成HTML
+                    
                     if datetime(year, month, day).weekday()==6 or (month == 12 and day == 31):
                         
                         str_week_str = '\n'.join(days_each_week)
@@ -322,7 +330,7 @@ def generate_calendar_html(user,user_data):
                 
 
     # 生成完整的HTML
-    html = html_template.format(user, ''.join(weeks_each_year), total_report_count_in_all, max_consecutive_days, blog_posts_html)
+    html = html_template.format(user, ''.join(weeks_each_year), total_report_count_in_all, MAX_DAY_CONTINUE , blog_posts_html)
     parent_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     # 保存HTML文件
     folder_path = os.path.join(parent_path, "users_html")

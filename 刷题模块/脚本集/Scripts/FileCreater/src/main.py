@@ -173,8 +173,7 @@ def create_file_in_directory(root_dir, subfolder, file_name, username):
             file.write("#### [备用返回通道](../../README.md)\n")  # 可以根据需要填充更多内容
 
         messagebox.showinfo("成功", f"文件已创建：{file_path}")
-        # 关闭文件创建窗口
-        classification_window.quit()
+        
 
     except Exception as e:
         messagebox.showerror("错误", f"创建文件时发生错误：{e}")
@@ -281,7 +280,6 @@ def show_classification_window(config):
 
     question_name_entry = tk.Entry(classification_window, width=50)
     question_name_entry.pack(pady=10)
-
     # 确认按钮
     def on_confirm():
         tags = [tag for tag, var in tag_buttons if var.get()]
@@ -290,7 +288,7 @@ def show_classification_window(config):
         question_name = question_name_entry.get()
 
         execute_file_creation(config, tags, difficulty, oj, folder_input.get(), question_name)
-
+        classification_window.withdraw()  # 隐藏分类窗口
     confirm_button = tk.Button(classification_window, text="确认", command=on_confirm)
     confirm_button.pack(pady=20)
 

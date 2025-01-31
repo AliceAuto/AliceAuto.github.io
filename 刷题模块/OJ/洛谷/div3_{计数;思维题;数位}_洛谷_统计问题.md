@@ -1,4 +1,12 @@
-[JNMC孙国庆]
+---
+layout: post
+title: "统计问题"
+permalink: /刷题模块/OJ/洛谷/div3_{计数;思维题;数位}_洛谷_统计问题.md/
+date: 2025-01-31
+author: "JNMC孙国庆"
+---
+
+#### [备用返回通道](../../README.md)
 # [转到题目](https://www.luogu.com.cn/problem/UVA1640)
 ### 题目思路
 # [未完善]

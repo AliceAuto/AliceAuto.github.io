@@ -23,13 +23,12 @@
 > ### [算法可视化](https://www.cs.usfca.edu/~galles/visualization/Algorithms.html)
 >
 > 该模块为你提供了算法可视化工具，帮助你更直观地理解算法的工作原理。
----
-贡献值列表：
 
-> **贡献值排名**  
-> ![贡献值排名](assets/scripts/UserPersonalSpace/index.html)
 
----
+
+> ### [贡献作者 团队](assets/scripts/UserPersonalSpace/index.html)
+>
+> 该模块为你提供了贡献作者的机会，你可以为平台提供可贵的学习经验，思路总结
 ## 刷题训练数据
 
 > **题目分布图**  

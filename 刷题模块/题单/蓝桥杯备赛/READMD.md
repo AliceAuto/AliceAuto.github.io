@@ -1,8 +1,7 @@
 ---
 layout: post
-title: 蓝桥杯备赛题目
-categories: [题单]
-description: 蓝桥杯备赛题目
+title: 蓝桥杯题单
+date: 2025-01-01
 ---
 
 # [退回](../README.md)

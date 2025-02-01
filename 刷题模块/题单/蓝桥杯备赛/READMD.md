@@ -1,3 +1,10 @@
+---
+layout: post
+title: 蓝桥杯备赛题目
+categories: [题单]
+description: 蓝桥杯备赛题目
+---
+
 # [退回](../README.md)
 
 - [ ]  [P11041 [蓝桥杯 2024 省 Java B] 报数游戏](https://www.luogu.com.cn/problem/P11041)

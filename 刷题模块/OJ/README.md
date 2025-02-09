@@ -57,6 +57,10 @@ published: false
 | [**求格模型(简单版)**](牛客/周赛74/div5_{思维题}_牛客_求格模型(简单版).md) | div5 | 思维题 | 牛客 |
 | [**最大最小路**](牛客/周赛74/div2_{图论;计数;搜索;状态压缩;前后缀}_牛客_最大最小路.md) | div2 | 图论, 计数, 搜索, 状态压缩, 前后缀 | 牛客 |
 | [**一起找神秘的数**](牛客/寒假训练营2025/第二场/div4_{数学;思维题}_牛客_一起找神秘的数.md) | div4 | 数学, 思维题 | 牛客 |
+| [**Tokitsukaze and Recall**](牛客/寒假训练营2025/第四场/div2_{图论;贪心;搜索;并查集}_牛客_Tokitsukaze and Recall.md) | div2 | 图论, 贪心, 搜索, 并查集 | 牛客 |
+| [**Tokitsukaze and Balance String (hard)**](牛客/寒假训练营2025/第四场/div2_{思维题}_牛客_Tokitsukaze and Balance String (hard).md) | div2 | 思维题 | 牛客 |
+| [**Tokitsukaze and Concatenate‌ Palindrome**](牛客/寒假训练营2025/第四场/div3_{贪心;字符串}_牛客_Tokitsukaze and Concatenate‌ Palindrome.md) | div3 | 贪心, 字符串 | 牛客 |
+| [**Tokitsukaze and Balance String**](牛客/寒假训练营2025/第四场/div3_{平衡;位运算}_牛客_Tokitsukaze and Balance String.md) | div3 | 平衡, 位运算 | 牛客 |
 | [**小L的数学题**](牛客/寒假训练营2025/第五场/div4_{数学;思维题}_牛客_小L的数学题.md) | div4 | 数学, 思维题 | 牛客 |
 | [**小L的三元组**](牛客/寒假训练营2025/第五场/div3_{计数}_牛客_小L的三元组.md) | div3 | 计数 | 牛客 |
 | [**小L的字符串翻转**](牛客/寒假训练营2025/第五场/div4_{思维题}_牛客_小L的字符串翻转.md) | div4 | 思维题 | 牛客 |

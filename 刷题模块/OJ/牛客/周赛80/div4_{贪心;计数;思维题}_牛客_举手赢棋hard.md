@@ -9,8 +9,9 @@ author: "JNMC孙国庆"
 #### [备用返回通道](../../README.md)
 # [转到题目](https://ac.nowcoder.com/acm/contest/101196/D)
 # 思路
+## 思路一`(模拟)`:
 和easy版本的区别在于我有两个`举手1`的机会，只要清晰地模拟这个过程就可以
-# 代码
+### 代码
 ```cpp
 #define ll long long
 #include<bits/stdc++.h>
@@ -75,3 +76,4 @@ int main(){
     return 0;
 }
 ```
+## 思路二`动态规划`:

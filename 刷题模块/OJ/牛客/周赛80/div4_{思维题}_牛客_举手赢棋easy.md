@@ -22,7 +22,9 @@ author: "JNMC孙国庆"
 - (最期待情况)如果整局(极限情况)都没有用上 `举手1`也可以获胜,那么就可以在任意时间举手
 - (最不期待情况)如果在保守情况下，尽快用了一次`举手1`，之后还有不合规的前缀，那么就意味着不会赢了，结果就是0
 # 代码:
+
 ```cpp
+
 #include <bits/stdc++.h>
 using namespace std;
 const int N = 1e5;
@@ -72,4 +74,5 @@ int main() {
     solve();    
     return 0;
 }
+
 ```

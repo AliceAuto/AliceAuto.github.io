@@ -70,7 +70,7 @@ date: 2025-01-01
 - [ ] [P8685 [蓝桥杯 2019 省 A] 外卖店优先级](https://www.luogu.com.cn/problem/P8685)
 - [ ] [P8686 [蓝桥杯 2019 省 A] 修改数组](https://www.luogu.com.cn/problem/P8686)
 - [ ] [P8625 [蓝桥杯 2015 省 B] 生命之树](https://www.luogu.com.cn/problem/P8625)
-- [ ] [P8630 [蓝桥杯 2015 国 B] 密文搜索](https://www.luogu.com.cn/problem/P8630)
+- [x] [P8630 [蓝桥杯 2015 国 B] 密文搜索](https://www.luogu.com.cn/problem/P8630)
 - [ ] [P8672 [蓝桥杯 2018 国 C] 交换次数](https://www.luogu.com.cn/problem/P8672)
 - [ ] [P8695 [蓝桥杯 2019 国 AC] 轨道炮](https://www.luogu.com.cn/problem/P8695)
 - [ ] [P8716 [蓝桥杯 2020 省 AB2] 回文日期](https://www.luogu.com.cn/problem/P8716)

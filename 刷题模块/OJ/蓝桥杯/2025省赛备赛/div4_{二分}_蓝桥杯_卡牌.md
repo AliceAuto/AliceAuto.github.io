@@ -22,7 +22,7 @@ author: "JNMC孙国庆"
 using namespace std;
 #define int  unsigned long long 
 const int N =2e5;
-class ab 
+class ab //a_i 与 b_i 绑定，方便排序
 {
 public:
 	int a;
@@ -35,14 +35,17 @@ int n,m;
 int tem;
 int res;
 void solve(){
+    //输入
     for(int i = 0 ;i < n;i++){
         cin>>da[i].a;
     }
     for (int i = 0 ; i < n;i++){
         cin>>da[i].b;
     }
+    //a_i为主键排序
     sort(da,da+n,[](ab A, ab B){return A.a<B.a;});
     
+    //求特殊用途前缀
     for (int i = 1 ;i< n;i++){
         c[i] = c[i-1]+ i*(da[i].a - da[i-1].a);
     }

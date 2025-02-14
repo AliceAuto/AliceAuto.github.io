@@ -1,7 +1,4 @@
-
-#### 前言:
-
-##### 创作背景: 
+/*
 2024-11-16日xx贺被蓝桥杯模拟赛的某道日期题目恶心坏了,
 于是连夜手搓了这个遍历日期的板子, (纯代码15行), 毕竟咱和python还是比不了
 更新:
@@ -11,7 +8,7 @@ update on 2024/11/17
 我觉得罪魁祸首是每个月的天数不同, 真该死啊, 要是每个月都是30天就好了
 ##### 代码功能:
 给定起始日期和结束日期, 能够遍历得到区间内每一天的日期
-```C++
+*/
 #include <bits/stdc++.h>
 using namespace std;
 #define fast ios ::sync_with_stdio(false), cin.tie(0), cout.tie(0)
@@ -43,9 +40,10 @@ public:
     int getMonth() const { return mm; }
     int getDay() const { return dd; }
 };
+/*
 
+example :
 
-int main() {
     int yy = 2023, mm = 12, dd = 1;   // 起始日期
     int YY = 2024, MM = 12, DD = 31;  // 结束日期
     Date start(yy, mm, dd);
@@ -56,6 +54,5 @@ int main() {
         start.nextDay();
     }
     return 0;
-}
 
-```
+*/

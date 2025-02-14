@@ -12,7 +12,66 @@ author: "JNMC孙国庆"
 
 ## 思路
 ### 思路一 **`二分`**
+#### 代码
 
+```cpp
+#include<bits/stdc++.h>
+using namespace std;
+#define int long long 
+const int N = 2e5;
+int res;
+typedef struct a_b {
+	int a;
+	int b;
+} a_b;
+a_b  ab[N];
+int n ,m;
+bool check (int x)//用来确定答案是否在mid右侧
+{
+	int sum =0 ; 
+	for (int i= 0; i <n ; i++){
+		if(x - ab[i].a >ab[i].b)return false;
+		else{
+			sum += max(0LL,x - ab[i].a);
+		}
+	}
+	if (sum <=m)return true;
+	else return false;
+	
+	
+}
+void solve(){
+	cin>>n>>m;
+	for (int i =0 ; i<n ;i++)cin>>ab[i].a;
+	for (int i = 0LL;i<n;i++)cin>>ab[i].b;
+	sort(ab,ab+n,[](a_b x ,a_b y){return x.a < y.a;});
+	int l = 0 ; 
+	int r = n*n +n;
+	int mid;
+	while ( l +1< r) {
+	    mid  = (l+r)>>1;
+		if(check(mid))
+		{
+			l = mid ;
+		}
+		else r=mid ;
+	}
+	res = l;
+	
+	
+}
+
+
+
+signed main(){
+	ios::sync_with_stdio(0);
+	cin.tie(0);
+	cout.tie(0);
+	solve();
+	cout<<res<<endl;
+	return 0;
+}
+```
 
 ### 思路二 **`贪心`**
 #### 代码

@@ -155,37 +155,6 @@ namespace IO {
         std::getline(std::cin, line);
         return line;
     }
-    int in() {
-        int f = 1;
-        char chace = getchar();
-        int res = 0;
-        while (chace - '0' < 0 || chace - '9' > 0) {
-            if (chace == EOF || chace == '\n0') return I_ERROR;
-            if (chace == '-') {
-                f = -1;
-                chace = getchar();
-                break;
-            }
-            chace = getchar();
-        }
-        if (chace == '-') {
-            return I_ERROR;
-        }
-        while (chace - '0' >= 0 && chace - '9' <= 0) {
-            res = res * 10 + chace - '0';
-            chace = getchar();
-        }
-        res *= f;
-        return res;
-    }
-
-    void out(int x) {
-        if (x < 0) putchar('-'),x = -x;
-        if (x < 10) putchar(x + '0');
-        else {
-            out(x / 10), putchar(x % 10 + '0');
-        }
-    }
 }
 
 namespace OtherType {

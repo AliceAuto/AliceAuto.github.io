@@ -1,62 +1,74 @@
-int I32(){
-	char chace = getchar();
-	int f= 1;
-	int res = 0;
-	while (chace -'0'<0||chace - '9'>0){
-		if(chace==EOF)return res;
-		if(chace == '-')f = -f;
-		chace = getchar();
-	}
-	while(chace -'0'>=0&&chace -'9'<=0)	{
-		res= res *10 +chace - '0';
-		chace = getchar();
-	}
-	res *=f;
-	return res;
-}
-long long I64(){    
-	char chace = getchar();
-	int f= 1;
-	long long  res = 0;
-	while (chace -'0'<0||chace - '9'>0){
-		if(chace==EOF)return res;
-		if(chace == '-')f = -f;
-		chace = getchar();
-	}
-	while(chace -'0'>=0&&chace -'9'<=0)	{
-		res= res *10 +chace - '0';
-		chace = getchar();
-	}
-	res *=f;
-	return res;
+
+inline void fast_io() {
+    ios::sync_with_stdio(false);  
+    cin.tie(0);  
 }
 
-size_t I64t(){
-	char chace = getchar();
-	size_t res = 0;
-	while (chace -'0'<0||chace - '9'>0){
-		if(chace==EOF)return res;
-		chace = getchar();
-	}
-	while(chace -'0'>=0&&chace -'9'<=0)	{
-		res= res *10 +chace - '0';
-		chace = getchar();
-	}
-	return res;
-}
-void O64t(size_t x){
-	if(x<10)putchar(x+'0');
-	else O64t(x/10),putchar(x%10+'0');
+template <typename T>
+inline T read() {
+    T x = 0;
+    char c;
+    bool negative = false;
+    while ((c = getchar()) < '0' || c > '9') {
+        if (c == '-') {
+            negative = true;
+        }
+    }
+    do {
+        x = x * 10 + (c - '0');
+    } while ((c = getchar()) >= '0' && c <= '9');
+    return negative ? -x : x;
 }
 
-void O64(long long x){
-	if(x<0)x= -x,putchar('-');
-	if(x<10)putchar(x+'0');
-	else O64t(x/10),putchar(x%10+'0');
-}
-void O32(int x){
-	if(x<0)x= -x,putchar('-');
-	if(x<10)putchar(x+'0');
-	else O64t(x/10),putchar(x%10+'0');
+template <>
+inline double read<double>() {
+    double x = 0.0;
+    char c;
+    bool negative = false;
+    while ((c = getchar()) < '0' || c > '9') {
+        if (c == '-') {
+            negative = true;
+        }
+    }
+    do {
+        x = x * 10 + (c - '0');
+    } while ((c = getchar()) >= '0' && c <= '9');
+    if (c == '.') {
+        double frac = 1;
+        while ((c = getchar()) >= '0' && c <= '9') {
+            frac /= 10;
+            x += (c - '0') * frac;
+        }
+    }
+    return negative ? -x : x;
 }
 
+template <typename T>
+inline void write(const T &x) {
+    if constexpr (is_integral<T>::value) {
+        if (x < 0) {
+            putchar('-');
+            write(-x);
+        } else {
+            if (x >= 10) {
+                write(x / 10);
+            }
+            putchar(x % 10 + '0');
+        }
+    } else if constexpr (is_floating_point<T>::value) {
+        printf("%.6f", x);
+    }
+}
+/*
+example:
+int main() {
+    fast_io(); 
+
+    int t = read<int>();  // 读取数据组数
+
+    while (t--) {
+        double a = read<double>(), b = read<double>();  // 每组输入两个浮点数
+        write(a + b);  // 输出结果
+        putchar('\n');  // 换行
+    }
+*/

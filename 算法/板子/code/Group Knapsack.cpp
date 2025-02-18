@@ -17,3 +17,4 @@ int group_knapsack(int n, const vector<vector<int>>& w, const vector<vector<int>
     }
     return dp[V]; // 返回最大价值
 }
+

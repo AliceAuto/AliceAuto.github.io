@@ -20,5 +20,4 @@ int binary_search(int l/*left*/ ,int r/*right*/) {
 	}
 	
 	
-	
 }

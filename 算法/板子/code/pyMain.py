@@ -18,6 +18,7 @@ if 1:
         def II():
             return int(input())
 
+
         def MII():
             return map(int, input().split())
 

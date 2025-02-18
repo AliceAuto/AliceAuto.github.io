@@ -1,0 +1,5 @@
+{
+    "input_directory": "算法/板子/code",
+    "output_file": ".vscode/my-snippets.code-snippets",
+    "file_types": ["py", "cpp", "js", "html", "css", "java", "json"]
+}

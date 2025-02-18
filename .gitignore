@@ -43,6 +43,7 @@
 *.vssscc
 
 # 程序输出
+*.exe
 Debug/
 Release/
 x64/

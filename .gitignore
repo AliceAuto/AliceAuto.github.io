@@ -41,6 +41,9 @@
 *.log
 *.vspscc
 *.vssscc
+#私有文件夹
+CodeSpace/*
+!.gitkeep
 
 # 程序输出
 *.exe

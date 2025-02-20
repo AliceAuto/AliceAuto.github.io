@@ -4,6 +4,7 @@
 using namespace std;
 
 
+
 #define I_ERROR 0x3f3f3f3f
 #define FastIOS {ios::sync_with_stdio(false);cin.tie(0);cout.tie(0);}
 #define REP(a, b, c, d) for(int a = b; a != c; a += d)

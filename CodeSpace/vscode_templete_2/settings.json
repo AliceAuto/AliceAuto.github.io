@@ -1,7 +1,0 @@
-{
-    "files.associations": {
-        "numbers": "cpp",
-        "iostream": "cpp",
-        "cmath": "cpp"
-    }
-}

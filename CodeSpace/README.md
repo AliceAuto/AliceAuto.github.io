@@ -3,7 +3,10 @@
 
 ## **编译链配置模板**
 
-这是主要完成编译链的配置，属于私有配置。这里提供了一个模板，使用时请将文件夹名称由 `vscode_templete` 改成 `.vscode`。
+这是主要完成编译链的配置，属于私有配置。这里提供了几个模板
+`vscode_templete1`
+`vscode_templete2`
+使用时请将文件夹名称由 `vscode_templete` 改成 `.vscode`。
 
 ---
 

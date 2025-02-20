@@ -52,8 +52,12 @@ CodeSpace/.vscode/launch.json
 CodeSpace/.vscode/settings.json
 CodeSpace/.vscode/tasks.json
 
+# 保留 my-snippets.code-snippets 文件
+!CodeSpace/.vscode/my-snippets.code-snippets
+
 # 保留 .gitkeep 文件，确保 .vscode 目录可以被 Git 跟踪
 !CodeSpace/.vscode/.gitkeep
+
 
 # 程序输出
 *.exe

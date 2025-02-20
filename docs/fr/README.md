@@ -1,6 +1,6 @@
 
-- [English](/README.md)
-- [中文](/docs/zh/README.md)
+- [English](/docs/en/README.md)
+- [中文](/README.md)
 - [Français](/docs/fr/README.md)
 # [Aperçu : **AcEasy**](https://aliceauto.github.io/)
 # Blog de l'Équipe de Concours Algorithmique - Projet Open Source

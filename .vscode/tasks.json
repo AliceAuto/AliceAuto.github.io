@@ -1,0 +1,60 @@
+{//工作区初始化任务
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "开启文件创建助手",
+            "type": "shell",
+            "command": "python",
+            "args": [
+                "${workspaceFolder}/刷题模块/脚本集/Scripts/FileCreater/src/main.py"
+            ],
+            "group": {
+                "kind": "build"
+            },
+            "problemMatcher": [],
+            "detail": "Runs the FileCreater Python script",
+            "presentation": {
+                "reveal": "silent",
+                "focus": false,
+                "panel": "shared"
+            }
+        },
+        {
+            "label": "开启模板监听",
+            "type": "shell",
+            "command": "python",
+            "args": [
+                "${workspaceFolder}/算法/板子/scripts/main.py"
+            ],
+            "group": {
+                "kind": "build"
+            },
+            "problemMatcher": [],
+            "detail": "Runs the Template Listener Python script",
+            "presentation": {
+                "reveal": "silent",
+                "focus": false,
+                "panel": "shared"
+            }
+        },
+        {
+            "label": "同时运行文件创建助手和模板监听",
+            "type": "shell",
+            "dependsOn": [
+                "开启文件创建助手",
+                "开启模板监听"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": [],
+            "detail": "Runs both the FileCreater and Template Listener scripts",
+            "presentation": {
+                "reveal": "silent",
+                "focus": false,
+                "panel": "shared"
+            }
+        }
+    ]
+}

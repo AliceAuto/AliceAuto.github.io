@@ -11,7 +11,7 @@
 # Visual Studio目录
 *.cache
 *.vs
-*.vscode
+
 *.ide
 *.sw?
 

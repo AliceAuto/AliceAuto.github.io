@@ -42,6 +42,8 @@
 *.vspscc
 *.vssscc
 
+#特定目录
+CodeSpace/.vscode/
 
 # 程序输出
 *.exe

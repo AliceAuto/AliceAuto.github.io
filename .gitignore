@@ -44,6 +44,12 @@
 #私有文件夹
 CodeSpace/code*
 !.gitkeep
+CodeSpace/.vscode/launch.json*
+!.gitkeep
+CodeSpace/.vscode/settings.json*
+!.gitkeep
+CodeSpace/.vscode/tasks.json*
+!.gitkeep
 
 # 程序输出
 *.exe

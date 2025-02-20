@@ -42,7 +42,7 @@
 *.vspscc
 *.vssscc
 #私有文件夹
-CodeSpace/*
+CodeSpace/code*
 !.gitkeep
 
 # 程序输出

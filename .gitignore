@@ -43,9 +43,10 @@
 *.vssscc
 
 #特定目录
-CodeSpace/.vscode/
-CodeSpace/code/
-
+CodeSpace/*
+!CodeSpace/vscode_templete_1/*
+!CodeSpace/vscode_templete_2/*
+!CodeSpace/README.md
 # 程序输出
 *.exe
 Debug/

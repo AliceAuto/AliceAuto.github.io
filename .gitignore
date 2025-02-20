@@ -43,8 +43,7 @@
 *.vssscc
 
 #特定目录
-CodeSpace/.vscode/
-
+CodeSpace
 # 程序输出
 *.exe
 Debug/
@@ -135,3 +134,4 @@ dist
 # Temporary folders
 tmp/
 temp/
+.gitignore

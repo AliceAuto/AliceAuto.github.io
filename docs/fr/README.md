@@ -2,7 +2,7 @@
 - [English](/README.md)
 - [中文](/docs/zh/README.md)
 - [Français](/docs/fr/README.md)
-
+# [Aperçu : **AcEasy**](https://aliceauto.github.io/)
 # Blog de l'Équipe de Concours Algorithmique - Projet Open Source
 
 Il s'agit d'une plateforme de blog basée sur Jekyll, spécialement conçue pour les équipes de concours d'algorithmique et prenant en charge le déploiement privé. Cette plateforme vise à améliorer l'efficacité d'apprentissage et la collaboration au sein des équipes, avec des fonctionnalités telles que le suivi quotidien, des notes flexibles, des modèles d'algorithmes, la génération rapide de blogs de résolution de problèmes, la visualisation des données d'entraînement (y compris le classement des contributeurs, la répartition des types de problèmes, la répartition des niveaux de difficulté des problèmes) et une page personnelle pour chaque membre.

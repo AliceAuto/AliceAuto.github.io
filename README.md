@@ -1,7 +1,7 @@
 - [English](README.md)
 - [中文](docs/zh/README.md)
 - [Français](docs/fr/README.md)
-
+# [Preview: **AcEasy**](https://aliceauto.github.io/)
 # Algorithm Competition Team Blog - Open Source Project
 
 This is a Jekyll-based blogging platform specifically designed for algorithm competition teams, supporting private deployment. The platform aims to enhance team learning efficiency and collaboration, featuring daily check-ins, high-flexibility note-taking, algorithm template completion, quick problem-solving blog generation, and visualized training data (including contributor rankings, problem type distribution, and problem difficulty distribution), as well as personal homepages.

@@ -44,9 +44,7 @@
 
 #特定目录
 CodeSpace/*
-!CodeSpace/vscode_templete_1/*
-!CodeSpace/vscode_templete_2/*
-!CodeSpace/README.md
+
 # 程序输出
 *.exe
 Debug/

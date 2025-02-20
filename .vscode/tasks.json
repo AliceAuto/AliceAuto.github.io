@@ -1,12 +1,26 @@
 {//工作区初始化任务
+
     "version": "2.0.0",
     "tasks": [
+        {
+            "label": "Install Dependencies",
+            "type": "shell",
+            "command": "python -m pip install -r 刷题模块/脚本集/requirements.txt",
+            "problemMatcher": [],
+            "group": {
+                "kind": "build"
+            },
+            "detail": "自动安装 requirements.txt 中的依赖"
+        },
         {
             "label": "开启文件创建助手",
             "type": "shell",
             "command": "python",
             "args": [
                 "${workspaceFolder}/刷题模块/脚本集/Scripts/FileCreater/src/main.py"
+            ],
+            "dependsOn": [
+                "Install Dependencies"
             ],
             "group": {
                 "kind": "build"
@@ -25,6 +39,9 @@
             "command": "python",
             "args": [
                 "${workspaceFolder}/算法/板子/scripts/main.py"
+            ],
+            "dependsOn": [
+                "Install Dependencies"
             ],
             "group": {
                 "kind": "build"

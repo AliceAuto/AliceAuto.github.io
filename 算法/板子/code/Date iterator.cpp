@@ -10,14 +10,6 @@ update on 2024/11/17
 给定起始日期和结束日期, 能够遍历得到区间内每一天的日期
 */
 
-
-#include <bits/stdc++.h>
-using namespace std;
-#define fast ios ::sync_with_stdio(false), cin.tie(0), cout.tie(0)
-typedef long long ll;
-#define MAX_INT int(2e31 - 1)
-const int N = 1e5 + 10;
-
 class Date {
 public:
     const int rq[13] = {29, 31, 28, 31, 30, 31, 30,31, 31, 30, 31, 30, 31};  // r[2]平年, rq[0] 是闰年
@@ -45,7 +37,7 @@ public:
 /*
 
 example :
-
+int main() {
     int yy = 2023, mm = 12, dd = 1;   // 起始日期
     int YY = 2024, MM = 12, DD = 31;  // 结束日期
     Date start(yy, mm, dd);
@@ -56,5 +48,5 @@ example :
         start.nextDay();
     }
     return 0;
-
+}
 */

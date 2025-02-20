@@ -44,6 +44,7 @@
 
 #特定目录
 CodeSpace/.vscode/
+CodeSpace/code/
 
 # 程序输出
 *.exe

@@ -1,46 +1,44 @@
-# ![alt text](/assets/images/icon.png) 
-# AcEasy 算法训练平台
+- [English](README.md)
+- [中文](docs/zh/README.md)
+- [Français](docs/fr/README.md)
 
----
+# Algorithm Competition Team Blog - Open Source Project
 
+This is a Jekyll-based blogging platform specifically designed for algorithm competition teams, supporting private deployment. The platform aims to enhance team learning efficiency and collaboration, featuring daily check-ins, high-flexibility note-taking, algorithm template completion, quick problem-solving blog generation, and visualized training data (including contributor rankings, problem type distribution, and problem difficulty distribution), as well as personal homepages.
 
+## Features
 
-## 平台模块
+### 1. Daily Check-ins
+Supports automatic daily check-ins to track the training progress of team members and ensure everyone continues to participate in algorithm training.
 
-> ### [基础理论学习](基础理论学习/README.md)
->
-> 该模块包括基础理论的学习资源与讲解，帮助你掌握算法基础知识。
+### 2. High-Flexibility Note-Taking
+Team members can record personal algorithm study notes, problem-solving ideas, and insights. Each member can have their own independent note space, supporting Markdown editing.
 
-> ### [算法与代码学习](算法/README.md)
->
-> 该模块为你提供了更为深入的算法与代码实现练习，帮助提升实际编程能力。
+### 3. Algorithm Template Completion
+Provides common algorithm templates and allows for quick completion of algorithm templates and code snippets within blog posts, helping members solve problems efficiently.
 
-> ### [刷题训练](刷题模块/README.md)
->
-> 这个模块专注于刷题，解决实际的编程问题，帮助你通过算法与数据结构的练习提升技能。
+### 4. Quick Problem-Solving Blog Generation
+Supports generating problem-solving blogs quickly through scripts and VSCode plugins. Developers can rapidly record problem-solving ideas, code implementations, and time complexity analysis within VSCode, and the script will automatically fill the data into the blog template. GitHub Actions will render and publish the final blog.
 
+### 5. Visualized Training Data
+Displays training data for each member, including:
+- **Contributor Rankings**: Shows the number of problems solved by each member over a period of time.
+- **Problem Type Distribution**: Displays the solving status of different types of problems, such as graph theory, dynamic programming, and greedy algorithms.
+- **Problem Difficulty Distribution**: Displays the solving status for problems of different difficulty levels based on difficulty distribution, with chart visualization.
 
-> ### [算法可视化](https://www.cs.usfca.edu/~galles/visualization/Algorithms.html)
->
-> 该模块为你提供了算法可视化工具，帮助你更直观地理解算法的工作原理。
+### 6. Personal Homepage
+Each member can have a personal homepage to display their learning progress, problem-solving records, achievements, and notes, with customizable display styles.
 
+## Installation and Deployment
 
+### Prerequisites
+- GitHub account
+- Self-hosted server or a platform that supports GitHub Pages
 
-> ### [贡献作者 团队](assets/scripts/UserPersonalSpace/index.html)
->
-> 该模块为你提供了贡献作者的机会，你可以为平台提供可贵的学习经验，思路总结
-## 刷题训练数据
+### Deployment Steps
 
-> **题目分布图**  
-> ![题目分布图](assets/images/png/div_distribution.png)  
-> 此图展示了不同难度题目的分布情况。
+1. Clone this project to your local machine or server:
 
-> **题型分布图**  
-> ![题型分布图](assets/images/png/type_distribution.png)  
-> 此图展示了题型的比例分布。
-
-> **作者排名图**  
-> ![作者排名图](assets/images/png/author_ranking.png)  
-> 此图展示了各个作者的排名情况。
-
----
+   ```bash
+   git clone https://github.com/AliceAuto/AliceAuto.github.io.git
+   ```

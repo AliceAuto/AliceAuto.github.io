@@ -43,6 +43,7 @@
 *.vssscc
 
 #特定目录
+CodeSpace/*
 
 # 程序输出
 *.exe

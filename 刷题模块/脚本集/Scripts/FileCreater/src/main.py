@@ -4,6 +4,7 @@ from tkinter import ttk, messagebox, filedialog
 import json
 import keyboard  # 用于监听快捷键
 import threading
+from tkinter import simpledialog
 
 
 # 获取配置文件的路径并加载配置
@@ -198,9 +199,75 @@ def execute_file_creation(config, tags, difficulty, oj, default_folder, question
     # 创建文件，传递用户名
     create_file_in_directory(root_dir, default_folder, file_name, username)  # 只传递需要的 4 个参数
 
+# 检查并初始化 currentUser.json 文件
+def check_and_initialize_user():
+    current_user_path = os.path.join(os.path.dirname(__file__), "..", "..", "..", "data", "currentUser.json")
+    
+    # 如果文件不存在，弹出窗口让用户输入信息
+    if not os.path.isfile(current_user_path):
+        # 创建输入框让用户输入用户名和默认文件夹路径
+        username = simpledialog.askstring("输入用户名", "请输入用户名：")
+        if not username:
+            messagebox.showerror("错误", "用户名不能为空")
+            return None, None  # 返回 None 表示失败
+        
+        # 用户输入默认文件夹路径
+        default_folder = filedialog.askdirectory(title="选择默认文件夹")
+        if not default_folder:
+            messagebox.showerror("错误", "请选择一个默认文件夹")
+            return None, None
+        
+        # 创建并写入 currentUser.json
+        user_config = {
+            "username": username,
+            "default_folder": default_folder
+        }
+
+        try:
+            with open(current_user_path, "w", encoding="utf-8") as f:
+                json.dump(user_config, f, ensure_ascii=False, indent=4)
+            messagebox.showinfo("成功", "用户信息已初始化")
+            return username, default_folder
+        except Exception as e:
+            messagebox.showerror("错误", f"创建用户信息时发生错误: {e}")
+            return None, None
+    
+    # 如果文件已经存在，直接读取
+    try:
+        with open(current_user_path, "r", encoding="utf-8") as f:
+            user_config = json.load(f)
+            username = user_config.get("username", "")
+            default_folder = user_config.get("default_folder", "")
+            return username, default_folder
+    except Exception as e:
+        messagebox.showerror("错误", f"读取用户信息时发生错误: {e}")
+        return None, None
+
+
+# 获取配置文件路径
+def load_config():
+    try:
+        config_path = os.path.join(os.path.dirname(__file__), "..", "..", "..", "data", "config.json")
+        
+        if not os.path.isfile(config_path):
+            messagebox.showerror("错误", f"配置文件不存在: {config_path}")
+            return None
+        
+        with open(config_path, "r", encoding="utf-8") as f:
+            config = json.load(f)
+        return config
+    except Exception as e:
+        messagebox.showerror("错误", f"无法加载配置文件: {e}")
+        return None
+
 
 # 弹出分类窗口
 def show_classification_window(config):
+    # 检查并初始化用户信息
+    username, default_folder = check_and_initialize_user()
+    if not username or not default_folder:
+        return
+    
     # 加载题目信息
     questions_info = load_questions_info()
     if not questions_info:
@@ -211,16 +278,12 @@ def show_classification_window(config):
     classification_window.title("选择标签")
 
     # 获取并显示当前的默认文件夹路径
-    current_folder = get_default_folder()
-    if current_folder is None:
-        return
-
-    folder_label = tk.Label(classification_window, text=f"当前默认文件夹: {current_folder}")
+    folder_label = tk.Label(classification_window, text=f"当前默认文件夹: {default_folder}")
     folder_label.pack(pady=5)
 
     # 创建浏览文件夹按钮
     def browse_folder():
-        new_folder = filedialog.askdirectory(initialdir=current_folder, title="选择文件夹")
+        new_folder = filedialog.askdirectory(initialdir=default_folder, title="选择文件夹")
         if new_folder:
             folder_input.delete(0, tk.END)
             folder_input.insert(0, new_folder)
@@ -229,7 +292,7 @@ def show_classification_window(config):
             update_default_folder(new_folder)
 
     folder_input = tk.Entry(classification_window, width=50)
-    folder_input.insert(0, current_folder)  # 设置当前默认文件夹路径为输入框初始值
+    folder_input.insert(0, default_folder)  # 设置当前默认文件夹路径为输入框初始值
     folder_input.pack(pady=10)
 
     # 创建浏览按钮
@@ -247,16 +310,39 @@ def show_classification_window(config):
     scrollbar.pack(side="right", fill="y")
     canvas.pack(side="left", fill="both", expand=True)
 
+    # 创建搜索框
+    search_label = tk.Label(classification_window, text="搜索标签")
+    search_label.pack(pady=5)
+
+    search_var = tk.StringVar()
+    search_entry = tk.Entry(classification_window, textvariable=search_var, width=50)
+    search_entry.pack(pady=5)
+
     # 动态加载标签
     tag_buttons = []
-    for idx, tag in enumerate(questions_info.get("tags", [])):
-        var = tk.BooleanVar()
-        tag_button = tk.Checkbutton(tags_frame, text=tag, variable=var)
-        tag_button.grid(row=idx, column=0, padx=10, pady=5, sticky="w")
-        tag_buttons.append((tag, var))
+    all_tags = questions_info.get("tags", [])
 
-    tags_frame.update_idletasks()
-    canvas.config(scrollregion=canvas.bbox("all"))
+    # 定义更新标签显示的函数
+    def update_tags(*args):
+        search_term = search_var.get().lower()  # 获取搜索框中的内容，并转为小写
+        for widget in tags_frame.winfo_children():
+            widget.destroy()  # 清空标签框
+
+        for idx, tag in enumerate(all_tags):
+            if search_term in tag.lower():  # 过滤标签
+                var = tk.BooleanVar()
+                tag_button = tk.Checkbutton(tags_frame, text=tag, variable=var)
+                tag_button.grid(row=idx, column=0, padx=10, pady=5, sticky="w")
+                tag_buttons.append((tag, var))
+
+        tags_frame.update_idletasks()
+        canvas.config(scrollregion=canvas.bbox("all"))
+
+    # 监听搜索框内容变化
+    search_var.trace_add("write", update_tags)
+
+    # 初始加载标签
+    update_tags()
 
     # 创建OJ下拉框
     oj_label = tk.Label(classification_window, text="选择OJ")
@@ -280,6 +366,7 @@ def show_classification_window(config):
 
     question_name_entry = tk.Entry(classification_window, width=50)
     question_name_entry.pack(pady=10)
+
     # 确认按钮
     def on_confirm():
         tags = [tag for tag, var in tag_buttons if var.get()]
@@ -289,6 +376,7 @@ def show_classification_window(config):
 
         execute_file_creation(config, tags, difficulty, oj, folder_input.get(), question_name)
         classification_window.withdraw()  # 隐藏分类窗口
+
     confirm_button = tk.Button(classification_window, text="确认", command=on_confirm)
     confirm_button.pack(pady=20)
 

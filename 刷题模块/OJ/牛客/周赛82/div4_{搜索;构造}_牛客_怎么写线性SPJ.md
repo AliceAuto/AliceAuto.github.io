@@ -8,6 +8,7 @@ author: "JNMC张富涵"
 
 #### [备用返回通道](../../README.md)
 # [转到题目](https://ac.nowcoder.com/acm/contest/102303/F)
+
 ## 题目描述
 
 第一次，碰到这么简单的 f 题，补牛客周赛的时候感觉比赛有点水

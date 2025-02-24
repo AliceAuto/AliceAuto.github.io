@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "怎么写线性SPJ"
-permalink: /刷题模块/OJ/牛客/周赛82/div4_{搜索;构造}_牛客_怎么写线性SPJ.md/
+permalink: /刷题模块/OJ/牛客/周赛82/div4_{搜索;构造;贪心}_牛客_怎么写线性SPJ.md/
 date: 2025-02-24
 author: "JNMC张富涵"
 ---

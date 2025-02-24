@@ -605,11 +605,18 @@
                     "title": "而后单调",
                     "link": "/刷题模块/OJ/牛客/周赛74/div3_{二分;滑动窗口;双指针}_牛客_而后单调.md/",
                     "report_count": 1
+                },
+                {
+                    "date": "02/24/2025",
+                    "title": "怎么写线性SPJ",
+                    "link": "/刷题模块/OJ/牛客/周赛82/div4_{搜索;构造}_牛客_怎么写线性SPJ.md/",
+                    "report_count": 1
                 }
             ],
-            "total_report_count_in_all": 1,
+            "total_report_count_in_all": 2,
             "daily_report_count_in_year": {
-                "01/17/2025": 1
+                "01/17/2025": 1,
+                "02/24/2025": 1
             }
         },
         "JNMC李衍坤": {

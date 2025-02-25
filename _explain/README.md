@@ -3,7 +3,15 @@
 > 1:安装上git
 
 > 2:安装vscode以及一些插件
+> **Chinese (Simplified) Language Pack for Visual Studio Code**![alt text](image-2.png)
 **Auto Run command:**![alt text](image.png)
+**Competitive Programming Helper:**![alt text](image-1.png)
+**Drawio Preview:**![alt text](image-3.png)
+**Markdown All in One:**![alt text](image-4.png)
+**Markdown Previed Enhanced:**![alt text](image-5.png)
+**Markdown PDF:**![alt text](image-6.png)
+**Paste Image:**![alt text](image-7.png)
+
 > 3:为git进行配置
  
 ><div style="color:red"> else<strong>(平替git方案)</strong>: 使用Github desktop进行远程控制</div>

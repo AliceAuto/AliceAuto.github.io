@@ -613,9 +613,10 @@
                     "report_count": 1
                 }
             ],
-            "total_report_count_in_all": 1,
+            "total_report_count_in_all": 2,
             "daily_report_count_in_year": {
-                "01/17/2025": 1
+                "01/17/2025": 1,
+                "02/24/2025": 1
             }
         },
         "JNMC李衍坤": {

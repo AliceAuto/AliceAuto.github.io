@@ -38,6 +38,6 @@
 
 ## 参与贡献
 
-[点击这里了解怎么配置`AcEasy算法竞赛`环境](_explain/README.md)
+[点击这里了解怎么配置`AcEasy算法竞赛`环境](explain/README.md)
 
    ```

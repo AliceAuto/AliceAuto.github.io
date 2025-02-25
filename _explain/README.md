@@ -11,7 +11,8 @@
 **Markdown Previed Enhanced:**![alt text](image-5.png)
 **Markdown PDF:**![alt text](image-6.png)
 **Paste Image:**![alt text](image-7.png)
-
+**HTML Preview:**![alt text](image-8.png)
+**HTML CSS Support:**![alt text](image-9.png)
 > 3:为git进行配置
  
 ><div style="color:red"> else<strong>(平替git方案)</strong>: 使用Github desktop进行远程控制</div>

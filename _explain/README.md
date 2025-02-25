@@ -25,5 +25,11 @@
 
 > 7:提交PR
 
+> 8:等待管理员审核
+
+> 额外<bar><strong>
+以CodeSpace文件夹打开新窗口，在这个窗口中配置每个人的代码环境，如编译链脚本配置
+</strong>
+
 >教程:
 > <video src="URL" controls="controls" style="width: 100%"></video> 

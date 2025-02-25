@@ -36,10 +36,8 @@
 - GitHub 账号
 - 自托管服务器或支持 GitHub Pages 的平台
 
-### 部署步骤
+## 参与贡献
 
-1. 克隆此项目到本地机器或服务器：
+[点击这里了解怎么配置`AcEasy算法竞赛`环境](_explain/README.md)
 
-   ```bash
-   git clone https://github.com/AliceAuto/AliceAuto.github.io.git
    ```

@@ -24,3 +24,6 @@
 > 6:进行工作区功能测试
 
 > 7:提交PR
+
+>教程:
+> <video src="URL" controls="controls" style="width: 100%"></video> 

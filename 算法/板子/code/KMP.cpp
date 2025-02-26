@@ -5,7 +5,8 @@ using namespace std;
 */
 typedef  struct sequence{
 	sequence(int * p, int s){
-		p 
+		head = p;
+		size = s;e
 
 	}
 	int * head;

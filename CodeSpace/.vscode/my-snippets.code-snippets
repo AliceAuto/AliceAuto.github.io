@@ -684,7 +684,7 @@
             "typedef  struct sequence{",
             "\tsequence(int * p, int s){",
             "\t\thead = p;",
-            "\t\tsize = s;e",
+            "\t\tsize = s;",
             "",
             "\t}",
             "\tint * head;",

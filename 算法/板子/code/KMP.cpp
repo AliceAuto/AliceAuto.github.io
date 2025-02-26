@@ -3,6 +3,10 @@ using namespace std;
 /*
     序列 中找 匹配序列
 */
+typedef  struct sequence{
+	sequence(){}
+	
+}
 #define sequence vector<char>
 #define dict vector<int> 
 sequence text;

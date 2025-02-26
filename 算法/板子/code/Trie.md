@@ -1,3 +1,8 @@
+>
+>
+>
+
+```cpp
 int son[N][26], cnt[N], idx;
 
 void insert(char *str)
@@ -25,3 +30,4 @@ int query(char *str)
     }
     return cnt[p];
 }
+```

@@ -1,3 +1,5 @@
+
+```cpp
 /*
 pointer sequence: |h1_p h2_p ··· hn_p|: the pointer sequence table
 
@@ -12,3 +14,4 @@ relational table: | p_1 p_2 p_3 ... p_n |: the relation between elems to Bucket 
 
 const int N = 1e5+10;
 int h[N] ,e[N],ne[N],idx;
+```

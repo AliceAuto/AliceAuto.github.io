@@ -1,9 +1,17 @@
+**下面是一个边关系比较稀疏的BFS:**
+- **图的存储方式:邻接表**
+- **基本数据结构:STL**
+- **参数解释:**
+  - g: 图的邻接表
+  - s: 起点
+  - e: 终点
+
+
+```cpp
 /*
     this is the standard BFS algorithm for solving the problem .
     also is a simple model.
 */
-#include <bits/stdc++.h>
-using namespace std;
 void bfs(const unordered_map<int ,vector<int>>& g ,int s,int e){
     queue<int>que;
     unordered_map<int ,bool> vis;
@@ -29,11 +37,4 @@ void bfs(const unordered_map<int ,vector<int>>& g ,int s,int e){
     }
     
 }
-int main(){
-   unordered_map<int,vector<int>> g={
-        {1,{2,3}},
-        {2,{4,5}},
-        {3,{6,7}},
-   } ;
-   bfs(g,1,7);
-}
+```

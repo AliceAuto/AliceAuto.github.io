@@ -1,8 +1,4 @@
-#include <bits/stdc++.h>
-using namespace std;
-/*
-    序列 中找 匹配序列
-*/
+```cpp
 #define sequence vector<char>
 #define dict vector<int> 
 sequence text;
@@ -25,7 +21,6 @@ int kmp(sequence &text,sequence &pat){
 	}
 	
 }
-
 /*
 
 int main(){
@@ -41,3 +36,4 @@ int main(){
 }
 
 */
+```

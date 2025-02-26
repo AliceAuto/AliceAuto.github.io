@@ -1,4 +1,3 @@
-
 {
     "0-1 Knapsack": {
         "prefix": "0-1 Knapsack",
@@ -1156,10 +1155,10 @@
     "TEST": {
         "prefix": "TEST",
         "body": [
-            "CODE"
+            "ccccc"
         ],
         "description": "Snippet from TEST",
-        "scope": "markdown"
+        "scope": "py"
     },
     "Trie": {
         "prefix": "Trie",

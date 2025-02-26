@@ -4,7 +4,12 @@ using namespace std;
     序列 中找 匹配序列
 */
 typedef  struct sequence{
-	sequence(){}
+	sequence(int * p, int s){
+		p 
+
+	}
+	int * head;
+	int size;
 	
 }
 #define sequence vector<char>

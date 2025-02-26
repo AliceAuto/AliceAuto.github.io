@@ -3,16 +3,6 @@ using namespace std;
 /*
     序列 中找 匹配序列
 */
-typedef  struct sequence{
-	sequence(int * p, int s){
-		head = p;
-		size = s;
-
-	}
-	int * head;
-	int size;
-	
-}
 #define sequence vector<char>
 #define dict vector<int> 
 sequence text;

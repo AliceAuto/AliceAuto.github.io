@@ -1,3 +1,4 @@
+
 {
     "0-1 Knapsack": {
         "prefix": "0-1 Knapsack",
@@ -147,6 +148,27 @@
             ""
         ],
         "description": "Snippet for Dijkstra in cpp",
+        "scope": "cpp"
+    },
+    "Dynamic pointer sequence table": {
+        "prefix": "Dynamic pointer sequence table",
+        "body": [
+            "/*",
+            "pointer sequence: |h1_p h2_p ··· hn_p|: the pointer sequence table",
+            "",
+            "                         ↓ptr",
+            "",
+            "relational table: | p_1 p_2 p_3 ... p_n |: the relation between elems to Bucket sequence table",
+            "            ",
+            "                       ↓index",
+            "",
+            "            data: | d_1 d_2 d_3... d_n  |",
+            "*/",
+            "",
+            "const int N = 1e5+10;",
+            "int h[N] ,e[N],ne[N],idx;"
+        ],
+        "description": "Snippet for Dynamic pointer sequence table in cpp",
         "scope": "cpp"
     },
     "Express IO": {
@@ -681,16 +703,6 @@
             "/*",
             "    序列 中找 匹配序列",
             "*/",
-            "typedef  struct sequence{",
-            "\tsequence(int * p, int s){",
-            "\t\thead = p;",
-            "\t\tsize = s;",
-            "",
-            "\t}",
-            "\tint * head;",
-            "\tint size;",
-            "\t",
-            "}",
             "#define sequence vector<char>",
             "#define dict vector<int> ",
             "sequence text;",
@@ -997,7 +1009,41 @@
             "    this is the standard BFS algorithm for solving the problem .",
             "    also is a simple model.",
             "*/",
-            ""
+            "#include <bits/stdc++.h>",
+            "using namespace std;",
+            "void bfs(const unordered_map<int ,vector<int>>& g ,int s,int e){",
+            "    queue<int>que;",
+            "    unordered_map<int ,bool> vis;",
+            "    unordered_map<int,int> pre;   ",
+            "    vis[s] =true;",
+            "    que.push(s);",
+            "    while (que.size()){",
+            "        auto cur = que.front();",
+            "        que.pop();",
+            "        if(cur == e){",
+            "            for (int i = e; i != s; i = pre[i]){",
+            "                cout<<i<<\" \"; ",
+            "            }",
+            "            return;",
+            "        }",
+            "        for(auto nxt:g.at(cur)){",
+            "            if(vis[nxt]) continue;",
+            "            vis[nxt] = true;",
+            "            pre[nxt] = cur;",
+            "            que.push(nxt);",
+            "        }",
+            "",
+            "    }",
+            "    ",
+            "}",
+            "int main(){",
+            "   unordered_map<int,vector<int>> g={",
+            "        {1,{2,3}},",
+            "        {2,{4,5}},",
+            "        {3,{6,7}},",
+            "   } ;",
+            "   bfs(g,1,7);",
+            "}"
         ],
         "description": "Snippet for Standard BFS in cpp",
         "scope": "cpp"
@@ -1106,6 +1152,14 @@
         ],
         "description": "Snippet for test in cpp",
         "scope": "cpp"
+    },
+    "TEST": {
+        "prefix": "TEST",
+        "body": [
+            "CODE"
+        ],
+        "description": "Snippet from TEST",
+        "scope": "markdown"
     },
     "Trie": {
         "prefix": "Trie",
@@ -1262,6 +1316,7 @@
     "手速练习": {
         "prefix": "手速练习",
         "body": [
+            "",
             "",
             ""
         ],

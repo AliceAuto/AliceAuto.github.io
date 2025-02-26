@@ -1,13 +1,14 @@
 import os
 import json
 import time
+import re
 from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
 
 # 从配置文件中加载设置
 def load_config(config_file):
     with open(config_file, 'r', encoding='utf-8') as f:
-        return json.load(f)
+         return json.load(f)
 
 # 根据后缀推断 VSCode 需要的 scope（语言标签）
 def get_language_from_extension(ext):
@@ -18,9 +19,19 @@ def get_language_from_extension(ext):
         "html": "html",
         "css": "css",
         "java": "java",
-        "json": "json"
+        "json": "json",
+        "md": "markdown"  # 为 .md 文件添加支持
     }
     return language_map.get(ext, "plaintext")
+
+# 从 Markdown 文件中提取代码块内容
+def extract_code_from_md(file_path):
+    with open(file_path, 'r', encoding='utf-8') as file:
+        content = file.read()
+
+    # 正则表达式匹配 Markdown 中的代码块
+    code_blocks = re.findall(r'```(.*?)\n(.*?)\n```', content, re.DOTALL)
+    return code_blocks
 
 # 生成 VSCode snippets（合并所有语言到一个 JSON）
 def generate_snippets(directory, file_types):
@@ -36,21 +47,36 @@ def generate_snippets(directory, file_types):
             if ext not in file_types:
                 continue
 
-            with open(file_path, 'r', encoding='utf-8') as file:
-                file_content = file.read()
+            if ext == 'md':
+                # 处理 Markdown 文件，将所有代码块合并成一个代码片段
+                code_blocks = extract_code_from_md(file_path)
+                all_code = "\n".join(code for _, code in code_blocks)  # 合并所有代码块内容
+                snippet_key = name  # 使用文件名作为 snippet 名称
+                snippet_value = {
+                    "prefix": snippet_key,
+                    "body": all_code.splitlines(),
+                    "description": f"Snippet from {name}",
+                    "scope": "markdown"  # 设置为 markdown 作为语言标签
+                }
+                snippets[snippet_key] = snippet_value
+            else:
+                # 处理其他文件类型
+                with open(file_path, 'r', encoding='utf-8') as file:
+                    file_content = file.read()
 
-            language = get_language_from_extension(ext)
-            snippet_key = name  # 使用文件名作为 snippet 名称
-            snippet_value = {
-                "prefix": name,
-                "body": file_content.splitlines(),
-                "description": f"Snippet for {name} in {language}",
-                "scope": language  # 让 VSCode 只在对应语言的文件中生效
-            }
+                language = get_language_from_extension(ext)
+                snippet_key = name  # 使用文件名作为 snippet 名称
+                snippet_value = {
+                    "prefix": name,
+                    "body": file_content.splitlines(),
+                    "description": f"Snippet for {name} in {language}",
+                    "scope": language  # 让 VSCode 只在对应语言的文件中生效
+                }
 
-            snippets[snippet_key] = snippet_value
+                snippets[snippet_key] = snippet_value
 
     return snippets
+
 
 # 保存 snippets 为 VSCode 可识别的 .code-snippets 文件
 def save_snippets(snippets, output_file):

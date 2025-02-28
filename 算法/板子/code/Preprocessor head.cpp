@@ -18,7 +18,7 @@ using namespace std;
 #define x first
 #define y second
 template <>
-struct hash<pair<int, int>> {
+struct std::hash<pair<int, int>> {
     unsigned i64 operator()(const pair<int, int>& p) const {
         unsigned i64 h1 = hash<int>()(p.first);
         unsigned i64 h2 = hash<int>()(p.second);

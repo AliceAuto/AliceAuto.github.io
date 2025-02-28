@@ -4,25 +4,29 @@
 using namespace std;
 #define REP(a,b,c,d) for (a = b;a!=c;a+=d)
 #define FastIOS {ios::sync_with_stdio(false);cin.tie(0);cout.tie(0);}
-#define i32 int
-#define i64 long long
-#define i128 __int128
+using i64 = long long;
+using i128 = __int128;
+using pii = pair<int, int>;
+using mat = vector<vector<int>>;
+using u64 = unsigned long long;
+using u128 = __uint128_t;
 #define f32 float
 #define f64 double
-#define int long long
 #define endl "\n"
 #define pi acos(-1)
 #define all(v) v.begin(),v.end()
 #define pb push_back
-#define pii pair<int,int>
 #define x first
 #define y second
+namespace std{
 template <>
-struct std::hash<pair<int, int>> {
-    unsigned i64 operator()(const pair<int, int>& p) const {
-        unsigned i64 h1 = hash<int>()(p.first);
-        unsigned i64 h2 = hash<int>()(p.second);
+struct hash<pair<int, int>> {
+    u64 operator()(const pair<int, int>& p) const {
+        u64 h1 = hash<int>()(p.first);
+        u64 h2 = hash<int>()(p.second);
         return (h1 +h2)*(h1+h2+1)/2+h2;
     }
 };
+}
+#define debug(_x) cout << #_x << '=' << _x << endl
 #endif

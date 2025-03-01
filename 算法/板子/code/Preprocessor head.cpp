@@ -18,6 +18,8 @@ using u128 = __uint128_t;
 #define pb push_back
 #define x first
 #define y second
+#define inf 0x3f3f3f3f3f3f3f3f
+#define INF inf
 namespace std{
 template <>
 struct hash<pair<int, int>> {
@@ -30,3 +32,13 @@ struct hash<pair<int, int>> {
 }
 #define debug(_x) cout << #_x << '=' << _x << endl
 #endif
+
+
+void solve(){
+    
+}
+signed main(){
+    FastIOS;
+    solve();
+    return 0;
+}

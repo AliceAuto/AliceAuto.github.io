@@ -10,6 +10,7 @@ using pii = pair<int, int>;
 using mat = vector<vector<int>>;
 using u64 = unsigned long long;
 using u128 = __uint128_t;
+using ll = i64;
 #define f32 float
 #define f64 double
 #define endl "\n"
@@ -19,7 +20,7 @@ using u128 = __uint128_t;
 #define x first
 #define y second
 #define inf 0x3f3f3f3f3f3f3f3f
-#define INF inf
+#define INF 
 namespace std{
 template <>
 struct hash<pair<int, int>> {

@@ -38,7 +38,7 @@ struct hash<pair<int, int>> {
 void solve(){
     
 }
-signed main(){
+int main(){
     FastIOS;
     solve();
     return 0;

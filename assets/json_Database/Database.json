@@ -613,11 +613,30 @@
                     "title": "农夫约翰的奶酪块",
                     "link": "/刷题模块/OJ/蓝桥杯/每日一题/div5_{模拟}_蓝桥杯_农夫约翰的奶酪块.md/",
                     "report_count": 1
+                },
+                {
+                    "date": "03/01/2025",
+                    "title": "The Play Never Ends",
+                    "link": "/刷题模块/OJ/codeforces/div2_{数学}_CF_The Play Never Ends.md/",
+                    "report_count": 1
+                },
+                {
+                    "date": "03/01/2025",
+                    "title": "Trapmigiano Reggiano",
+                    "link": "/刷题模块/OJ/codeforces/div2_{构造;搜索;排序;数据结构}_CF_Trapmigiano Reggiano.md/",
+                    "report_count": 1
+                },
+                {
+                    "date": "03/01/2025",
+                    "title": "Perfecto",
+                    "link": "/刷题模块/OJ/codeforces/div2_{枚举;构造;贪心;数学;概率论}_CF_Perfecto.md/",
+                    "report_count": 1
                 }
             ],
-            "total_report_count_in_all": 102,
+            "total_report_count_in_all": 105,
             "daily_report_count_in_year": {
                 "01/31/2025": 8,
+                "03/01/2025": 10,
                 "01/17/2025": 31,
                 "01/18/2025": 1,
                 "02/13/2025": 2,
@@ -635,7 +654,6 @@
                 "02/25/2025": 2,
                 "02/03/2025": 2,
                 "02/02/2025": 2,
-                "03/01/2025": 7,
                 "02/14/2025": 1,
                 "02/15/2025": 1
             }

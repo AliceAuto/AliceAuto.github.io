@@ -12,7 +12,10 @@ published: false
 | [**的意志**](天梯赛pta/div2_{二分}_PTA_的意志.md) | div2 | 二分 | PTA |
 | [**转动命运之轮**](天梯赛pta/div2_{集合论}_PTA_转动命运之轮.md) | div2 | 集合论 | PTA |
 | [**计算最小值**](天梯赛pta/div2_{贪心;思维题}_蓝桥杯_计算最小值.md) | div2 | 贪心, 思维题 | 蓝桥杯 |
+| [**The Play Never Ends**](codeforces/div2_{数学}_CF_The Play Never Ends.md) | div2 | 数学 | CF |
+| [**Trapmigiano Reggiano**](codeforces/div2_{构造;搜索;排序;数据结构}_CF_Trapmigiano Reggiano.md) | div2 | 构造, 搜索, 排序, 数据结构 | CF |
 | [**无趣的数字**](codeforces/div3_{贪心}_Codeforces_无趣的数字.md) | div3 | 贪心 | Codeforces |
+| [**Perfecto**](codeforces/div2_{枚举;构造;贪心;数学;概率论}_CF_Perfecto.md) | div2 | 枚举, 构造, 贪心, 数学, 概率论 | CF |
 | [**能不能为0**](codeforces/div4_{数学;思维题}_Codeforces_能不能为0.md) | div4 | 数学, 思维题 | Codeforces |
 | [**最大化整数串**](codeforces/div3_{贪心}_Codeforces_最大化整数串.md) | div3 | 贪心 | Codeforces |
 | [**气球谜题**](牛客/周赛71/div3_{动态规划}_牛客_气球谜题.md) | div3 | 动态规划 | 牛客 |

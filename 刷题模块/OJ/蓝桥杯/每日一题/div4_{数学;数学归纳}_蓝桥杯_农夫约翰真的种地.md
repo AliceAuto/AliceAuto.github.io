@@ -7,3 +7,4 @@ author: "JNMC孙国庆"
 ---
 
 #### [备用返回通道](../../README.md)
+# [转到题目](https://www.acwing.com/problem/content/5442/)

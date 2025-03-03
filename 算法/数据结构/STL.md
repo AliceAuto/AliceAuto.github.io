@@ -133,7 +133,7 @@
     不支持 lower_bound()/upper_bound()， 迭代器的++，--  
 
 ## bitset, 圧位  
-
+std::bitset 本质上是位图（bitmap），它的最小存储单位是 bit
 **可以省8倍的空间**
     bitset<10000> s;  
     ~, &, |, ^  

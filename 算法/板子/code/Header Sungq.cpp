@@ -86,7 +86,10 @@ void dbg(const T& x, int d = 0) {
 #endif
 void solve()
 {
-
+    int x,i;
+    cin>>x;
+    i =x;
+    REP(i,i,x+10,1)cout<<i<<endl;
 }
 signed main(){
     FastIOS;

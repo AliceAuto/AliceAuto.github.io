@@ -16,10 +16,9 @@
             "        }",
             "    }",
             "    return dp[V]; // 返回最大价值",
-            "}",
-            ""
+            "}"
         ],
-        "description": "Snippet for 0-1 Knapsack in cpp",
+        "description": "Snippet from 0-1 Knapsack",
         "scope": "cpp"
     },
     "Binary search": {

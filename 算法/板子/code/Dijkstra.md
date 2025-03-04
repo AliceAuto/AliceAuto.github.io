@@ -7,7 +7,7 @@
 
 ## 堆优化的dijkstra算法
 
-```c++
+```cpp
 #include<bits/stdc++.h>
 using namespace std;
 

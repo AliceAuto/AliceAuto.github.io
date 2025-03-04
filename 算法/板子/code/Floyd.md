@@ -1,7 +1,7 @@
 
 ## 不允许存在负权回路
 
-```C++
+```cpp
 #include <bits/stdc++.h>
 using namespace std;
 

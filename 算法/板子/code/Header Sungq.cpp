@@ -84,6 +84,11 @@ void dbg(const T& x, int d = 0) {
     std::cout << "\n"; \
 }
 #endif
+/*
+
+    This Header is written by Guoqing Sun. which is a template for algorithm contest.
+
+*/
 void solve()
 {
  

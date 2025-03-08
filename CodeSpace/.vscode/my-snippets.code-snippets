@@ -178,6 +178,61 @@
         "description": "Snippet from Bellman Ford",
         "scope": "cpp"
     },
+    "BFS": {
+        "prefix": "BFS",
+        "body": [
+            "#define all(x) x.begin(),x.end()",
+            "#define x first",
+            "#define y second",
+            "",
+            "",
+            "void bfs(const vector<vector<int>>& g,pair<int,int> s,pair<int,int> e){",
+            "    int n = g.size();",
+            "    int m = g[0].size();",
+            "    ",
+            "    auto checker = [&] (pair<int,int> p){",
+            "        if(p.x<0||p.x>=n||p.y<0||p.y>=m)return false;",
+            "        else return true;",
+            "    };",
+            "    vector<vector<bool>>vis(n,vector<bool>(m,0));",
+            "    vector<vector<pair<int,int>>>pre(n,vector<pair<int,int>>(m,{-1,-1}));",
+            "    queue<pair<int,int>>q;",
+            "    q.push(s);",
+            "    vis[s.x][s.y] = 1;",
+            "    vector<int>dx = {1,0,-1,0};",
+            "    vector<int>dy = {0,1,0,-1};",
+            "    ",
+            "    while(!q.empty()){",
+            "        auto p = q.front();",
+            "        q.pop();",
+            "        if(p==e){",
+            "            vector<pair<int,int>>path;",
+            "            while(p!=s){",
+            "                path.push_back(p);",
+            "                p = pre[p.x][p.y];",
+            "            }",
+            "            path.push_back(s);",
+            "            reverse(all(path));",
+            "            for(auto p:path){",
+            "                cout<<p.x<<\" \"<<p.y<<endl;",
+            "            }",
+            "            return;",
+            "        } ",
+            "        for(int i = 0;i<4;i++){",
+            "            auto np = make_pair(p.x+dx[i],p.y+dy[i]);",
+            "            if(checker(np)&&!vis[np.x][np.y]&&!g[np.x][np.y]){",
+            "                q.push(np);",
+            "                vis[np.x][np.y] = 1;",
+            "                pre[np.x][np.y] = p;",
+            "            } ",
+            "        }",
+            "    }",
+            "",
+            "}"
+        ],
+        "description": "Snippet from BFS",
+        "scope": "cpp"
+    },
     "Binary search": {
         "prefix": "Binary search",
         "body": [
@@ -267,6 +322,12 @@
         "description": "Snippet for Date iterator in cpp",
         "scope": "cpp"
     },
+    "DFS": {
+        "prefix": "DFS",
+        "body": [],
+        "description": "Snippet from DFS",
+        "scope": "cpp"
+    },
     "Dijkstra": {
         "prefix": "Dijkstra",
         "body": [
@@ -337,27 +398,6 @@
             "}"
         ],
         "description": "Snippet from Dijkstra",
-        "scope": "cpp"
-    },
-    "Dynamic pointer sequence table": {
-        "prefix": "Dynamic pointer sequence table",
-        "body": [
-            "/*",
-            "pointer sequence: |h1_p h2_p ··· hn_p|: the pointer sequence table",
-            "",
-            "                         ↓ptr",
-            "",
-            "relational table: | p_1 p_2 p_3 ... p_n |: the relation between elems to Bucket sequence table",
-            "            ",
-            "                       ↓index",
-            "",
-            "            data: | d_1 d_2 d_3... d_n  |",
-            "*/",
-            "",
-            "const int N = 1e5+10;",
-            "int h[N] ,e[N],ne[N],idx;"
-        ],
-        "description": "Snippet from Dynamic pointer sequence table",
         "scope": "cpp"
     },
     "Edge sparse BFS": {
@@ -442,6 +482,27 @@
             "}"
         ],
         "description": "Snippet from Floyd",
+        "scope": "cpp"
+    },
+    "Free List": {
+        "prefix": "Free List",
+        "body": [
+            "/*",
+            "pointer sequence: |h1_p h2_p ··· hn_p|: the pointer sequence table",
+            "",
+            "                         ↓ptr",
+            "",
+            "relational table: | p_1 p_2 p_3 ... p_n |: the relation between elems to Bucket sequence table",
+            "            ",
+            "                       ↓index",
+            "",
+            "            data: | d_1 d_2 d_3... d_n  |",
+            "*/",
+            "",
+            "const int N = 1e5+10;",
+            "int h[N] ,e[N],ne[N],idx;"
+        ],
+        "description": "Snippet from Free List",
         "scope": "cpp"
     },
     "Group Knapsack": {
@@ -1251,61 +1312,6 @@
         "description": "Snippet for Multiple Knapsack in cpp",
         "scope": "cpp"
     },
-    "Point sparse BFS": {
-        "prefix": "Point sparse BFS",
-        "body": [
-            "#define all(x) x.begin(),x.end()",
-            "#define x first",
-            "#define y second",
-            "",
-            "",
-            "void bfs(const vector<vector<int>>& g,pair<int,int> s,pair<int,int> e){",
-            "    int n = g.size();",
-            "    int m = g[0].size();",
-            "    ",
-            "    auto checker = [&] (pair<int,int> p){",
-            "        if(p.x<0||p.x>=n||p.y<0||p.y>=m)return false;",
-            "        else return true;",
-            "    };",
-            "    vector<vector<bool>>vis(n,vector<bool>(m,0));",
-            "    vector<vector<pair<int,int>>>pre(n,vector<pair<int,int>>(m,{-1,-1}));",
-            "    queue<pair<int,int>>q;",
-            "    q.push(s);",
-            "    vis[s.x][s.y] = 1;",
-            "    vector<int>dx = {1,0,-1,0};",
-            "    vector<int>dy = {0,1,0,-1};",
-            "    ",
-            "    while(!q.empty()){",
-            "        auto p = q.front();",
-            "        q.pop();",
-            "        if(p==e){",
-            "            vector<pair<int,int>>path;",
-            "            while(p!=s){",
-            "                path.push_back(p);",
-            "                p = pre[p.x][p.y];",
-            "            }",
-            "            path.push_back(s);",
-            "            reverse(all(path));",
-            "            for(auto p:path){",
-            "                cout<<p.x<<\" \"<<p.y<<endl;",
-            "            }",
-            "            return;",
-            "        } ",
-            "        for(int i = 0;i<4;i++){",
-            "            auto np = make_pair(p.x+dx[i],p.y+dy[i]);",
-            "            if(checker(np)&&!vis[np.x][np.y]&&!g[np.x][np.y]){",
-            "                q.push(np);",
-            "                vis[np.x][np.y] = 1;",
-            "                pre[np.x][np.y] = p;",
-            "            } ",
-            "        }",
-            "    }",
-            "",
-            "}"
-        ],
-        "description": "Snippet from Point sparse BFS",
-        "scope": "cpp"
-    },
     "Prim": {
         "prefix": "Prim",
         "body": [],
@@ -1503,6 +1509,12 @@
         "description": "Snippet for singleCase in cpp",
         "scope": "cpp"
     },
+    "Sort": {
+        "prefix": "Sort",
+        "body": [],
+        "description": "Snippet from Sort",
+        "scope": "cpp"
+    },
     "SPFA": {
         "prefix": "SPFA",
         "body": [
@@ -1624,6 +1636,12 @@
             "}"
         ],
         "description": "Snippet for Unbounded Knapsack in cpp",
+        "scope": "cpp"
+    },
+    "Union-Find": {
+        "prefix": "Union-Find",
+        "body": [],
+        "description": "Snippet from Union-Find",
         "scope": "cpp"
     },
     "孙国庆的防检重标识": {

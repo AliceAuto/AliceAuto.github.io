@@ -3,7 +3,7 @@
 ```cpp
 
 int n;
-int d[1000000];
+int d[1000000];//升序
 
 
 int binary_search_l(int x){

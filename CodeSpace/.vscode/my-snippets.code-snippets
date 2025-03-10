@@ -500,8 +500,8 @@
         "description": "Snippet from Floyd",
         "scope": "cpp"
     },
-    "Free List": {
-        "prefix": "Free List",
+    "Forward Star": {
+        "prefix": "Forward Star",
         "body": [
             "/*",
             "pointer sequence: |h1_p h2_p ··· hn_p|: the pointer sequence table",
@@ -518,7 +518,7 @@
             "const int N = 1e5+10;",
             "int h[N] ,e[N],ne[N],idx;"
         ],
-        "description": "Snippet from Free List",
+        "description": "Snippet from Forward Star",
         "scope": "cpp"
     },
     "Group Knapsack": {

@@ -1,5 +1,5 @@
 # 链式前向星 /Forward Star
-**一种表示图的代码框架**
+**一种表示图的,邻接表代码框架**
 ```cpp
 /*
 pointer sequence: |h1_p h2_p ··· hn_p|: the pointer sequence table

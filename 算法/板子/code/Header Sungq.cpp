@@ -23,6 +23,8 @@ using ll = i64;
 #define pb push_back
 #define x first
 #define y second
+int dx[4] = {0,0,1,-1};
+int dy[4] = {1,-1,0,0};
 #define inf 0x3f3f3f3f3f3f3f3f
 #define INF inf
 namespace std{

@@ -9,6 +9,7 @@ using namespace std;
 #define REP4(i,s,e,d) for ((i) = (s); (i) != (e); (i) += (d))
 #define REP(...) GET_MACRO(__VA_ARGS__, REP4, REP3, REP2, REP1)(__VA_ARGS__)
 #define FastIOS {ios::sync_with_stdio(false);cin.tie(0);cout.tie(0);}
+#define int long long
 using i64 = long long;
 using i128 = __int128;
 using pii = pair<int, int>;

@@ -52,7 +52,7 @@ void bellman_ford()
             auto e=edges[j];
             //松弛操作
             dist[e.b]=min(dist[e.b],last[e.a]+e.w);
-        }
+        }1
     }
      //三角不等式
      //dist[e.b]<=min(dist[e.b],last[e.a]+e.w);

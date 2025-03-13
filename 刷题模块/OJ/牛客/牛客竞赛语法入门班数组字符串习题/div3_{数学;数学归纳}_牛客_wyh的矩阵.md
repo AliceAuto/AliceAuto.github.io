@@ -55,7 +55,13 @@ author: "JNMC孙国庆"
    因此，保留元素的总数量为：
 
    $$
-   n + 2 \times \left( \frac{n-1}{2} \times \frac{n+1}{2} \right) = n + \frac{(n-1)(n+1)}{2} = n + \frac{n^2 - 1}{2} = \frac{n^2 + 1}{2}
+      n + 2 \times \left( \left\lfloor \dfrac{n - 1}{2} \right\rfloor \right)^2
+   $$
+   $n为奇数，因此:$
+   $$
+   n + 2 \times \left( \left\lfloor \dfrac{n - 1}{2} \right\rfloor \right)^2
+   = n + 2 \times \left( \frac{n-1}{2} \right)^2
+= \frac{n^2 + 1}{2}
    $$
 
 5. **计算保留元素的和**：由于矩阵元素是从 1 到 n² 的连续自然数，且保留区域对称分布，我们可以推测保留元素的和与总和的比例关系。

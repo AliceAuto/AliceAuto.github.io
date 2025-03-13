@@ -261,6 +261,47 @@ def load_config():
         return None
 
 
+# 在现有主窗口按钮下方添加管理标签按钮
+def show_tag_management_window():
+    management_window = tk.Toplevel(root)
+    management_window.title("标签管理")
+    
+    # 新增标签输入框
+    new_tag_label = tk.Label(management_window, text="输入新标签")
+    new_tag_label.pack(pady=5)
+    
+    new_tag_entry = tk.Entry(management_window, width=30)
+    new_tag_entry.pack(pady=10)
+    
+    # 确认添加按钮
+    def add_new_tag():
+        new_tag = new_tag_entry.get()
+        if not new_tag:
+            messagebox.showerror("错误", "标签内容不能为空")
+            return
+        
+        # 加载现有标签配置
+        questions_info_path = os.path.join(os.path.dirname(__file__), "..", "..", "..", "data", "questions_info.json")
+        try:
+            with open(questions_info_path, "r+", encoding="utf-8") as f:
+                data = json.load(f)
+                if new_tag in data["tags"]:
+                    messagebox.showerror("错误", "标签已存在")
+                    return
+                
+                data["tags"].append(new_tag)
+                f.seek(0)
+                json.dump(data, f, ensure_ascii=False, indent=4)
+                f.truncate()
+            
+            messagebox.showinfo("成功", f"已添加新标签: {new_tag}")
+            management_window.destroy()
+        except Exception as e:
+            messagebox.showerror("错误", f"保存标签失败: {e}")
+
+    add_button = tk.Button(management_window, text="添加标签", command=add_new_tag)
+    add_button.pack(pady=20)
+
 # 弹出分类窗口
 def show_classification_window(config):
     # 检查并初始化用户信息
@@ -299,6 +340,18 @@ def show_classification_window(config):
     browse_button = tk.Button(classification_window, text="浏览", command=browse_folder)
     browse_button.pack(pady=5)
 
+    # 在搜索框下方添加新增标签按钮
+    def refresh_tags():
+        nonlocal all_tags
+        questions_info = load_questions_info()
+        all_tags = questions_info.get("tags", [])
+        update_tags()
+    
+    add_tag_button = tk.Button(classification_window, text="＋ 新增标签", 
+                              command=lambda: [show_tag_management_window(), 
+                                              classification_window.after(500, refresh_tags)])
+    add_tag_button.pack(pady=10)
+    
     # 创建 Canvas 和 Scrollbar
     canvas = tk.Canvas(classification_window)
     scrollbar = tk.Scrollbar(classification_window, orient="vertical", command=canvas.yview)
@@ -389,7 +442,9 @@ root.withdraw()
 
 # 创建一个按钮来显示分类选择窗口
 open_classification_window_button = tk.Button(root, text="创建新文件", command=lambda: show_classification_window(load_config()))
+# 修改主窗口布局，在原有按钮下添加管理标签按钮
 open_classification_window_button.pack(pady=20)
+tk.Button(root, text="管理标签", command=show_tag_management_window).pack(pady=10)
 
 # 设置快捷键监听
 def listen_for_shortcut():

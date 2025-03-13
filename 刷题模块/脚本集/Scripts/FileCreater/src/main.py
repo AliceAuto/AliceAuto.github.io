@@ -6,7 +6,6 @@ import keyboard  # 用于监听快捷键
 import threading
 from tkinter import simpledialog
 
-
 # 获取配置文件的路径并加载配置
 def load_config():
     try:
@@ -136,7 +135,27 @@ import os
 from datetime import datetime
 from tkinter import messagebox
 
-def create_file_in_directory(root_dir, subfolder, file_name, username):
+import os
+from datetime import datetime
+from tkinter import messagebox
+
+import os
+from datetime import datetime
+from tkinter import messagebox
+
+import os
+from datetime import datetime
+from tkinter import messagebox
+
+import os
+from datetime import datetime
+from tkinter import messagebox
+
+import os
+from datetime import datetime
+from tkinter import messagebox
+
+def create_file_in_directory(root_dir, subfolder, file_name, username, oj_url=None):
     try:
         # 如果选择了子文件夹，构造完整路径
         folder_path = os.path.join(root_dir, subfolder)
@@ -170,6 +189,8 @@ def create_file_in_directory(root_dir, subfolder, file_name, username):
             file.write(f"permalink: {permalink[3::]}\n")  # 使用动态生成的相对 permalink
             file.write(f"date: {current_date}\n")  # 使用实时日期
             file.write(f"author: \"{username}\"\n")
+            if oj_url:
+                file.write(f"oj_url: \"{oj_url}\"\n")
             file.write(f"---\n\n")
             file.write("#### [备用返回通道](../../README.md)\n")  # 可以根据需要填充更多内容
 
@@ -181,7 +202,8 @@ def create_file_in_directory(root_dir, subfolder, file_name, username):
 
 
 # 获取目标文件的路径并执行创建操作
-def execute_file_creation(config, tags, difficulty, oj, default_folder, question_name):
+# 修改execute_file_creation函数（移除临时的错误提示）
+def execute_file_creation(config, tags, difficulty, oj, default_folder, question_name, oj_url=None):
     username = get_current_user()
     if not username:
         return
@@ -190,14 +212,10 @@ def execute_file_creation(config, tags, difficulty, oj, default_folder, question
     if not root_dir:
         return
 
-    # 使用默认文件夹路径
     folder_path = os.path.join(root_dir, default_folder)
-
-    # 构造文件名，问题名称放在文件名中
     file_name = f"{difficulty}_{{{';'.join(tags)}}}_{oj}_{question_name}.md"
+    create_file_in_directory(root_dir, default_folder, file_name, username, oj_url)  # 直接传递oj_url参数，无需验证
 
-    # 创建文件，传递用户名
-    create_file_in_directory(root_dir, default_folder, file_name, username)  # 只传递需要的 4 个参数
 
 # 检查并初始化 currentUser.json 文件
 def check_and_initialize_user():
@@ -419,6 +437,63 @@ def show_classification_window(config):
 
     question_name_entry = tk.Entry(classification_window, width=50)
     question_name_entry.pack(pady=10)
+    import pyperclip
+    import time
+    import pyautogui
+    import re
+    # 添加原题链接获取组件
+    def fetch_oj_url():
+        try:
+            # 确保pyautogui和pyperclip已导入
+            import pyperclip
+            import pyautogui
+            import time
+            
+            original_clipboard = pyperclip.paste()
+            
+            # 更可靠的浏览器激活方式
+            try:
+                browser_window = None
+                for w in pyautogui.getAllWindows():
+                    if "chrome" in w.title.lower() or "edge" in w.title.lower():
+                        browser_window = w
+                        break
+                if browser_window:
+                    if browser_window.isMinimized:
+                        browser_window.restore()
+                    browser_window.activate()
+                    time.sleep(0.5)  # 增加激活后的等待时间
+            except Exception as e:
+                pass  # 即使激活失败也继续尝试
+            
+            # 更可靠的快捷键操作
+            for _ in range(3):
+                pyautogui.hotkey('ctrl', 'l')  # 聚焦地址栏
+                time.sleep(0.2)
+                pyautogui.hotkey('ctrl', 'c')  # 复制地址
+                time.sleep(0.5)  # 增加复制后的等待时间
+                
+                current_url = pyperclip.paste().strip()
+                if current_url.startswith(('http://', 'https://')):
+                    url_entry.delete(0, tk.END)
+                    url_entry.insert(0, current_url)
+                    return
+                
+            # 最终验证
+            final_url = pyperclip.paste().strip()
+            if final_url.startswith(('http://', 'https://')):
+                url_entry.delete(0, tk.END)
+                url_entry.insert(0, final_url)
+            else:
+                raise Exception("无法获取有效URL，请确保：\n1. 浏览器窗口已激活\n2. 页面加载完成\n3. 手动复制链接后点击按钮")
+        except Exception as e:
+            messagebox.showerror("错误", str(e))
+
+    # 确保以下组件正确显示
+    tk.Label(classification_window, text="原题链接").pack(pady=5)
+    url_entry = tk.Entry(classification_window, width=50)
+    url_entry.pack(pady=5)
+    tk.Button(classification_window, text="获取聚焦页URL", command=fetch_oj_url).pack(pady=5)  # 这是关键按钮
 
     # 确认按钮
     def on_confirm():
@@ -426,9 +501,11 @@ def show_classification_window(config):
         difficulty = difficulty_combobox.get()
         oj = oj_combobox.get()
         question_name = question_name_entry.get()
+        oj_url = url_entry.get()
 
-        execute_file_creation(config, tags, difficulty, oj, folder_input.get(), question_name)
-        classification_window.withdraw()  # 隐藏分类窗口
+        # 直接执行创建，无需验证URL
+        execute_file_creation(config, tags, difficulty, oj, folder_input.get(), question_name, oj_url)
+        classification_window.withdraw()
 
     confirm_button = tk.Button(classification_window, text="确认", command=on_confirm)
     confirm_button.pack(pady=20)

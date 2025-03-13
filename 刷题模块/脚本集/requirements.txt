@@ -2,3 +2,5 @@ matplotlib
 watchdog
 keyboard
 pygetwindow 
+pyperclip
+pyautogui

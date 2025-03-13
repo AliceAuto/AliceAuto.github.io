@@ -1,4 +1,4 @@
 matplotlib
 watchdog
 keyboard
-pygetwindow pywin32
+pygetwindow 

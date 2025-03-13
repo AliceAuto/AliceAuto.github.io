@@ -192,11 +192,12 @@ def create_file_in_directory(root_dir, subfolder, file_name, username, oj_url=No
             if oj_url:
                 file.write(f"oj_url: \"{oj_url}\"\n")
             file.write(f"---\n\n")
-            file.write("#### [备用返回通道](../../README.md)\n")  # 可以根据需要填充更多内容
+            file.write("#### [备用返回通道](../../README.md)\n")
+            if oj_url:  # 新增条件判断
+                file.write(f"#### [转到题目]({oj_url})\n")  # 添加新链接
 
         messagebox.showinfo("成功", f"文件已创建：{file_path}")
         
-
     except Exception as e:
         messagebox.showerror("错误", f"创建文件时发生错误：{e}")
 

@@ -44,14 +44,15 @@ using namespace std;
 int a[1000][1000];
 int main()
 {
-	int n,i,j,sum=0;
+	int n,i,j,cnt=0;
 	cin>>n;
 	for(i=0;i<2*n-1;i++)
 		for(j=i;j>=0;j--)
 		{
-			if(j<n&&i-j<n) sum++;
-			if(i%2!=0) a[i-j][j]=sum;
-			else a[j][i-j]=sum;
+			if(j>=n||i-j>=n)  continue;
+            cnt++;
+			if(i%2!=0) a[i-j][j]=cnt;
+			else a[j][i-j]=cnt;
 		}
 	for(i=0;i<n;i++)
 	{

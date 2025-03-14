@@ -20,7 +20,8 @@ oj_url: "https://ac.nowcoder.com/acm/contest/19306/1027"
 >
 > **因此，就算是简单的题，一定是要在大脑有了大致的逻辑闭环后再进行码**
 > **如果发现很难维护，这个方式大概率不会成功**
->
+
+
 ### 思路
 
 
@@ -32,3 +33,30 @@ oj_url: "https://ac.nowcoder.com/acm/contest/19306/1027"
 | 4 | 9 | 12 | 14 |
 | 10 | 11 | 15 | 16 |
 
+**与负对角线平行的满足i+j为定值**
+根据i是奇数函数偶数，判定遍历方向
+枚举i确定j
+因此根据奇偶性确定j的枚举顺序就好
+
+```cpp
+#include <iostream>
+using namespace std;
+int a[1000][1000];
+int main()
+{
+	int n,i,j,sum=0;
+	cin>>n;
+	for(i=0;i<2*n-1;i++)
+		for(j=i;j>=0;j--)
+		{
+			if(j<n&&i-j<n) sum++;
+			if(i%2!=0) a[i-j][j]=sum;
+			else a[j][i-j]=sum;
+		}
+	for(i=0;i<n;i++)
+	{
+		for(j=0;j<n;j++) cout<<a[i][j]<<" ";
+		cout<<"\n";
+	}
+}
+```

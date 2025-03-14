@@ -3,7 +3,14 @@
         tex: {
             inlineMath: [['$', '$'], ['\\(', '\\)']],
             displayMath: [['$$', '$$'], ['\\[', '\\]']],
-            processEscapes: true
+            processEscapes: true,
+            // 新增 tags 配置以支持环境语法
+            tags: 'ams',
+            autoload: {
+                color: [],
+                colorV2: ['color']
+            },
+            packages: {'[+]': ['ams']}
         },
         svg: {
             fontCache: 'global'

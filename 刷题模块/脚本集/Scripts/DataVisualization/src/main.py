@@ -61,9 +61,6 @@ import re
 
 import os
 import re
-
-import os
-import re
 import os
 import re
 
@@ -451,32 +448,44 @@ def plot_div_distribution(div_counts, save_path):
 
 def plot_type_distribution(type_counts, save_path):
     """ 可视化类型分布，并保存为 PNG 图片 """
-    if(len(type_counts)==0):
+    if len(type_counts) == 0:
         print("数据异常")
         return
-    # 创建图像并设置大小和分辨率
-    fig_width = 10
-    fig_height = 6
-    dpi = 150
-    font_size = 12
 
-    plt.figure(figsize=(fig_width, fig_height), dpi=dpi)
+    # 根据类型数量动态调整参数
+    num_types = len(type_counts)
+    base_font_size = 12
+    min_font_size = 8
     
-    # 绘制类型分布的条形图
+    # 动态计算图表尺寸和字体大小
+    fig_width = 10 + num_types * 0.1  # 宽度随类型数量增加
+    fig_height = 6 + num_types * 0.2   # 高度随类型数量增加
+    font_size = max(min_font_size, base_font_size - num_types * 0.15)  # 类型越多字体越小
+    
+    # 创建图像并设置大小
+    plt.figure(figsize=(fig_width, fig_height), dpi=150)
+    
+    # 绘制条形图（保持垂直方向）
     plt.bar(type_counts.keys(), type_counts.values(), color='lightgreen')
-    plt.title("类型分布", fontsize=font_size)
+    
+    # 设置图表标题和标签
+    plt.title("类型分布", fontsize=font_size+2)
     plt.xlabel("类型", fontsize=font_size)
     plt.ylabel("数量", fontsize=font_size)
     
-    # 动态调整字体大小
-    xticks_fontsize = max(font_size, fig_width // len(type_counts))
-    plt.xticks(rotation=45, ha='right', fontsize=xticks_fontsize)
+    # 动态调整X轴标签
+    plt.xticks(
+        rotation=45,        # 保持45度倾斜
+        ha='right',         # 右对齐
+        fontsize=font_size, # 动态字体大小
+        wrap=True           # 自动换行
+    )
     
-    # 优化布局，避免标签重叠
-    plt.tight_layout()
+    # 优化布局并自动调整边距
+    plt.tight_layout(pad=2, h_pad=1.5, w_pad=1.5)
     
     # 保存图片
-    plt.savefig(save_path)
+    plt.savefig(save_path, bbox_inches='tight')
     print(f"类型统计图表已保存到：{save_path}")
     plt.close()
 

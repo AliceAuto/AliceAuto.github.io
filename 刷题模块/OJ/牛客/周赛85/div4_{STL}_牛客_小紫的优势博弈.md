@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "小紫的优势博弈"
-permalink: /刷题模块/OJ/牛客/周赛84/div4_{STL}_牛客_小紫的优势博弈.md/
+permalink: /刷题模块/OJ/牛客/周赛85/div4_{STL}_牛客_小紫的优势博弈.md/
 date: 2025-03-18
 author: "JNMC孙国庆"
 oj_url: "https://ac.nowcoder.com/acm/contest/105423/D"

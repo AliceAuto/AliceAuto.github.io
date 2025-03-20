@@ -1,46 +1,28 @@
 
-## 不允许存在负权回路
-
+ > **Floyd-Warshall 算法本身就能判断负权回路，只需要在算法执行完后检查对角线上的值是否小于 0。如果小于 0，说明存在负权回路。**
 ```cpp
-#include <bits/stdc++.h>
-using namespace std;
-
-const int N=210,INF=2e9;
-
-int n,m,q;
-int d[N][N];
-
-void Floyd()
-{
-    for(int k=1;k<=n;k++)
-        for(int i=1;i<=n;i++)
-            for(int j=1;j<=n;j++)
-                d[i][j]=min(d[i][j],d[i][k]+d[k][j]);
+const int N  =450;
+int dp[N][N];
+int n;
+void init(){
+	memset(dp,0x3f,sizeof dp);
+	for(int i = 1;i<=n;i++)
+	{
+		dp[i][i] = min(dp[i][i],0);
+	}
 }
-int main()
+void add(int a,int b,int c)
 {
-    
-    cin>>n>>m>>q;
-    
-    
-    for (int i = 1; i <= n; i ++ )
-        for (int j = 1; j <= n; j ++ )
-            if (i == j) d[i][j] = 0;//将自环变成0，重边保留长度最小的边
-            else d[i][j] = INF;//其他为正无穷
-    
-    for(int i=0;i<m;i++)
-    {
-        int a,b,c;
-        cin>>a>>b>>c;
-        d[a][b] = min(d[a][b], c);
-    }
-    while(q--)
-    {
-        int a,b;
-        cin>>a>>b;
-        if(d[a][b]>INF/2)puts("impossible");
-        else cout<<d[a][b]<<endl;
-    }
-    return 0;
+	dp[a][b] = min(dp[a][b],c);
+}
+
+void Floyd(){
+	for(int k =1;k<=n;k++){
+		for (int i =1;i<=n;i++){
+			for(int j = 1;j<=n;j++){
+				dp[i][j] = min(dp[i][j],dp[i][k]+dp[k][j]);			
+			}
+		}
+	}	
 }
 ```

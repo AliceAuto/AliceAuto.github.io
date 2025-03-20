@@ -1267,6 +1267,30 @@
         "description": "Snippet from Math",
         "scope": "cpp"
     },
+    "Merge Sort": {
+        "prefix": "Merge Sort",
+        "body": [
+            "const int N =10010;",
+            "int tmp[N];",
+            "",
+            "void merge_sort(int q[],int l ,int r){",
+            "\tif(l>=r)return;",
+            "\tint mid = (l + r)  >>1;",
+            "\tmerge_sort(q,l,mid);",
+            "\tmerge_sort(q,mid+1,r);",
+            "\tint k = 0, i = l, j = mid+1;",
+            "\twhile(i<=mid&&j<=r){",
+            "\t\tif(q[i]<=q[j])tmp[k++] = q[i++];",
+            "\t\telse tmp[k++]= q[j++];",
+            "\t}",
+            "\twhile(i<=mid)tmp[k++] = q[i++];",
+            "\twhile(j<=r)tmp[k++] = q[j++];",
+            "\tfor(int i = 0,j = l;j<=r;i++,j++) q[j]=tmp[i];",
+            "}"
+        ],
+        "description": "Snippet from Merge Sort",
+        "scope": "cpp"
+    },
     "multiCase": {
         "prefix": "multiCase",
         "body": [
@@ -1508,12 +1532,6 @@
             "}"
         ],
         "description": "Snippet for singleCase in cpp",
-        "scope": "cpp"
-    },
-    "Sort": {
-        "prefix": "Sort",
-        "body": [],
-        "description": "Snippet from Sort",
         "scope": "cpp"
     },
     "SPFA": {

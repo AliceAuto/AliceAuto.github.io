@@ -745,11 +745,18 @@
                     "title": "L2-3 花非花，雾非雾",
                     "link": "/刷题模块/OJ/天梯赛pta/L2/div4_{并查集;位运算;数据结构}_PTA_L2-3 花非花，雾非雾.md/",
                     "report_count": 1
+                },
+                {
+                    "date": "03/22/2025",
+                    "title": "L2-4 是留不住你的冰寒飞影",
+                    "link": "/刷题模块/OJ/天梯赛pta/L2/div2_{区间合并}_PTA_L2-4 是留不住你的冰寒飞影.md/",
+                    "report_count": 1
                 }
             ],
-            "total_report_count_in_all": 124,
+            "total_report_count_in_all": 125,
             "daily_report_count_in_year": {
                 "01/31/2025": 8,
+                "03/22/2025": 1,
                 "03/21/2025": 3,
                 "03/01/2025": 10,
                 "01/17/2025": 31,

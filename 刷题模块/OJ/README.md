@@ -12,6 +12,7 @@ published: false
 | [**的意志**](天梯赛pta/div2_{二分}_PTA_的意志.md) | div2 | 二分 | PTA |
 | [**转动命运之轮**](天梯赛pta/div2_{集合论}_PTA_转动命运之轮.md) | div2 | 集合论 | PTA |
 | [**计算最小值**](天梯赛pta/div2_{贪心;思维题}_蓝桥杯_计算最小值.md) | div2 | 贪心, 思维题 | 蓝桥杯 |
+| [**L2-4 是留不住你的冰寒飞影**](天梯赛pta/L2/div2_{区间合并}_PTA_L2-4 是留不住你的冰寒飞影.md) | div2 | 区间合并 | PTA |
 | [**L2-3 花非花，雾非雾**](天梯赛pta/L2/div4_{并查集;位运算;数据结构}_PTA_L2-3 花非花，雾非雾.md) | div4 | 并查集, 位运算, 数据结构 | PTA |
 | [**The Play Never Ends**](codeforces/div2_{数学}_CF_The Play Never Ends.md) | div2 | 数学 | CF |
 | [**Trapmigiano Reggiano**](codeforces/div2_{构造;搜索;排序;数据结构}_CF_Trapmigiano Reggiano.md) | div2 | 构造, 搜索, 排序, 数据结构 | CF |

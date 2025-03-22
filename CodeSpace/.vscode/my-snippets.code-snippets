@@ -475,6 +475,26 @@
         "description": "Snippet from Forward Star",
         "scope": "cpp"
     },
+    "Graph": {
+        "prefix": "Graph",
+        "body": [
+            "const int N = 1e5+10;",
+            "const int M = 2*N;",
+            "int h[N],e[M],ne[M],idx;",
+            "",
+            "void init(){",
+            "\tmemset(h,-1,sizeof h);",
+            "\tidx = 0;",
+            "}",
+            "void add(int a,int b){",
+            "\te[idx] = b;",
+            "\tne[idx] = h[a],h[a] = idx;",
+            "\tidx++;",
+            "}"
+        ],
+        "description": "Snippet from Graph",
+        "scope": "cpp"
+    },
     "Group Knapsack": {
         "prefix": "Group Knapsack",
         "body": [

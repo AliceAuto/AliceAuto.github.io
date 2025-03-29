@@ -21,7 +21,7 @@ $$
 根据(2)发现为线性函数，具有全局单调性   \Longrightarrow  二分答案\\ 
 根据(1)发现V 越大 B越大 \\ 
 \Longrightarrow MIN根据每条记录找f(V) ==B的最小V \Longrightarrow收缩左边界 \\
-同理 \Longrightarrow MAX找每条记录f(V) ==B的最大V \Longrightarrow收缩有边界
+同理 \Longrightarrow MAX找每条记录f(V) ==B的最大V \Longrightarrow收缩右边界
 $$
 
 

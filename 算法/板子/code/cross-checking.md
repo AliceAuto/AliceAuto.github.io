@@ -36,7 +36,7 @@ int main(){
 #include<bits/stdc++.h>
 using namespace std;
 int main(){
-	srand(time(0));
+	srand(time(0)+clock());
 	int x;
 	x =rand()%100000000;
 	cout<<x<<endl; 

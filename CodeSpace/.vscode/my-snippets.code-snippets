@@ -354,7 +354,7 @@
             "#include<bits/stdc++.h>",
             "using namespace std;",
             "int main(){",
-            "\tsrand(time(0));",
+            "\tsrand(time(0)+clock());",
             "\tint x;",
             "\tx =rand()%100000000;",
             "\tcout<<x<<endl; ",

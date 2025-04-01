@@ -178,8 +178,8 @@
         "description": "Snippet from Bellman Ford",
         "scope": "cpp"
     },
-    "BFS 1": {
-        "prefix": "BFS 1",
+    "BFS": {
+        "prefix": "BFS",
         "body": [
             "#define all(x) x.begin(),x.end()",
             "#define x first",
@@ -228,14 +228,7 @@
             "        }",
             "    }",
             "",
-            "}"
-        ],
-        "description": "Snippet from BFS 1",
-        "scope": "cpp"
-    },
-    "BFS 2": {
-        "prefix": "BFS 2",
-        "body": [
+            "}",
             "const int N  = 1e5;",
             "int e[N],ne[N],h[N],pre[N],idx;",
             "int n ;",
@@ -282,7 +275,7 @@
             "",
             "}"
         ],
-        "description": "Snippet from BFS 2",
+        "description": "Snippet from BFS",
         "scope": "cpp"
     },
     "Binary search": {
@@ -329,6 +322,12 @@
             "}"
         ],
         "description": "Snippet from Binary search",
+        "scope": "cpp"
+    },
+    "Binary Tree": {
+        "prefix": "Binary Tree",
+        "body": [],
+        "description": "Snippet from Binary Tree",
         "scope": "cpp"
     },
     "Bracket Matching": {

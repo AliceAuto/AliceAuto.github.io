@@ -28,11 +28,12 @@ public:
     }
     int yy, mm, dd;
     void nextDay() {
+        dd ++ ;
         if (dd > days[mm]) {
             dd = 1;
             mm ++ ;
             if (mm > 12) mm = 1, yy ++ ;
-        }else dd ++ ;
+        }
     }
 };
 

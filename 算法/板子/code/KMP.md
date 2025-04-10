@@ -1,5 +1,5 @@
 ```cpp
-#include <vector>
+#include<bits/stdc++.h>
 using namespace std;
 
 template<typename T, typename seq = vector<T>>

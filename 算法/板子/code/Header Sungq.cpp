@@ -16,8 +16,9 @@ using pii = pair<int, int>;
 using u64 = unsigned long long;
 using u128 = __uint128_t;
 using ll = i64;
-#define f32 float
-#define f64 double
+using f32 = float;
+using f64 = double;
+template<typename T> using mat = vector<vector<T>>;
 #define endl "\n"
 #define pi acos(-1)
 #define all(v) v.begin(),v.end()

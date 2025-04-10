@@ -9,47 +9,37 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-const int N=510,M=11000;
-int dist[N],last[N];
-int n,m,k;
-struct 
-{
-    int a,b,w;
-}edges[M];
+const int inf = 0x3f3f3f3f;
+const int N = 510, M = 11000;
+int dist[N], tmp[N];
+int n, m, k;
 
-void bellman_ford()
-{
-    memset(dist,0x3f,sizeof dist);
-    dist[1]=0;
-    for(int i=0;i<k;i++)
-    {
-        memcpy(last,dist,sizeof dist);
-        for(int j=0;j<m;j++)
-        {
-            auto e=edges[j];
-            //松弛操作
-            dist[e.b]=min(dist[e.b],last[e.a]+e.w);
+struct Edge {
+    int u, v, w;
+} edges[M];
+
+void bellman_ford() {
+    memset(dist, inf, sizeof dist);
+    dist[1] = 0;
+
+    for (int i = 0; i < k; i++) {
+        memcpy(tmp, dist, sizeof dist);
+        for (int j = 0; j < m; j++) {
+            auto e = edges[j];
+            dist[e.v] = min(dist[e.v], tmp[e.u] + e.w);
         }
     }
-     //三角不等式
-     //dist[e.b]<=min(dist[e.b],last[e.a]+e.w);
 }
 
-int main()
-{
-    cin>>n>>m>>k;
-    for(int i=0;i<m;i++)
-    {
-        int a,b,c;
-        cin>>a>>b>>c;
-        edges[i]={a,b,c};
+bool nc_check() {
+    for (int j = 0; j < m; j++) {
+        auto e = edges[j];
+        if (dist[e.u] != inf && dist[e.u] + e.w < dist[e.v]) {
+            return true;
+        }
     }
-    bellman_ford();
-    if(dist[n]>0x3f3f3f3f/2) cout<<"impossible"<<endl;
-    else cout<<dist[n]<<endl;
-    return 0;
+    return false;
 }
-
 
 ```
 

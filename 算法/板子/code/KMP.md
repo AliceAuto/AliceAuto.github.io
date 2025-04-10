@@ -1,39 +1,44 @@
 ```cpp
-#define sequence vector<char>
-#define dict vector<int> 
-sequence text;
-sequence pat;
+#include <vector>
+using namespace std;
 
-int kmp(sequence &text,sequence &pat){
-	dict next(pat.size(),0);
-	auto getNext = [&](){
-		for (int i = 1, j = 0; i < pat.size(); i++) {
-			while (j > 0 && pat[i] != pat[j]) j = next[j - 1];
-			if (pat[i] == pat[j]) j++;
-			next[i] = j;
-		}
-	};
-	getNext();
-	for (int i = 0, j = 0; i < text.size(); i++) {
-		while (j > 0 && text[i] != pat[j]) j = next[j - 1];
-		if (text[i] == pat[j]) j++;
-		if (j == pat.size()) return i - pat.size() + 1;
-	}
-	
-}
-/*
+template<typename T, typename seq = vector<T>>
+void cnxt(const seq& pat, vector<int>& nxt) {
+    int m = pat.size();
+    int j = 0;
+    nxt[0] = 0;
 
-int main(){
-	string t;
-	string p;
-	cin>>t>>p;
-	for(auto c:t) text.push_back(c);
-	for(auto c:p) pat.push_back(c);
-	cout<<kmp(text,pat)<<endl;
+    for (int i = 1; i < m; i++) {
+        while (j > 0 && pat[i] != pat[j]) {
+            j = nxt[j - 1];
+        }
 
+        if (pat[i] == pat[j]) {
+            j++;
+        }
 
-	return 0;
+        nxt[i] = j;
+    }
 }
 
-*/
+template<typename T, typename seq = vector<T>>
+int kmp(const seq& txt, const seq& pat) {
+    vector<int> nxt(pat.size(), 0);
+    cnxt(pat, nxt);
+
+    for (int i = 0, j = 0; i < txt.size(); i++) {
+        while (j > 0 && txt[i] != pat[j]) {
+            j = nxt[j - 1];
+        }
+        if (txt[i] == pat[j]) {
+            j++;
+        }
+        if (j == pat.size()) {
+            return i - pat.size() + 1;
+        }
+    }
+    return -1;
+}
+
+
 ```
